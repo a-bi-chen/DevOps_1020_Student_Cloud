@@ -1,3 +1,10 @@
+# A-buildchecker 云主机实验
+
+本目录是可运行的教学参考实现，已合并 E6/E7 代码，未包含助教门禁演示测试。
+请先阅读实验包 docs/00_开始与目录.md，再按 02_A轨道操作指南.md 完成步骤。
+统一入口：`python3 scripts/lab_cloud.py --help`。
+不需要 Windows、WSL、Docker Desktop，不使用助教的学号、代理地址或宿主机目录。
+仓库旧 Makefile/Compose 属于 E4 环境接口；本次优先使用 lab_cloud.py，避免镜像标签混用。
 # E5–E7：论文复现、MVP 与验证
 
 在本组云服务器上完成实验。A 组进行 BuildChecker 依赖检测，B 组进行 DRAFT 构建修复。
@@ -20,3 +27,4 @@
 4. 按 docs/05_验收清单.md 整理报告与结果。
 
 命令在 SSH 登录后的服务器终端执行。每个代码框可整块复制，按顺序运行；终端输出用于核对结果。
+
