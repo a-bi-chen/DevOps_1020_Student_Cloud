@@ -190,16 +190,42 @@ Job：`e7-a-quality-gate`
 - image secret scan 未发现问题；
 - artifact `e7-a-evidence-40298566040-1` 已归档到本仓库 `evidence/CI-A/run-40298566040/`。
 
+### 5.1 E7 失败与恢复
+
+失败 PR：#3
+
+https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/pull/3
+
+失败提交：`57044b0d1ce3cf78c1e8df03e478f395e9b16013`
+
+- 故意把 version 成功返回值预期写成 1。
+- 失败 run：40323172264、40323242261。
+- 测试输出：`1 failed, 15 passed in 0.05s`。
+- 失败原因：`AssertionError: Intentional teaching fault`，`assert 0 == 1`。
+- 普通 merge 被拒，退出码 1，PR 状态 `OPEN / BLOCKED`。
+
+修正提交：`3ac2d96d04fd33635a867444fa2a81acd2773a5b`
+
+- 恢复 run：40323775871、40323785662。
+- 单元测试：`16 passed in 0.05s`。
+- 恢复 gate：8/8 passed。
+- 恢复后再次 merge，仍退出 1，原因是 Ruleset 必需检查名错误，而非代码或测试失败。
+
+详细记录：
+
+```text
+docs/reports/A09-E7-failure-recovery.md
+```
+
 ## 6. 尚未完成的 E7 验收项
 
 以下项目仍在执行中，完成后需要更新本报告和验收记录：
 
-1. 新增至少一项自己的边界测试，使服务测试从 15 项增加到 16 项或更多。
-2. 修复 Ruleset 必需检查名为 `e7-a-quality-gate`。
-3. 创建故意失败 PR，取得 `1 failed / 15 passed`、`BLOCKED` 和 merge exit=1。
-4. 修正测试预期，取得最新提交 `16 passed`、`CLEAN` 和 `MERGED`。
-5. 下载失败运行和恢复运行的 artifact。
-6. 填写逐人贡献和 Review 记录。
+1. 高嘉程新增独立的项目根边界测试。
+2. 仓库管理员把 Ruleset 必需检查名改为 `e7-a-quality-gate`。
+3. 合并 PR #2、PR #3 和高嘉程的边界测试 PR。
+4. 保存最终 MERGED 记录。
+5. 完成逐人 Review 和贡献比例。
 
 在这些项目完成前，E5–E7 不能标记为最终验收完成。
 
@@ -219,8 +245,8 @@ Job：`e7-a-quality-gate`
 | E6 after | `evidence/A09-E5-E7/241880375-work/e6-after/` | 0 findings，build=0，仅 Makefile 变化 |
 | E7 local | `evidence/A09-E5-E7/241880375-work/e7-01/gate/` | 8/8 passed |
 | CI normal | `evidence/CI-A/run-40298566040/` | success、8/8 passed、无 secret |
-| CI failure | 待生成 | PENDING |
-| CI recovery | 待生成 | PENDING |
+| CI failure | run 40323172264、40323242261 | `1 failed / 15 passed`，merge exit=1 |
+| CI recovery | run 40323775871、40323785662 | `16 passed`，gate 8/8，失败原因只剩 Ruleset |
 
 ## 9. 逐人贡献状态
 
@@ -228,7 +254,7 @@ Job：`e7-a-quality-gate`
 |---|---|---|---|
 | 张海洋 | 241880375 | E5/E6/E7 完整运行证据；初始化提交 `9165f37` | 对他人 PR 的 Review |
 | 陈玉熙 | 241880089 | 仓库创建者 `a-bi-chen`；PR #1、正常 CI run、Ruleset | 对后续 PR 的 Review |
-| 马海川 | 241880374 | PR #2 / `805d54c5c136ea05eac396d24b6e075a58f80dba`；证据清理和整合 | Review、最终报告、失败恢复 |
-| 高嘉程 | 241880369 | 已分配第 16 项边界测试 | 本人提交测试 PR，并 Review 马海川整合 PR |
+| 马海川 | 241880374 | PR #2 证据整合；PR #3 失败/恢复；交接文档 | Review 和最终合并由接手人继续 |
+| 高嘉程 | 241880369 | 接收最终交接 | 边界测试、Ruleset、合并、Review 和最终验收 |
 
 高嘉程部分留到最后，由本人完成；不能把其他成员的代码提交冒充成他的个人提交。
