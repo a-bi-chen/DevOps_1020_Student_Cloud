@@ -7,8 +7,8 @@
 | 姓名 | 学号 | 当前证据 |
 |---|---|---|
 | 张海洋 | 241880375 | E5–E7 完整 work、修复前后报告、本地 gate |
-| 陈玉熙 | 241880089 | GitHub 正常 CI run、artifact、Ruleset 和合并截图 |
-| 马海川 | 241880374 | 清理与证据整合 PR、后续测试和失败恢复 PR |
+| 陈玉熙 | 241880089 | `evidence/CI-A/run-40298566040/` 和 `evidence/CI-A/member2/` |
+| 马海川 | 241880374 | PR #2、提交 `805d54c5c136ea05eac396d24b6e075a58f80dba` |
 | 高嘉程 | 241880369 | 最终由本人完成的 PR 或 Review 证据 |
 
 ## 1. 成员1运行证据
@@ -106,6 +106,12 @@ evidence/CI-A/run-40298566040/
 - source secret scan 未发现问题。
 - image secret scan 未发现问题。
 - `work/ci/` 原始证据已归档。
+
+陈玉熙的 Ruleset、仓库、CI 和 push 拒绝截图：
+
+```text
+evidence/CI-A/member2/
+```
 
 ## 3. 仍待补充的证据
 

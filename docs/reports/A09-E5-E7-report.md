@@ -22,6 +22,10 @@
 
 当前基线提交：`ffef5ba95357e084485fb8bf209b97843a0b9b90`
 
+团队仓库整合 PR：#2
+
+https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/pull/2
+
 云主机：Ubuntu 22.04.5 LTS，x86_64，2 CPU，3.5 GiB 内存；Docker 29.1.3，Compose 2.29.2，Python 3.10.12，GNU Make 4.3。
 
 ## 1. 代码与实现来源
@@ -224,7 +228,7 @@ Job：`e7-a-quality-gate`
 |---|---|---|---|
 | 张海洋 | 241880375 | E5/E6/E7 完整运行证据；初始化提交 `9165f37` | 对他人 PR 的 Review |
 | 陈玉熙 | 241880089 | 仓库创建者 `a-bi-chen`；PR #1、正常 CI run、Ruleset | 对后续 PR 的 Review |
-| 马海川 | 241880374 | 当前清理与证据整合分支；后续扩展测试和恢复合并 | 本人 PR、Review、最终报告 |
+| 马海川 | 241880374 | PR #2 / `805d54c5c136ea05eac396d24b6e075a58f80dba`；证据清理和整合 | Review、最终报告、失败恢复 |
 | 高嘉程 | 241880369 | 已分配第 16 项边界测试 | 本人提交测试 PR，并 Review 马海川整合 PR |
 
 高嘉程部分留到最后，由本人完成；不能把其他成员的代码提交冒充成他的个人提交。
