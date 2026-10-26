@@ -21,8 +21,9 @@
 https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/pull/2
 
 - 作者：马海川
-- HEAD：`24184a2bc4bd4788c853788aa82a7b19db1cb568`
+- HEAD：`e622cd8c7c765c4f34ce8e646c41aa652651be9a`
 - CI：成功
+- CI runs：40342064993、40342074322
 - 状态：`OPEN / BLOCKED`
 - 阻塞原因：Ruleset 检查名错误
 
@@ -35,6 +36,7 @@ https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/pull/3
 - 失败测试：1 failed / 15 passed
 - 恢复测试：16 passed
 - 恢复 gate：8/8 passed
+- 恢复 CI runs：40323775871、40323785662
 - 状态：`OPEN / BLOCKED`
 - 阻塞原因：Ruleset 检查名错误
 
