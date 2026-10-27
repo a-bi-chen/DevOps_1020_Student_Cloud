@@ -2,7 +2,13 @@
 import tempfile
 import unittest
 from pathlib import Path
-from buildchecker.fullcheck import Unsupported, analyze, declaration_graph, execution_graph
+from buildchecker.fullcheck import (
+    Unsupported,
+    analyze,
+    declaration_graph,
+    execution_graph,
+    project_path,
+)
 
 
 class TestFullCheck(unittest.TestCase):
@@ -108,6 +114,15 @@ class TestFullCheck(unittest.TestCase):
         db=self.write("db.txt", 'unit.o: unit.c needed.h\n')
         with self.assertRaisesRegex(Unsupported, "Files section"):
             declaration_graph(db, self.root)
+
+    def test_relative_parent_path_cannot_escape_project_root(self):
+        self.assertIsNone(
+            project_path(
+                "../project-other/secret.h",
+                "/course/project",
+                "/course/project",
+            )
+        )
 
 
 if __name__ == "__main__":
