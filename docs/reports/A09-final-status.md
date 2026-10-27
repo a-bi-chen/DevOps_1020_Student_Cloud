@@ -8,11 +8,15 @@
 
 | PR | 标题 | 状态 | 合并时间（UTC） | Merge commit |
 |---:|---|---|---|---|
+| #1 | Merge fix | MERGED | 2026-10-26T09:18:45Z | `ffef5ba95357e084485fb8bf209b97843a0b9b90` |
 | #2 | chore: consolidate A09 E5-E7 evidence and baseline | MERGED | 2026-10-27T12:17:10Z | `614eecaef6bd6ad8ada43f37ac022828408f1773` |
 | #3 | test: demonstrate E7 merge rejection | MERGED | 2026-10-27T12:18:49Z | `fb913a723b56eedbd0f0dcfebc7b290d9dcfb345` |
 | #4 | test: add E7 project-root boundary test | MERGED | 2026-10-27T12:20:00Z | `c81c1937171b1d4587300751195b7a3586988507` |
+| #5 | docs: finalize A09 E7 acceptance records | MERGED | 2026-10-27T12:24:05Z | `abaa94c3c4fb022ff404b503f71fe39e88fdc20c` |
 
-最终 main：`c81c1937171b1d4587300751195b7a3586988507`。
+代码验证提交：`c81c1937171b1d4587300751195b7a3586988507`。
+
+最终 main：`abaa94c3c4fb022ff404b503f71fe39e88fdc20c`。
 
 ## 2. Ruleset
 
@@ -36,7 +40,8 @@ updated_at:             2026-10-27T20:16:33+08:00
 - secret scan：未发现问题（文件 728 个，含 Git 历史）
 - 最终镜像：`course1020-buildchecker:241880369-final`
 - 镜像 digest：`sha256:6e12e90adbe1d3ff47d8f7f38e54186da0e4bf4411348d6db56e3dfe30eb332b`
-- 最终 main CI：run 40502929554，success
+- 代码验证提交 CI：run 40502929554（`c81c193`），success
+- 最终 main CI：run 40503459188（`abaa94c`），success
 
 说明：最终 17 项 = 原 15 项 + PR #3 的演示测试 + PR #4 的边界测试。
 
@@ -52,6 +57,10 @@ updated_at:             2026-10-27T20:16:33+08:00
 
 高嘉程（`Allen-Ga`）对 PR #2 的正式 Review：`APPROVED`，时间 2026-10-27T12:03:00Z。
 
+马海川（`weijige7`）对 PR #4 的正式 Review：`COMMENTED`，时间 2026-10-27T13:49:47Z。
+
+张海洋、陈玉熙尚未记录对他人 PR 的正式 GitHub Review，其个人 Review 门槛保持 PENDING。
+
 ## 6. 已保存记录
 
 ```text
@@ -65,6 +74,7 @@ work/ci-boundary/merge-rejection.log
 work/final-records/pr2.json
 work/final-records/pr3.json
 work/final-records/pr4.json
+work/final-records/pr5-merged.json
 work/final-records/pr2-merged.json
 work/final-records/pr3-merged.json
 work/final-records/pr4-merged.json
@@ -74,9 +84,10 @@ work/final-records/pr4-final-checks.txt
 work/final-records/ruleset-main.json
 work/final-records/repo.json
 work/final-records/main-runs.json
+work/final-records/main-runs-latest.json
 work/final-records/artifacts/
 ```
 
 ## 7. 结论
 
-E5–E7 的 E7 验收项已完成：边界测试、Ruleset 修正、PR #2/#3/#4 合并、个人 Review、最终构建与门禁、artifact 保存均已完成。
+E5–E7 技术验收已完成：边界测试、Ruleset 修正、PR #1–#5 合并、最终构建与门禁、artifact 保存均已完成。正式个人 Review 方面，高嘉程和马海川已闭环，张海洋、陈玉熙的 PENDING 状态已如实记录。
