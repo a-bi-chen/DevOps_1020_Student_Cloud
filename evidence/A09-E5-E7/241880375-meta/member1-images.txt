@@ -1,0 +1,3 @@
+IMAGE                               ID             DISK USAGE   CONTENT SIZE   EXTRA
+course1020-buildchecker:241880374   06d14ebe08ca        650MB          165MB        
+course1020-buildchecker:local       96e35844813a        650MB          165MB        

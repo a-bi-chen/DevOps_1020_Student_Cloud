@@ -1,0 +1,3 @@
+# Raw experiment evidence must remain byte-for-byte reproducible.
+# Generated Make databases and tool output can legitimately contain trailing spaces.
+evidence/** -text -whitespace
