@@ -1,0 +1,11 @@
+[
+  "docker",
+  "run",
+  "--rm",
+  "--network",
+  "none",
+  "--cidfile",
+  "/root/devops-course/DevOps_1020_Student_Cloud/labs/A-buildchecker/work/e7-01/gate/unit-tests/container-id.txt",
+  "course1020-buildchecker:local",
+  "pytest"
+]
