@@ -1,0 +1,8 @@
+[
+  "/usr/bin/python3",
+  "scripts/run_e7_a_gate.py",
+  "--image",
+  "course1020-buildchecker:local",
+  "--out",
+  "/root/devops-course/DevOps_1020_Student_Cloud/labs/A-buildchecker/work/e7-01/gate"
+]
