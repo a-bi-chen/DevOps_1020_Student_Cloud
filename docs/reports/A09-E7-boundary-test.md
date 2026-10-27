@@ -5,8 +5,10 @@
 - 执行人：高嘉程（241880369）
 - 分支：`e7-boundary-test-241880369`
 - 代码提交：`5a906d59e9bcdcea751ec74042661d0051612c3c`
-- 记录提交：`541ac44df2ea9c798f4409739c9fd126e3ac4476`
+- 记录提交：`541ac44df2ea9c798f4409739c9fd126e3ac4476`、`b7ea0d3a44a747357752d02ea742f7f1c3e1d809`
 - PR：#4 https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/pull/4
+- Merge commit：`c81c1937171b1d4587300751195b7a3586988507`
+- 合并时间：2026-10-27T12:20:00Z
 - 测试文件：`services/buildchecker/tests/test_fullcheck.py`
 
 ## 1. 新增测试
@@ -32,14 +34,23 @@ def test_relative_parent_path_cannot_escape_project_root(self):
 
 预期：返回 `None`。该文件位于项目根之外，不能因为字符串前缀相似被误算为项目内文件。
 
-## 2. 本地验证
+## 2. 验证结果
 
-构建：
+边界分支构建：
 
 ```text
 16 passed
 BUILD_EXIT_CODE=0
 ```
+
+合并后的最终 main 构建：
+
+```text
+17 passed
+BUILD_EXIT_CODE=0
+```
+
+最终 main 的 17 项 = 原 15 项 + PR #3 演示测试 + 本边界测试。
 
 完整 E7 gate：
 
@@ -59,14 +70,14 @@ OK
 secret scan：
 
 ```text
-密钥检查：未发现问题（文件 105 个，含 Git 历史）
+密钥检查：未发现问题（文件 728 个，含 Git 历史）
 ```
 
-镜像：
+最终镜像：
 
 ```text
-course1020-buildchecker:241880369
-sha256:8364984fa2a1325a20d707d46577b42622c7d08035dcd9560a7c8714e6818ebb
+course1020-buildchecker:241880369-final
+sha256:6e12e90adbe1d3ff47d8f7f38e54186da0e4bf4411348d6db56e3dfe30eb332b
 ```
 
 证据路径：
@@ -74,6 +85,8 @@ sha256:8364984fa2a1325a20d707d46577b42622c7d08035dcd9560a7c8714e6818ebb
 ```text
 work/build-boundary/unit-tests/stdout.log
 work/e7-boundary/gate/gate-result.json
+work/build-final/unit-tests/stdout.log
+work/e7-final/gate/gate-result.json
 ```
 
 ## 3. CI 结果
@@ -82,8 +95,13 @@ PR #4 的 `e7-a-quality-gate` 检查全部通过：
 
 - 代码提交 `5a906d5`：run 40499695852、40500116665
 - 记录提交 `541ac44`：run 40500335454、40500345205
+- 记录提交 `b7ea0d3`：run 40502042264、40502047451
+- 更新分支后 `c6b2b4f`：run 40502794587、40502803898
+- 合并后 main `c81c193`：run 40502929554
 
-## 4. 合并尝试与阻塞
+## 4. 合并记录
+
+Ruleset 修正前，合并被拒绝：
 
 ```text
 MERGE_ATTEMPT_EXIT_CODE=1
@@ -97,12 +115,11 @@ work/ci-boundary/PR-before-merge.json
 work/ci-boundary/merge-rejection.log
 ```
 
-Ruleset `main`（ID `25866762`）：
+Ruleset 修正后（`e7-a-quality-gate`，App ID 15368），PR #4 于 2026-10-27T12:20:00Z 合并：
 
-- 必填检查名：`e7-quality-gate`
-- Workflow 实际上报：`e7-a-quality-gate`（App ID 15368）
-- `current_user_can_bypass`: `never`
-- `Allen-Ga` 权限：`admin:false, maintain:false`
+```text
+merge commit: c81c1937171b1d4587300751195b7a3586988507
+```
 
 ## 5. Review 记录
 
@@ -118,22 +135,24 @@ Ruleset `main`（ID `25866762`）：
 work/final-records/pr2.json
 work/final-records/pr3.json
 work/final-records/pr4.json
+work/final-records/pr2-merged.json
+work/final-records/pr3-merged.json
+work/final-records/pr4-merged.json
 work/final-records/pr2-checks.txt
 work/final-records/pr3-checks.txt
-work/final-records/pr4-checks.txt
+work/final-records/pr4-final-checks.txt
 work/final-records/ruleset-main.json
 work/final-records/repo.json
+work/final-records/main-runs.json
 work/final-records/artifacts/40342643704/
 work/final-records/artifacts/40342653053/
 work/final-records/artifacts/40323775871/
 work/final-records/artifacts/40323785662/
 work/final-records/artifacts/40500335454/
 work/final-records/artifacts/40500345205/
+work/final-records/artifacts/40502929554/
 ```
 
-## 7. 待完成
+## 7. 结论
 
-- 仓库管理员把 Ruleset `main`（ID `25866762`）的必填检查名改为 `e7-a-quality-gate`，或把 `Allen-Ga` 提升为 admin。
-- 合并 PR #2、PR #3、PR #4。
-- 保存最终 MERGED 记录。
-- PR #2 合并后，把本记录补入 `docs/reports/A09-contributions.md` 和 `docs/reports/A09-acceptance.csv`。
+边界测试已进入镜像和门禁，PR #4 已合并到 main；最终 main 构建 17 passed，E7 gate 8/8。

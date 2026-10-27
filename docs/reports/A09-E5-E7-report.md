@@ -20,7 +20,9 @@
 
 仓库：https://github.com/a-bi-chen/DevOps_1020_Student_Cloud
 
-当前基线提交：`ffef5ba95357e084485fb8bf209b97843a0b9b90`
+初始基线提交：`ffef5ba95357e084485fb8bf209b97843a0b9b90`
+
+最终合并后 main：`c81c1937171b1d4587300751195b7a3586988507`
 
 团队仓库整合 PR：#2
 
@@ -172,6 +174,34 @@ evidence/A09-E5-E7/241880375-work/e7-01/gate/
 
 其中 `gate-result.json` 保存状态、trace_id 和整体判定，`results.csv` 按场景保存退出码和 detector status，各场景子目录保存命令、stdout、stderr、输入副本和 evidence。
 
+### 4.1 高嘉程自主扩展边界测试（2026-10-27）
+
+高嘉程（241880369）在 `services/buildchecker/tests/test_fullcheck.py` 新增：
+
+```python
+def test_relative_parent_path_cannot_escape_project_root(self):
+    self.assertIsNone(
+        project_path(
+            "../project-other/secret.h",
+            "/course/project",
+            "/course/project",
+        )
+    )
+```
+
+验证结果：
+
+- 边界分支：15 项 → **16 passed**
+- 合并后最终 main：**17 passed**（原 15 项 + PR #3 演示测试 + 本边界测试）
+- E7 完整 gate：**8/8 passed**，`gate-result.json` 中 `"passed": true`
+- 独立 oracle：**6 tests OK**
+- secret scan：未发现问题（文件 728 个，含 Git 历史）
+- 最终镜像：`course1020-buildchecker:241880369-final`（`sha256:6e12e90adbe1d3ff47d8f7f38e54186da0e4bf4411348d6db56e3dfe30eb332b`）
+
+代码提交 `5a906d5`，记录提交 `541ac44`、`b7ea0d3`，PR #4 merge commit `c81c193`。
+
+详细记录：`docs/reports/A09-E7-boundary-test.md`。
+
 ## 5. GitHub Actions 正常路径
 
 Run 由陈玉熙（241880089）接入和配置：
@@ -210,6 +240,7 @@ https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/pull/3
 - 单元测试：`16 passed in 0.05s`。
 - 恢复 gate：8/8 passed。
 - 恢复后再次 merge，仍退出 1，原因是 Ruleset 必需检查名错误，而非代码或测试失败。
+- 2026-10-27 Ruleset 修正为 `e7-a-quality-gate` 后，PR #3 已合并（merge `fb913a7`）。
 
 详细记录：
 
@@ -217,17 +248,18 @@ https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/pull/3
 docs/reports/A09-E7-failure-recovery.md
 ```
 
-## 6. 尚未完成的 E7 验收项
+## 6. E7 验收项完成状态（2026-10-27）
 
-以下项目仍在执行中，完成后需要更新本报告和验收记录：
+1. 高嘉程新增独立的项目根边界测试：**已完成**，PR #4，merge `c81c193`。
+2. Ruleset 必需检查名改为 `e7-a-quality-gate`：**已完成**（Ruleset ID `25866762`，App ID 15368）。
+3. 合并 PR #2、PR #3 和边界测试 PR #4：**已完成**。
+   - PR #2 merge `614eeca`（2026-10-27T12:17:10Z）
+   - PR #3 merge `fb913a7`（2026-10-27T12:18:49Z）
+   - PR #4 merge `c81c193`（2026-10-27T12:20:00Z）
+4. 保存最终 MERGED 记录：**已完成**，记录在 `work/final-records/`。
+5. 完成逐人 Review：高嘉程已 Review PR #2（`APPROVED`）；贡献比例待课程最终统计。
 
-1. 高嘉程新增独立的项目根边界测试。
-2. 仓库管理员把 Ruleset 必需检查名改为 `e7-a-quality-gate`。
-3. 合并 PR #2、PR #3 和高嘉程的边界测试 PR。
-4. 保存最终 MERGED 记录。
-5. 完成逐人 Review 和贡献比例。
-
-在这些项目完成前，E5–E7 不能标记为最终验收完成。
+最终 main 构建 **17 passed**，E7 gate **8/8**，E5–E7 的 E7 验收项已完成。
 
 ## 7. 限制
 
@@ -247,6 +279,8 @@ docs/reports/A09-E7-failure-recovery.md
 | CI normal | `evidence/CI-A/run-40298566040/` | success、8/8 passed、无 secret |
 | CI failure | run 40323172264、40323242261 | `1 failed / 15 passed`，merge exit=1 |
 | CI recovery | run 40323775871、40323785662 | `16 passed`，gate 8/8，失败原因只剩 Ruleset |
+| E7 boundary | PR #4；run 40502794587、40502803898 | 边界测试通过，最终 main 17 passed |
+| 最终 main CI | run 40502929554（`c81c193`） | success、8/8 passed、无 secret |
 
 ## 9. 逐人贡献状态
 
@@ -255,6 +289,6 @@ docs/reports/A09-E7-failure-recovery.md
 | 张海洋 | 241880375 | E5/E6/E7 完整运行证据；初始化提交 `9165f37` | 对他人 PR 的 Review |
 | 陈玉熙 | 241880089 | 仓库创建者 `a-bi-chen`；PR #1、正常 CI run、Ruleset | 对后续 PR 的 Review |
 | 马海川 | 241880374 | PR #2 证据整合；PR #3 失败/恢复；交接文档 | Review 和最终合并由接手人继续 |
-| 高嘉程 | 241880369 | 接收最终交接 | 边界测试、Ruleset、合并、Review 和最终验收 |
+| 高嘉程 | 241880369 | 边界测试 PR #4（`5a906d5`，merge `c81c193`）；PR #2 Review `APPROVED`；合并 PR #2/#3/#4；最终 main 17 passed、8/8 gate；保存 artifact | 无（E5–E7 验收完成） |
 
 高嘉程部分留到最后，由本人完成；不能把其他成员的代码提交冒充成他的个人提交。
