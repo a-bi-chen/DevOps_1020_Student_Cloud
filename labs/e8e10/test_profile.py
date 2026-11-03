@@ -45,4 +45,49 @@ class ProfileTests(unittest.TestCase):
 # 不要改动上方 ProfileTests 的既有断言；写法参考课程材料《08_个人测试编写示例.md》。
 # ---------------------------------------------------------------------------
 
+class StudentE8A089(unittest.TestCase):
+    def test_recipe_change_invalidates_cache(self):
+        with tempfile.TemporaryDirectory() as directory:
+            p=Path(directory)/'sample';fixture(p)
+            old=scan(p)
+            (p/'Makefile').write_text((p/'Makefile').read_text().replace(
+                'gcc $(CFLAGS) -c main.c -o main.o',
+                'gcc $(CFLAGS) -Wall -c main.c -o main.o'))
+            commit(p,'student: change main.o recipe')
+            r=scan(p,old)
+            self.assertEqual(set(r['refreshed']),{'main.o','helper.o'})
+            self.assertEqual(r['reused'],[])
+            self.assertEqual(r['actual'],old['actual'])
+            self.assertEqual(r['findings'],old['findings'])
+
+class StudentE9A089(unittest.TestCase):
+    def test_macro_value_change_invalidates_without_graph_change(self):
+        with tempfile.TemporaryDirectory() as directory:
+            p=Path(directory)/'sample';fixture(p)
+            old=scan(p)
+            (p/'config.h').write_text('#define VALUE 2\n')
+            commit(p,'student: change macro value')
+            r=scan(p,old)
+            self.assertEqual(set(r['refreshed']),{'main.o','helper.o'})
+            self.assertEqual(r['reused'],[])
+            self.assertEqual(r['actual'],old['actual'])
+            self.assertEqual(r['findings'],old['findings'])
+            self.assertEqual(r['added'],[])
+            self.assertEqual(r['resolved'],[])
+
+class StudentE10A089(unittest.TestCase):
+    def test_unrelated_new_header_refreshes_and_matches_full_scan(self):
+        with tempfile.TemporaryDirectory() as directory:
+            p=Path(directory)/'sample';fixture(p)
+            old=scan(p)
+            (p/'notes.h').write_text('/* no preprocessor directives */\n')
+            commit(p,'student: add unrelated header')
+            inc=scan(p,old);full=scan(p)
+            self.assertEqual(set(inc['refreshed']),{'main.o','helper.o'})
+            self.assertEqual(inc['reused'],[])
+            self.assertEqual(inc['actual'],full['actual'])
+            self.assertEqual(inc['declared'],full['declared'])
+            self.assertEqual(inc['findings'],full['findings'])
+            self.assertEqual(inc['actual'],old['actual'])
+
 if __name__=='__main__':unittest.main()
