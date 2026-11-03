@@ -1,0 +1,149 @@
+{
+  "e8": {
+    "buildchecker_actual": {
+      "main.o": [
+        "config.h",
+        "main.c"
+      ],
+      "helper.o": [
+        "helper.c"
+      ]
+    },
+    "baseline_actual": {
+      "main.o": [
+        "config.h",
+        "main.c"
+      ],
+      "helper.o": [
+        "helper.c"
+      ]
+    },
+    "fresh_gcc_actual": {
+      "main.o": [
+        "config.h",
+        "main.c"
+      ],
+      "helper.o": [
+        "helper.c"
+      ]
+    },
+    "buildchecker_findings": [
+      [
+        "MISSING",
+        "main.o",
+        "config.h"
+      ],
+      [
+        "REDUNDANT",
+        "main.o",
+        "unused.h"
+      ]
+    ],
+    "baseline_findings": [
+      [
+        "MISSING",
+        "main.o",
+        "config.h"
+      ],
+      [
+        "REDUNDANT",
+        "main.o",
+        "unused.h"
+      ]
+    ],
+    "fresh_gcc_findings": [
+      [
+        "MISSING",
+        "main.o",
+        "config.h"
+      ],
+      [
+        "REDUNDANT",
+        "main.o",
+        "unused.h"
+      ]
+    ],
+    "graph_equal": true,
+    "findings_equal": true
+  },
+  "e10": {
+    "rows": 30,
+    "all_equal": true,
+    "gate": {
+      "track": "A",
+      "passed": true,
+      "rows": 30
+    },
+    "cases": [
+      "body",
+      "declaration",
+      "flags",
+      "header",
+      "include",
+      "unchanged"
+    ],
+    "per_case": {
+      "body": {
+        "reused": 2,
+        "refreshed": 0
+      },
+      "declaration": {
+        "reused": 2,
+        "refreshed": 0
+      },
+      "flags": {
+        "reused": 0,
+        "refreshed": 2
+      },
+      "header": {
+        "reused": 0,
+        "refreshed": 2
+      },
+      "include": {
+        "reused": 0,
+        "refreshed": 2
+      },
+      "unchanged": {
+        "reused": 2,
+        "refreshed": 0
+      }
+    },
+    "buildchecker_actual": {
+      "main.o": [
+        "config.h",
+        "extra.h",
+        "main.c"
+      ],
+      "helper.o": [
+        "helper.c"
+      ]
+    },
+    "fresh_gcc_actual": {
+      "main.o": [
+        "config.h",
+        "extra.h",
+        "main.c"
+      ],
+      "helper.o": [
+        "helper.c"
+      ]
+    },
+    "buildchecker_findings": [
+      [
+        "REDUNDANT",
+        "main.o",
+        "unused.h"
+      ]
+    ],
+    "fresh_gcc_findings": [
+      [
+        "REDUNDANT",
+        "main.o",
+        "unused.h"
+      ]
+    ],
+    "graph_equal": true,
+    "findings_equal": true
+  },
+  "passed": true
+}
