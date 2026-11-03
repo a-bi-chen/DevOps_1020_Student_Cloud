@@ -47,3 +47,4 @@ python3 -m unittest discover -s . -p test_profile.py -v   # Ran 8 tests, OK
 - `work/e8-A-ci-41662015872/buildchecker/findings.json`：`status=SUCCEEDED`。
 - `work/e8-A-ci-41662015872/buildchecker/trace/t.28:579`：`openat(... "config.h" ... O_RDONLY ...) = 4`。
 - Actions：https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/actions/runs/41662015872
+- 加入个人测试与报告后的验证：https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/actions/runs/41663498413（容器内 8 项测试通过）
