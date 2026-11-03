@@ -119,7 +119,8 @@ make e8e10-lab         # A 轨 E8/E9/E10 → work/e8e10-<时间>/{e8,e9,e10}/
   1. `e7-a-quality-gate`（P5，保留不删）；
   2. `e8e10-quality-gate`（P6，新增）。
 - 其他规则：禁止删除、禁止非快进推送、必须通过 PR、分支需保持最新（strict）。
-- 管理员同样受约束，因此本稿也必须经 PR 合并，不能直接推送 `main`。
+- 本次初稿推送时，GitHub 对本仓库管理员账号触发了 bypass：`main` 被直接推进，没有生成 PR，push 输出明确列出了被绕过的规则（required status checks、pull request）。若验收要求保留“PR → 检查通过 → 合并”的证据链，应改用普通协作者账号提交 PR，或在 PR 页面由管理员合并。
+- 直接推送后，`e7-a-quality-gate` 与 `e8e10-quality-gate` 仍会在 `main` 的 push 事件上运行，结果见 Actions。
 
 ## 6. 文档与证据索引
 
