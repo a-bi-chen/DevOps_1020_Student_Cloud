@@ -1,0 +1,1 @@
+A E8：BuildChecker 实际依赖 main.o→{main.c,config.h}、helper.o→{helper.c}；Makefile 声明 main.o→{main.c,unused.h}；findings 为 MISSING main.o config.h、REDUNDANT main.o unused.h。未变化的 C0 再次扫描时复用 main.o/helper.o，refreshed 为空，actual/findings 与 baseline 一致。
