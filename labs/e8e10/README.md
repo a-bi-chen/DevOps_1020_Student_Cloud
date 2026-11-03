@@ -14,9 +14,9 @@
 
 ```bash
 python3 run_lab.py build
-python3 run_lab.py e8  --track A --out work/e8-A-<日期>
-python3 run_lab.py e9  --track A --out work/e9-A-<日期>
-python3 run_lab.py e10 --track A --out work/e10-A-<日期>
+python3 run_lab.py e8  --track A --out work/e8-A-run1
+python3 run_lab.py e9  --track A --out work/e9-A-run1
+python3 run_lab.py e10 --track A --out work/e10-A-run1
 ```
 
 ## 测试
