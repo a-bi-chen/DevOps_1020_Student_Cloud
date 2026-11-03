@@ -65,8 +65,8 @@ python3 run_lab.py e10 --track A --out work/e10-A-run1
 ### 3.3 写个人材料
 
 ```bash
-mkdir -p docs/students/<学号>/e8-e10
-cp docs/students/_template/*.md docs/students/<学号>/e8-e10/
+mkdir -p "docs/students/<学号>/e8-e10"
+cp docs/students/_template/*.md "docs/students/<学号>/e8-e10/"
 ```
 
 在该目录填写：
@@ -103,7 +103,7 @@ python3 -m unittest discover -s . -p test_profile.py -v
 ```bash
 git add labs/e8e10/test_profile.py labs/e8e10/lab.py "docs/students/<学号>/e8-e10"
 git commit -m "E8-E10: <学号> 实验、报告与个人测试"
-git push -u origin student/<学号>/e8-e10
+git push -u origin "student/<学号>/e8-e10"
 ```
 
 在 GitHub 上向 `main` 发起 PR，等待 `e7-a-quality-gate` 与 `e8e10-quality-gate` 均通过，下载 artifact（`e8e10-evidence-<run_id>`），并把 PR 链接、headSha、Actions 链接、artifact 名称写入个人报告。
