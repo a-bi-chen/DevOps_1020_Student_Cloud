@@ -12,7 +12,7 @@
 |---|---|---|---|
 | 陈玉熙 | 241880089 | `a-bi-chen` | `student/241880089/e8-e10` |
 | 高嘉程 | 241880369 | — | `student/241880369/e8-e10` |
-| 马海川 | 241880374 | — | `student/241880374/e8-e10` |
+| 马海川 | 241880374 | `weijige7` | `student/241880374/e8-e10` |
 | 张海洋 | 241880375 | — | `student/241880375/e8-e10` |
 
 个人分支从最新 `main` 创建，分支内的提交、报告与测试只属于本人。
@@ -37,6 +37,8 @@
 
 ### 3.1 准备分支
 
+本地需要 Python 3.11+ 与 Docker（或课程提供的远端环境）。
+
 ```bash
 git clone https://github.com/a-bi-chen/DevOps_1020_Student_Cloud.git
 cd DevOps_1020_Student_Cloud
@@ -51,9 +53,9 @@ git switch -c student/2418800XX/e8-e10 origin/main
 
 ```bash
 python3 run_lab.py build
-python3 run_lab.py e8  --track A --out work/e8-A-<日期>
-python3 run_lab.py e9  --track A --out work/e9-A-<日期>
-python3 run_lab.py e10 --track A --out work/e10-A-<日期>
+python3 run_lab.py e8  --track A --out work/e8-A-run1
+python3 run_lab.py e9  --track A --out work/e9-A-run1
+python3 run_lab.py e10 --track A --out work/e10-A-run1
 ```
 
 - `--out` 必须是 `work/` 下**尚不存在**的新目录，每个阶段单独使用。
