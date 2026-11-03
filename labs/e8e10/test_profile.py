@@ -91,4 +91,21 @@ class StudentE9A(unittest.TestCase):
             self.assertEqual(set(result['refreshed']),{'main.o','helper.o'})
             self.assertEqual(result['reused'],[])
 
+class StudentE8A089(unittest.TestCase):
+    def test_delete_include_invalidates_and_resolves(self):
+        with tempfile.TemporaryDirectory() as directory:
+            p=Path(directory)/'sample'
+            fixture(p)
+            old=scan(p)
+            (p/'main.c').write_text((p/'main.c').read_text().replace('#include "config.h"\n',''))
+            commit(p,'student: delete existing include')
+            result=scan(p,old)
+            self.assertEqual(result['actual']['main.o'],['main.c'])
+            self.assertEqual(set(result['refreshed']),{'main.o','helper.o'})
+            self.assertEqual(result['reused'],[])
+            self.assertIn(['MISSING','main.o','config.h'],result['resolved'])
+            self.assertEqual(
+                {(x['type'],x['target'],x['dependency']) for x in result['findings']},
+                {('REDUNDANT','main.o','unused.h')})
+
 if __name__=='__main__':unittest.main()
