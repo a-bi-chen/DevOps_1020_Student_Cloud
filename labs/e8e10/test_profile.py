@@ -77,6 +77,18 @@ class StudentE8A(unittest.TestCase):
                  for x in result['findings']},
                 {('REDUNDANT','main.o','unused.h')})
 
-
+class StudentE9A(unittest.TestCase):
+    def test_include_inside_header_invalidates(self):
+        with tempfile.TemporaryDirectory() as directory:
+            p=Path(directory)/'sample'
+            fixture(p)
+            old=scan(p)
+            (p/'config.h').write_text('#include "extra.h"\n#define VALUE 1\n')
+            commit(p,'student: header includes extra')
+            result=scan(p,old)
+            self.assertEqual(result['actual']['main.o'],['config.h','extra.h','main.c'])
+            self.assertEqual({tuple(x) for x in result['added']},{('MISSING','main.o','extra.h')})
+            self.assertEqual(set(result['refreshed']),{'main.o','helper.o'})
+            self.assertEqual(result['reused'],[])
 
 if __name__=='__main__':unittest.main()
