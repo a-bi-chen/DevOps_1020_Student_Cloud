@@ -54,3 +54,17 @@ docker run --rm --network none --user "$(id -u):$(id -g)" \
 ## 贡献边界
 
 参考实现 `labs/e8e10/lab.py` 来自课程实验包，张海洋未修改其核心算法。张海洋的个人代码贡献是 `labs/e8e10/test_profile.py` 中的 `StudentE9A` 独立测试类；个人实验贡献是 E8/E9 A 的真实运行、证据冻结和报告。E10 与课程 B 组往返不由本报告冒充完成。
+
+## E10 补跑记录（老师 2026-11-03 更新要求）
+
+老师更新要求：组内每个人都要在自己的分支上完整跑通本轨道 E8—E10；与 B 组交换/联调推迟到 E11—E12。
+
+Codex 按 `10_E10_A组.md` 逐步执行 E10 A：
+
+- 六个场景各 5 次增量/全量对照；
+- 30 行 `results.csv` 全部 `equal=True`；
+- 保存 `performance-summary.csv`、`gate.json` 和最终 BuildChecker 证据；
+- 模型建议保留真实计时，不把刷新场景的接近 1 的比值包装成论文加速倍数；
+- 人工核对六类复用/刷新、最终 `REDUNDANT unused.h`、trace id 和 SHA256。
+
+实际结果：`MATRIX_PASS {'unchanged': 5, 'body': 5, 'include': 5, 'declaration': 5, 'flags': 5, 'header': 5}`、`DYNAMIC_CROSSCHECK_AND_MATRIX_PASS`。E10 未新增第二个测试，个人独立测试仍为 `StudentE9A.test_include_inside_header_invalidates`，避免与高嘉程负责的 E10 测试冲突。
