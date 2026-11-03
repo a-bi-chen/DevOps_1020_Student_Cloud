@@ -40,6 +40,7 @@ python3 labs/e8e10/lab.py e8 --track A --out /course/work/A-e8
 ```
 
 - CI run `41662015872` 成功；`e8e10-quality-gate` 与 `e7-a-quality-gate` 均为 success。
+- 加入个人测试与报告后的提交 `39d3ff7` 由 run `41663498413` 验证成功，容器内 `Ran 8 tests ... OK`。
 - artifact `e8e10-evidence-41662015872` 已下载，`A-e8` 归档到 `work/e8-A-ci-41662015872/`。
 
 未调用模型时写明未调用；记录参考实现和自己的贡献边界：
