@@ -1,0 +1,323 @@
+{
+  "check": "e9-a-incremental-vs-full",
+  "method": "same tree, scan(p, prev) vs scan(p), compare actual/declared/findings",
+  "baseline": {
+    "schema_version": "e8e10-1",
+    "profile": "GCC_LOCAL_HEADERS_EXPLICIT_MAKE",
+    "commit": "d0361f904a7ede96080e07f32b992a5308fa751f",
+    "key": {
+      "directives": {
+        "config.h": [
+          "#define VALUE 1"
+        ],
+        "extra.h": [
+          "#define EXTRA 0"
+        ],
+        "helper.c": [],
+        "main.c": [
+          "#include <stdio.h>",
+          "#include \"config.h\""
+        ],
+        "unused.h": []
+      },
+      "recipes": [
+        "\tgcc main.o helper.o -o app",
+        "\tgcc $(CFLAGS) -c main.c -o main.o",
+        "\tgcc $(CFLAGS) -c helper.c -o helper.o",
+        "\trm -f main.o helper.o app"
+      ],
+      "flags": "-O0",
+      "compiler": "gcc (x86_64-win32-seh-rev0, Built by MinGW-Builds project) 14.2.0"
+    },
+    "actual": {
+      "main.o": [
+        "config.h",
+        "main.c"
+      ],
+      "helper.o": [
+        "helper.c"
+      ]
+    },
+    "declared": {
+      "main.o": [
+        "main.c",
+        "unused.h"
+      ],
+      "helper.o": [
+        "helper.c"
+      ]
+    },
+    "findings": [
+      {
+        "type": "MISSING",
+        "target": "main.o",
+        "dependency": "config.h"
+      },
+      {
+        "type": "REDUNDANT",
+        "target": "main.o",
+        "dependency": "unused.h"
+      }
+    ],
+    "added": [
+      [
+        "MISSING",
+        "main.o",
+        "config.h"
+      ],
+      [
+        "REDUNDANT",
+        "main.o",
+        "unused.h"
+      ]
+    ],
+    "resolved": [],
+    "refreshed": [
+      "main.o",
+      "helper.o"
+    ],
+    "reused": [],
+    "elapsed_s": 0.10221900000033202
+  },
+  "stages": [
+    {
+      "stage": "C1",
+      "equal": true,
+      "incremental_reused": [
+        "main.o",
+        "helper.o"
+      ],
+      "incremental_refreshed": [],
+      "incremental_added": [],
+      "incremental_resolved": [],
+      "incremental_actual": {
+        "main.o": [
+          "config.h",
+          "main.c"
+        ],
+        "helper.o": [
+          "helper.c"
+        ]
+      },
+      "incremental_declared": {
+        "main.o": [
+          "main.c",
+          "unused.h"
+        ],
+        "helper.o": [
+          "helper.c"
+        ]
+      },
+      "incremental_findings": [
+        {
+          "type": "MISSING",
+          "target": "main.o",
+          "dependency": "config.h"
+        },
+        {
+          "type": "REDUNDANT",
+          "target": "main.o",
+          "dependency": "unused.h"
+        }
+      ],
+      "full_actual": {
+        "main.o": [
+          "config.h",
+          "main.c"
+        ],
+        "helper.o": [
+          "helper.c"
+        ]
+      },
+      "full_declared": {
+        "main.o": [
+          "main.c",
+          "unused.h"
+        ],
+        "helper.o": [
+          "helper.c"
+        ]
+      },
+      "full_findings": [
+        {
+          "type": "MISSING",
+          "target": "main.o",
+          "dependency": "config.h"
+        },
+        {
+          "type": "REDUNDANT",
+          "target": "main.o",
+          "dependency": "unused.h"
+        }
+      ]
+    },
+    {
+      "stage": "C2",
+      "equal": true,
+      "incremental_reused": [],
+      "incremental_refreshed": [
+        "main.o",
+        "helper.o"
+      ],
+      "incremental_added": [
+        [
+          "MISSING",
+          "main.o",
+          "extra.h"
+        ]
+      ],
+      "incremental_resolved": [],
+      "incremental_actual": {
+        "main.o": [
+          "config.h",
+          "extra.h",
+          "main.c"
+        ],
+        "helper.o": [
+          "helper.c"
+        ]
+      },
+      "incremental_declared": {
+        "main.o": [
+          "main.c",
+          "unused.h"
+        ],
+        "helper.o": [
+          "helper.c"
+        ]
+      },
+      "incremental_findings": [
+        {
+          "type": "MISSING",
+          "target": "main.o",
+          "dependency": "config.h"
+        },
+        {
+          "type": "MISSING",
+          "target": "main.o",
+          "dependency": "extra.h"
+        },
+        {
+          "type": "REDUNDANT",
+          "target": "main.o",
+          "dependency": "unused.h"
+        }
+      ],
+      "full_actual": {
+        "main.o": [
+          "config.h",
+          "extra.h",
+          "main.c"
+        ],
+        "helper.o": [
+          "helper.c"
+        ]
+      },
+      "full_declared": {
+        "main.o": [
+          "main.c",
+          "unused.h"
+        ],
+        "helper.o": [
+          "helper.c"
+        ]
+      },
+      "full_findings": [
+        {
+          "type": "MISSING",
+          "target": "main.o",
+          "dependency": "config.h"
+        },
+        {
+          "type": "MISSING",
+          "target": "main.o",
+          "dependency": "extra.h"
+        },
+        {
+          "type": "REDUNDANT",
+          "target": "main.o",
+          "dependency": "unused.h"
+        }
+      ]
+    },
+    {
+      "stage": "C3",
+      "equal": true,
+      "incremental_reused": [
+        "main.o",
+        "helper.o"
+      ],
+      "incremental_refreshed": [],
+      "incremental_added": [],
+      "incremental_resolved": [
+        [
+          "MISSING",
+          "main.o",
+          "config.h"
+        ],
+        [
+          "MISSING",
+          "main.o",
+          "extra.h"
+        ]
+      ],
+      "incremental_actual": {
+        "main.o": [
+          "config.h",
+          "extra.h",
+          "main.c"
+        ],
+        "helper.o": [
+          "helper.c"
+        ]
+      },
+      "incremental_declared": {
+        "main.o": [
+          "config.h",
+          "extra.h",
+          "main.c",
+          "unused.h"
+        ],
+        "helper.o": [
+          "helper.c"
+        ]
+      },
+      "incremental_findings": [
+        {
+          "type": "REDUNDANT",
+          "target": "main.o",
+          "dependency": "unused.h"
+        }
+      ],
+      "full_actual": {
+        "main.o": [
+          "config.h",
+          "extra.h",
+          "main.c"
+        ],
+        "helper.o": [
+          "helper.c"
+        ]
+      },
+      "full_declared": {
+        "main.o": [
+          "config.h",
+          "extra.h",
+          "main.c",
+          "unused.h"
+        ],
+        "helper.o": [
+          "helper.c"
+        ]
+      },
+      "full_findings": [
+        {
+          "type": "REDUNDANT",
+          "target": "main.o",
+          "dependency": "unused.h"
+        }
+      ]
+    }
+  ],
+  "all_equal": true
+}
