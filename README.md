@@ -27,26 +27,9 @@
 
 ## 2. E7 的改动与成果（摘要）
 
-### 2.1 改动
-
-- 在 BuildChecker 服务中实现 E5–E7 流程：真实构建采样、修复前后检测、E7 质量门禁。
-- 新增“项目根边界”测试（PR #4）：防止 `../project-other/secret.h` 这类路径因字符串前缀相似被误当作项目内文件。
-- 新增故意失败的 CI 演示与恢复记录（PR #3），验证“失败阻止合并、修复后恢复通过”。
-- 配置 `main` 分支保护与必需检查 `e7-a-quality-gate`（Ruleset `25866762`）。
-
-### 2.2 成果
-
-| 项目 | 结果 |
-|---|---|
-| 构建与测试 | `17 passed`（原 15 项 + 失败演示 + 边界测试） |
-| E7 gate | `8/8 passed`，`gate-result.json` 中 `"passed": true` |
-| 独立 oracle | `6 tests OK` |
-| secret scan | 源码与镜像两次扫描均未发现问题 |
-| 最终镜像 | `course1020-buildchecker:241880369-final` |
-| 镜像 digest | `sha256:6e12e90adbe1d3ff47d8f7f38e54186da0e4bf4411348d6db56e3dfe30eb332b` |
-| 最终 main CI | run `40503459188`（`abaa94c`），success |
-
-详细报告：`docs/实验报告.md`、`docs/reports/A09-final-status.md`、`docs/reports/A09-E7-boundary-test.md`、`docs/reports/A09-E7-failure-recovery.md`。
+- 改动：BuildChecker 实测构建依赖，找出 Makefile 声明与实际依赖的 `MISSING` / `REDUNDANT`；加入 E7 质量门禁、项目根边界测试与失败-恢复 CI 演示。
+- 成果：17 项测试通过，E7 gate `8/8`，独立 oracle 6 项通过，CI 全绿，main 分支保护生效。
+- 详情：`docs/E7-summary.md`。
 
 ## 3. E8–E10 的目标与概述
 
