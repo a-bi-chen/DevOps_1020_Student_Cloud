@@ -5,6 +5,7 @@
 #   make test    在容器里运行本组单元测试        → test.log
 #   make smoke   用 E3 样例做冒烟测试            → smoke.json
 #   make scan    检查工作区、Git 历史、镜像中的密钥 → secret-scan.txt
+#   make e8e10-* P6（E8–E10）教学实验：e8e10-build / e8e10-test / e8e10-lab
 #   make shell   进入服务容器，work/ 挂到 /app/work（E5 在这里做复现）
 #   make lock    修改 requirements-dev.in 后重新生成带哈希的锁文件
 #   make clean   删除自己构建的镜像
@@ -64,3 +65,25 @@ lock:
 
 clean:
 	-docker image rm $(IMAGE)
+
+# ---- P6（E8–E10，EChecker 教学实现） ----
+#   make e8e10-build  构建教学实验镜像            → course-e8e10:<学号>
+#   make e8e10-test   运行 P6 全部单元测试        → work/e8e10-test-<时间>.log
+#   make e8e10-lab    A 轨 E8/E9/E10 一键实验     → work/e8e10-<时间>/{e8,e9,e10}/
+E8E10_IMAGE := course-e8e10:$(STUDENT_ID)
+E8E10_ENV   := labs/e8e10/environment
+E8E10_LOG   := work/e8e10-test-$(STAMP).log
+
+.PHONY: e8e10-build e8e10-test e8e10-lab
+
+e8e10-build:
+	docker build --progress=plain -f $(E8E10_ENV)/services/buildchecker/Dockerfile -t $(E8E10_IMAGE) $(E8E10_ENV)
+
+e8e10-test: e8e10-build
+	@mkdir -p work
+	docker run --rm --network none --user $$(id -u):$$(id -g) -e HOME=/tmp -v "$$PWD:/course" -w /course $(E8E10_IMAGE) python3 -m unittest discover -s labs/e8e10 -p test_profile.py -v 2>&1 | tee $(E8E10_LOG); test $${PIPESTATUS[0]} -eq 0
+
+e8e10-lab: e8e10-build
+	for stage in e8 e9 e10; do \
+	  python3 run_lab.py $$stage --track A --out work/e8e10-$(STAMP)/$$stage || exit 1; \
+	done
