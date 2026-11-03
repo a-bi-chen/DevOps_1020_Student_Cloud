@@ -87,7 +87,7 @@ python3 scripts/secret_scan.py . --history
 | 高嘉程 241880369 | `student/241880369/e8-e10` | #11 | `docs/students/241880369/e8-e10/` | `StudentE10A.test_transitive_include_matches_full_scan` |
 | 陈玉熙 241880089 | `student/241880089/e8-e10` | #7、#8（已合并） | `docs/students/241880089/e8-e10/` | `StudentE8A089.test_delete_include_invalidates_and_resolves` |
 
-本稿分支 `draft/e8-e10-group` 已依次合并上述四个分支的个人文档与测试代码，冲突仅出现在 `labs/e8e10/test_profile.py`，按“保留全部测试类”解决。
+本稿分支 `draft/e8-e10-group` 已依次合并 241880369/374/375 三个个人分支，并在本稿中补充 241880089 的个人文档与测试；冲突仅出现在 `labs/e8e10/test_profile.py`，按“保留全部测试类”解决。
 
 ### 4.3 当前集成状态
 
