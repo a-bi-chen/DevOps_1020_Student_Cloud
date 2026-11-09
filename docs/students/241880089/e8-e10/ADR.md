@@ -65,14 +65,14 @@ python3 -I work/e8e10-A-verification/scripts/rerun_compare.py <run1>/all <run2>/
 - `work/e9-A-ci-41663999896/C1.json`、`C2.json`、`C3.json`：复用/刷新/新增/消除集合。
 - `work/e10-A-ci-41663999896/results.csv`：30 行全部 `equal=True`；`gate.json` 通过；`performance-summary.csv` 给出六场景中位数/极值/比值，`结论.txt` 为文字汇总。
 - `work/e8e10-A-verification/check1-method/` 与 `check2-rerun/`：两次独立检验均通过（`passed=true`、`differences=[]`）。
-- Actions：E8 https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/actions/runs/41662015872；E9/E10 https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/actions/runs/41663999896；第二次运行 https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/actions/runs/41666559898；最终推送门禁 https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/actions/runs/41667606590（headSha `3afc345`）。
+- Actions：E8 https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/actions/runs/41662015872；E9/E10 https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/actions/runs/41663999896；第二次运行 https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/actions/runs/41666559898；最终推送门禁 https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/actions/runs/41667606590（旧 headSha `3afc345`，当前分支等价 `1aa63dc`）。
 - PR #12：https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/pull/12；PR 检查 run `41669789469`（E8–E10）、`41669789798`（E7 A）；合并提交 `1fe05f4c7024057b56b713ea1d911575824c2ed2`。
-- A→B 交接：**未执行**，见 `A-B交接状态.md`；仓库内没有可填写的 B 组返回、dry-run PR/commit 或交换时间/参与人。
+- A→B 交接：**正式交接未完成**；材料索引已生成（根目录 `B组交接材料.md`），见 `A-B交接状态.md`；仓库内仍没有 B 组返回、dry-run PR/commit 或完整的交换时间/参与人记录。
 
 ## 最终状态与未完成项
 
 - `main` 已合并 PR #12（`1fe05f4`），原 `e7-a-quality-gate` 与 `e8e10-quality-gate` 均保留并成功。
-- 第 4 个个人测试（删除已有 include）在最终 CI 后新增，当前仅本地 11 项通过；最终 CI `41667606590` 仍为 10 项。
+- 第 4 个个人测试（删除已有 include）已随 `489158f` 提交，本地 11 项通过；历史最终 CI `41667606590`（旧 headSha `3afc345`，等价 `1aa63dc`）仍为 10 项，`489158f` 尚无已归档 CI artifact。
 - 已下载的 CI artifact 缺少 `project/.git`（生成时 `e8e10.yml` 未设置 `include-hidden-files: true`）；工作区已补该设置，但尚未重跑，现有归档仍不足以单独证明样例内部完整历史。
 - E10 CI 原始产物为扁平布局；`matrix/` 是同一 run 的重组副本，不是第二次运行，也没有逐次成对 JSON。本地已补 `performance-summary.csv` 与 `结论.txt`，但不冒充 CI 原生产物。
-- A→B 交接未执行，不能声称完成。
+- A→B 正式交接未完成（材料已准备），不能声称完成。

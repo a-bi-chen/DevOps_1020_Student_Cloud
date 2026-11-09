@@ -45,12 +45,12 @@ python3 labs/e8e10/lab.py e10 --track A --out /course/work/A-e10
 
 - E8 CI run `41662015872` 成功；E9/E10 CI run `41663999896` 成功；个人测试与 E8 报告提交 `39d3ff7` 由 run `41663498413` 验证成功。
 - 第二次独立运行 `41666559898`（`workflow_dispatch`，同一 headSha `5312b6d`）成功；语义比较 `differences=[]`。
-- 最终推送门禁 `41667606590`（headSha `3afc345`）成功，两个必需检查均 success；PR #12 的检查 run 为 `41669789469`（E8–E10）与 `41669789798`（E7 A），合并提交 `1fe05f4`。
+- 最终推送门禁 `41667606590`（旧 headSha `3afc345`，当前分支等价 `1aa63dc`）成功，两个必需检查均 success；PR #12 的检查 run 为 `41669789469`（E8–E10）与 `41669789798`（E7 A），合并提交 `1fe05f4`。
 - artifact `e8e10-evidence-41662015872`、`e8e10-evidence-41663999896`、`e8e10-evidence-41666559898` 已下载，关键文件归档到 `work/`。这些历史 artifact 不含 `project/.git`（生成时 workflow 未设置 `include-hidden-files: true`）；工作区已补该设置，但尚未重跑，因此现有归档仍不能单独证明样例内部完整历史。
-- A→B 交接未执行：没有交付物签收、B 组返回、dry-run PR/commit 或交换时间/参与人记录；详见 `A-B交接状态.md`，未用占位内容补齐。
+- A→B 正式交接未完成：材料索引已生成（根目录 `B组交接材料.md`），但仓库内仍没有 B 组签收、B 组返回、dry-run PR/commit 或完整的交换时间/参与人记录；详见 `A-B交接状态.md`，未用占位内容补齐。
 
 未调用模型时写明未调用；记录参考实现和自己的贡献边界：
 
 - 教学实现 `lab.py`、BuildChecker 与 workflow 来自课程参考实现，本人未修改其逻辑。
 - 本人贡献：个人测试 `StudentE8A089`、`StudentE9A089`、`StudentE10A089`、`StudentE9A089RemovedInclude`，E8/E9/E10 运行归档，两次独立检验的脚本与记录，报告、ADR、交接状态与 AI 使用记录；AI 助手参与了分支操作、artifact 下载脚本、复核脚本、缺口审计与文字草稿，结论由本人核对。
-- 未完成边界：B 轨未做；A→B 交接未执行。不得把课程参考实现的 B 轨说明或 B 组未返回的内容写成本人交付。
+- 未完成边界：B 轨未做；A→B 正式交接未完成（材料已准备）。不得把课程参考实现的 B 轨说明或 B 组未返回的内容写成本人交付。
