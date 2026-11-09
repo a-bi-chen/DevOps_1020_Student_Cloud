@@ -1,0 +1,9 @@
+E10 A 轨结论（CI run 41663999896，headSha 5312b6d985c5cbb945cb6852bf488ba3dd5c2aef）
+
+1. 场景与次数：unchanged/body/include/declaration/flags/header 六场景各 5 次，共 30 行，记录于 results.csv。
+2. 一致性：30/30 行 equal=True，即每次增量扫描与同一棵树上的全量扫描在 actual、declared、findings 三个字段上完全相等；gate.json 为 {"track":"A","passed":true,"rows":30}。
+3. 缓存方向：unchanged/body/declaration 复用两个目标（reused=2、refreshed=0）；include/flags/header 保守刷新两个目标（reused=0、refreshed=2）。
+4. 终态交叉检查：final-buildchecker/findings.json 的 status=SUCCEEDED，clean/build 退出码均为 0，findings 仅 REDUNDANT main.o unused.h；其 actual 图与 GCC 投影一致。
+5. 性能：按场景计算的中位数、最小/最大值与 full_over_inc 见 performance-summary.csv。复用路径的增量中位耗时约 0.0026 s，全量约 0.017 s；刷新路径增量约 0.017 s，与全量同量级。该结果说明教学实现采用“key 变化即保守刷新全部目标”，不把刷新路径说成性能优化。
+
+说明：本目录为 CI 一键入口的扁平产物。CI 未额外保留每次重复运行的成对 JSON（仅保留六场景末次 JSON 与逐行 results.csv），也未生成 matrix/ 子目录；performance-summary.csv 与 结论.txt 由 results.csv 和终态 BuildChecker 产物在本地汇总，未修改任何原始结果。

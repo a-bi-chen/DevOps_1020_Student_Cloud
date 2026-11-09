@@ -53,3 +53,9 @@ python3 -I work/e8e10-A-verification/scripts/rerun_compare.py \
 ## 结论
 
 两次检验均通过。E8–E10 A 轨的增量结果与全量结果一致，真实 BuildChecker 与 GCC 投影一致，且同一提交的两次独立 CI 运行给出相同语义结果。
+
+## 边界
+
+- 运行独立检验对应 headSha `5312b6d`，早于最终 PR head `3afc345`；它没有覆盖最终提交。
+- 第 4 个个人测试（删除已有 include）是在最终 CI `41667606590` 之后新增的，目前仅在本地通过 11 项，未被本目录的两次 CI 检验覆盖。
+- 本目录的结论只针对 A 轨；B 轨和 A→B 交接均未执行，不能引用本目录声称已完成。

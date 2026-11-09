@@ -4,6 +4,7 @@
 - 执行位置：`ubuntu-24.04` + 教学镜像 `course-e8e10:ci`（ID 见 `environment-image-id.txt`）。
 - 命令：`python3 labs/e8e10/lab.py e9 --track A --out /course/work/A-e9`。
 - 产物：`baseline.json`（C0）、`C1.json`（函数体变化）、`C2.json`（新增 `#include "extra.h"`）、`C3.json`（修复 Makefile 声明），以及 C0/C1/C2 构建日志和源文件快照。
+- artifact 限制：下载的 `project/` 中没有 `.git`，原因是生成该 artifact 时 `e8e10.yml` 未设置 `include-hidden-files: true`。工作区已补该设置，但尚未重跑。C0/C1/C2/C3 的内部提交值仍记录在各 JSON 的 `commit` 字段，但本目录不能单独证明“内部项目完整历史”；该要求需重跑归档，不能用现有文件补造。
 
 ## 预期与结果
 

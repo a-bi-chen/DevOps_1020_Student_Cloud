@@ -14,18 +14,19 @@
 - 先同步分支到最新 `main`，建立 `docs/students/241880089/e8-e10/` 并触发 CI。
 - 用 CI 的 `ubuntu-24.04` + `course-e8e10:ci` 执行 `lab.py e8/e9/e10 --track A`，下载 artifact 归档，而不是用本地 GCC `-MM` 冒充 BuildChecker。
 - E8 个人测试选“Makefile 配方变化使缓存失效”；E9 选“头文件宏值变化使缓存失效但依赖图不变”；E10 选“新增无关头文件触发保守刷新且增量等于全量”，与组内已有的“新增 include”“声明变化”“间接 include”用例区分。
+- 审计 A09 分工时发现还缺“删除已有 include”方向，补充第 4 个测试：删除 `#include "config.h"` 后缓存失效，`MISSING` 进入 `resolved`，`added` 为空，final findings 只剩 `REDUNDANT unused.h`；该用例不复制“新增 include”测试。
 - 独立检验分两层：方法层做增量 vs 全量、BuildChecker vs GCC；运行层在同一提交上做第二次 CI 并比较语义字段。
 - 报告中区分外层分支 SHA、样例内部 C0 提交和镜像 ID；明确标注 BuildChecker 在 CI 而非本机执行。
 
 采纳/拒绝及理由：
 
-- 采纳：CI 执行与 artifact 归档；三个个人测试；方法层与运行层两次独立检验；报告中的环境/证据对应关系。
+- 采纳：CI 执行与 artifact 归档；四个个人测试（含删除已有 include）；方法层与运行层两次独立检验；报告中的环境/证据对应关系。
 - 拒绝：在本机用 `scan()` 结果代替 E8/E10 真实 BuildChecker；引用旧运行或他人运行；在未完成 E9/E10 时声称已完成；把 B 轨结果混入 A 轨结论。
 
 人工修改：
 
 - 由本人确认 E8/E9/E10 的预期依赖、findings、复用/刷新方向，核对 `baseline.json`、`C1/C2/C3.json`、`results.csv`、`gate.json` 与 BuildChecker 产物。
-- 由本人复核三个个人测试类的类名与断言，未直接复制组内其他成员用例。
+- 由本人复核四个个人测试类的类名与断言，未直接复制组内其他成员用例；删除 include 用例按 A09 分工要求补齐，并核对 `resolved`/`added`/findings 的预期。
 - 由本人决定只做 A 轨；B 轨留给 B 组在自己的分支完成。
 
 实际验证命令/输入/结果：
@@ -33,7 +34,7 @@
 ```bash
 cd labs/e8e10
 python3 -m unittest discover -s . -p test_profile.py -v
-# Ran 10 tests ... OK（课程 7 项 + 本人 3 项）
+# Ran 11 tests ... OK（课程 7 项 + 本人 4 项；最终 CI 41667606590 时为 10 项）
 
 # CI（容器内）
 python3 labs/e8e10/lab.py e8 --track A --out /course/work/A-e8
@@ -44,9 +45,12 @@ python3 labs/e8e10/lab.py e10 --track A --out /course/work/A-e10
 
 - E8 CI run `41662015872` 成功；E9/E10 CI run `41663999896` 成功；个人测试与 E8 报告提交 `39d3ff7` 由 run `41663498413` 验证成功。
 - 第二次独立运行 `41666559898`（`workflow_dispatch`，同一 headSha `5312b6d`）成功；语义比较 `differences=[]`。
-- artifact `e8e10-evidence-41662015872`、`e8e10-evidence-41663999896`、`e8e10-evidence-41666559898` 已下载，关键文件归档到 `work/`。
+- 最终推送门禁 `41667606590`（headSha `3afc345`）成功，两个必需检查均 success；PR #12 的检查 run 为 `41669789469`（E8–E10）与 `41669789798`（E7 A），合并提交 `1fe05f4`。
+- artifact `e8e10-evidence-41662015872`、`e8e10-evidence-41663999896`、`e8e10-evidence-41666559898` 已下载，关键文件归档到 `work/`。这些历史 artifact 不含 `project/.git`（生成时 workflow 未设置 `include-hidden-files: true`）；工作区已补该设置，但尚未重跑，因此现有归档仍不能单独证明样例内部完整历史。
+- A→B 交接未执行：没有交付物签收、B 组返回、dry-run PR/commit 或交换时间/参与人记录；详见 `A-B交接状态.md`，未用占位内容补齐。
 
 未调用模型时写明未调用；记录参考实现和自己的贡献边界：
 
 - 教学实现 `lab.py`、BuildChecker 与 workflow 来自课程参考实现，本人未修改其逻辑。
-- 本人贡献：个人测试 `StudentE8A089`、`StudentE9A089`、`StudentE10A089`，E8/E9/E10 运行归档，两次独立检验的脚本与记录，报告、ADR 与 AI 使用记录；AI 助手参与了分支操作、artifact 下载脚本、复核脚本与文字草稿，结论由本人核对。
+- 本人贡献：个人测试 `StudentE8A089`、`StudentE9A089`、`StudentE10A089`、`StudentE9A089RemovedInclude`，E8/E9/E10 运行归档，两次独立检验的脚本与记录，报告、ADR、交接状态与 AI 使用记录；AI 助手参与了分支操作、artifact 下载脚本、复核脚本、缺口审计与文字草稿，结论由本人核对。
+- 未完成边界：B 轨未做；A→B 交接未执行。不得把课程参考实现的 B 轨说明或 B 组未返回的内容写成本人交付。
