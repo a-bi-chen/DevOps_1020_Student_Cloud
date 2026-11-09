@@ -54,3 +54,16 @@ Ruleset 页面在匿名访问时会折叠检查名，因此额外保存 API 快�
 - 未替张海洋运行 E9。
 - 未删除、覆盖 `e7-a-quality-gate` 必需检查。
 - 截图均来自公开页面，使用全新无登录浏览器上下文，不包含 Token、密钥或服务器凭据。
+
+## 6. 最终 PR #12 状态（补充记录）
+
+本节补充 E8–E10 个人分支最终合并状态。数据来自仓库内 `E8-E10_A组修改记录.md` 和本地 git 历史；**本目录截图仍对应 PR #7 的基线验收，不能当作 PR #12 的截图证据**。
+
+- 个人分支最终 head：`3afc3453907aa1ca6b8d4b126595b4cf51378649`
+- 最终推送门禁 run：`41667606590`（success；`e8e10-quality-gate`、`e7-a-quality-gate` 均 success）
+- PR #12：https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/pull/12
+- PR 检查 run：`41669789469`（E8–E10）、`41669789798`（E7 A），均 success
+- 合并提交：`1fe05f4c7024057b56b713ea1d911575824c2ed2`
+- 合并后远端个人分支被自动删除，本地从 `3afc345` 恢复 `student/241880089/e8-e10`。
+
+`e7-a-quality-gate` 仍在 Ruleset `25866762` 中作为必需检查保留；本次没有修改 Ruleset。若需要 PR #12 的页面级截图，应另行补充，不能复用 PR #7 的截图。A→B 交接未执行，本文件不提供其证据。

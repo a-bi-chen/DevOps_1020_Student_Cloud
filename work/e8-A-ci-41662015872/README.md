@@ -11,3 +11,4 @@
   - `environment-image-id.txt`：镜像标签、镜像 ID、runner 与编译器。
   - `结论.txt`：本次 E8 结论。
 - 说明：`student-source-commit.txt`、`environment-image-id.txt`、`结论.txt` 由下载 artifact 后补充；其余文件为 CI 原始产物。artifact 名 `e8e10-evidence-41662015872`，保留 14 天。
+- artifact 限制：下载的 `project/` 中没有 `.git`。生成该 artifact 时，`e8e10.yml` 的 `upload-artifact` 未设置 `include-hidden-files: true`，GitHub Actions 默认排除隐藏文件；因此本目录不能单独证明样例内部的完整 git 历史。工作区已补该设置，但尚未重跑；`baseline.json` 仍保留 C0 提交值，但“完整历史”需重跑并归档，不能用现有文件补造。
