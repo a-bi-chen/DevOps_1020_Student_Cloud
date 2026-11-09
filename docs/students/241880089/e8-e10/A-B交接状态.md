@@ -17,8 +17,9 @@
 |---|---|
 | 仓库 | https://github.com/a-bi-chen/DevOps_1020_Student_Cloud |
 | 分支 | `student/241880089/e8-e10` |
-| 当前 HEAD / 交付 SHA | `489158f2636b5f83c46b253c68469a63291d8a62` |
-| 远端同名分支 | 同为 `489158f2636b5f83c46b253c68469a63291d8a62` |
+| 代码/证据 SHA | `489158f2636b5f83c46b253c68469a63291d8a62` |
+| 文档提交 | 以 `git log -1 --format=%H -- B组交接材料.md` 为准（仅文档变更） |
+| 远端分支 HEAD | 可能比代码基线多一个仅文档提交，以 `git ls-remote origin student/241880089/e8-e10` 为准 |
 | 工作区 | clean |
 | 个人测试 | 4 个；本地 11 项全部通过（课程 7 项 + 本人 4 项） |
 
@@ -33,7 +34,7 @@
 
 | 字段 | 当前值/状态 | 依据 |
 |---|---|---|
-| 本人交付物 SHA | `489158f2636b5f83c46b253c68469a63291d8a62`；第 4 个个人测试已包含在该提交中 | `git rev-parse HEAD`、`git status`、本地 11 项测试 |
+| 本人交付物 SHA（代码/证据） | `489158f2636b5f83c46b253c68469a63291d8a62`；第 4 个个人测试已包含在该提交中 | `git show 489158f`、`git status`、本地 11 项测试 |
 | B 组返回文件/确认 | 未收到 | 仓库内无对应文件或记录 |
 | dry-run PR/commit | 未执行 | 仓库内无对应 PR/commit |
 | 交换时间和参与人 | 已与 B 组负责人联系；具体时间与参与人待双方记录 | 本人确认；仓库内尚无签收记录 |
@@ -52,7 +53,7 @@
 1. 取得 B 组返回的修复文件或重检报告，记录接收时间与参与人。
 2. 按约定完成 dry-run PR/commit，记录 PR 编号或 commit SHA。
 3. 把 B 组的 `added` / `resolved`、重检报告路径和验收结论回填到 `B组交接材料.md` 第 7 节及本文件第 3 节。
-4. 如需把检测报告绑定到当前交付 SHA `489158f`，重跑 `e8e10-quality-gate` 并归档新的 artifact（workflow 已设置 `include-hidden-files: true`）。
+4. 如需把检测报告绑定到代码基线 `489158f`，重跑 `e8e10-quality-gate` 并归档新的 artifact（workflow 已设置 `include-hidden-files: true`）。
 
 完成前，本文件和组内汇总不得声称 A→B 交接已完成。
 

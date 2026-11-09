@@ -12,7 +12,8 @@
 |---|---|
 | 仓库 | https://github.com/a-bi-chen/DevOps_1020_Student_Cloud |
 | 分支 | `student/241880089/e8-e10` |
-| 当前 HEAD | `489158f2636b5f83c46b253c68469a63291d8a62` |
+| 代码/证据基线 SHA | `489158f2636b5f83c46b253c68469a63291d8a62` |
+| 文档提交 | 以 `git log -1 --format=%H -- B组交接材料.md` 为准（仅文档变更，不改变代码/证据） |
 | 当前工作区 | clean（`git status --porcelain` 为空） |
 | E8 受测项目根目录 | `work/e8-A-ci-41662015872/project/` |
 | Makefile | `work/e8-A-ci-41662015872/project/Makefile` |
@@ -32,8 +33,9 @@
 - 仓库地址：`git@github.com:a-bi-chen/DevOps_1020_Student_Cloud.git`
 - 网页地址：https://github.com/a-bi-chen/DevOps_1020_Student_Cloud
 - 分支：`student/241880089/e8-e10`
-- 当前 HEAD：`489158f2636b5f83c46b253c68469a63291d8a62`
-- 远端同名分支：同为 `489158f2636b5f83c46b253c68469a63291d8a62`
+- 代码/证据基线 SHA：`489158f2636b5f83c46b253c68469a63291d8a62`
+- 文档提交：以 `git log -1 --format=%H -- B组交接材料.md` 为准；该提交只增加/修改文档，不改变代码与 E8–E10 证据
+- 远端分支 HEAD：可能比代码基线多一个仅文档提交，可用 `git ls-remote origin student/241880089/e8-e10` 查询
 - 当前工作区：clean，无未提交修改
 
 ### 1.2 检测版本与当前版本的对应（重要）
@@ -205,7 +207,7 @@ E8 的真实检测结果分成两个 JSON，各有分工；仓库里**没有**�
 
 | B 组字段 | 仓库中的来源 |
 |---|---|
-| `commit` | `baseline.json` 的 `commit` 是 fixture 内部提交 `f4d0e19`；外层学生源码版本用 `a080218`（旧 `77e891c`）或交付 HEAD `489158f` |
+| `commit` | `baseline.json` 的 `commit` 是 fixture 内部提交 `f4d0e19`；外层学生源码版本用 `a080218`（旧 `77e891c`）或代码基线 `489158f` |
 | `type` / `target` / `dependency` | `baseline.json` 的 `findings`，或 `buildchecker/findings.json` 的 `findings` |
 | 报告版本 | `baseline.json` 的 `schema_version: e8e10-1`；检测器版本为 `detector_version: 0.2.0-teaching` |
 | 检测状态 | `buildchecker/findings.json` 的 `status: SUCCEEDED`（以及两个 exit code 均为 0） |
@@ -279,7 +281,7 @@ E9/E10 的 headSha 为旧 `5312b6d`（当前分支等价 `74ca22e`）。E8 的 M
 `labs/e8e10/lab.py` 已实现 B 轨所需的两个关键函数：
 
 - `patch()`（`labs/e8e10/lab.py:76`）：
-  - 报告 `commit` 与当前 HEAD 不一致 → `STALE_REPORT`
+  - 报告 `commit` 与 fixture 当前 HEAD 不一致 → `STALE_REPORT`
   - 依赖路径包含 `..` 或绝对路径 → `UNSAFE_PATH`
   - 依赖文件不存在 → `MISSING_INPUT`
   - 只为 `MISSING` 生成 Makefile 补丁，保留 `REDUNDANT`
@@ -331,7 +333,7 @@ python3 labs/e8e10/lab.py e8 --track B --out work/B-e8-recheck
 
 | 事项 | 当前状态 | 建议 |
 |---|---|---|
-| 当前 HEAD `489158f` 的 CI artifact | 未归档 | 如需把报告绑定到交付 HEAD，重跑 `e8e10-quality-gate` 并下载 artifact；workflow 已加 `include-hidden-files: true` |
+| 代码基线 `489158f` 的 CI artifact | 未归档 | 如需把报告绑定到交付基线，重跑 `e8e10-quality-gate` 并下载 artifact；workflow 已加 `include-hidden-files: true` |
 | fixture `project/.git` | 未归档 | 重跑后应随 artifact 归档；现有报告用 `input_sha256` 做内容绑定 |
 | `REDUNDANT main.o unused.h` | 保留 | 由 B 组确认是否清理，或在验收中明确接受 |
 | A→B 签收/返回 | 待 B 组 | 由双方负责人记录时间和参与人 |
