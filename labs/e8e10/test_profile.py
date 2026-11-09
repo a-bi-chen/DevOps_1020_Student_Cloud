@@ -90,4 +90,21 @@ class StudentE10A089(unittest.TestCase):
             self.assertEqual(inc['findings'],full['findings'])
             self.assertEqual(inc['actual'],old['actual'])
 
+class StudentE9A089RemovedInclude(unittest.TestCase):
+    def test_removed_include_invalidates_and_resolves(self):
+        with tempfile.TemporaryDirectory() as directory:
+            p=Path(directory)/'sample';fixture(p)
+            old=scan(p)
+            (p/'main.c').write_text((p/'main.c').read_text().replace(
+                '#include "config.h"\n',
+                ''))
+            commit(p,'student: remove config include')
+            r=scan(p,old)
+            self.assertEqual(set(r['refreshed']),{'main.o','helper.o'})
+            self.assertEqual(r['reused'],[])
+            self.assertEqual(r['added'],[])
+            self.assertNotIn('config.h',r['actual']['main.o'])
+            self.assertIn(['MISSING','main.o','config.h'],r['resolved'])
+            self.assertEqual(r['findings'],[{'type':'REDUNDANT','target':'main.o','dependency':'unused.h'}])
+
 if __name__=='__main__':unittest.main()
