@@ -345,7 +345,7 @@ python3 labs/e8e10/lab.py e8 --track B --out work/B-e8-recheck
 | 交付时间 | 待填 |
 | 交付人 | 陈玉熙（241880089，A09） |
 | 接收人 | 待填（B 组负责人） |
-| 交付分支/HEAD | `student/241880089/e8-e10` / `489158f2636b5f83c46b253c68469a63291d8a62` |
+| 交付分支 / 代码基线 | `student/241880089/e8-e10` / `489158f2636b5f83c46b253c68469a63291d8a62` |
 | 检测版本 SHA | 外层 `a0802185e793f2de7e6290edbfb8c7760a819b91`（旧 `77e891c`）；fixture `f4d0e190a47172f736f05bd20d49fe68b3a7127a` |
 | B 组返回文件/确认 | 待填 |
 | dry-run PR/commit | 待填 |
