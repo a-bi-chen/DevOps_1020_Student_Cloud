@@ -4,7 +4,7 @@
 
 仓库：https://github.com/a-bi-chen/DevOps_1020_Student_Cloud
 
-`main` 是本组 P6 的**起点模板**：E8–E10 教学代码、实验镜像、CI 门禁和个人材料模板均已就位，克隆后即可开跑。每名成员必须在自己的 `student/<学号>/e8-e10` 分支上完成实验、报告与个人测试，再通过 PR 提交；`main` 不预置任何人的实验结果。
+`main` 是本组 P6 的**最终统一验收版本**：E8–E10 教学代码、实验镜像、CI 门禁、四名成员的个人材料和个人测试均已合并；`labs/e8e10/test_profile.py` 当前共 14 项测试（7 项基础 + 7 项个人）。后续重做或新成员练习时，仍建议从最新 `main` 创建自己的 `student/<学号>/e8-e10` 分支，通过 PR 提交。
 
 ## 1. 组员与个人分支
 
@@ -17,13 +17,24 @@
 
 个人分支从最新 `main` 创建，分支内的提交、报告与测试只属于本人。
 
+当前 `main` 已归档四人的最终材料，目录索引见 `docs/students/README.md`：
+
+| 学号 | 个人材料目录 | 个人测试类 |
+|---|---|---|
+| 241880089 陈玉熙 | `docs/students/241880089/e8-e10/` | `StudentE8A089`、`StudentE9A089`、`StudentE10A089`、`StudentE9A089RemovedInclude` |
+| 241880369 高嘉程 | `docs/students/241880369/e8-e10/` | `StudentE10A` |
+| 241880374 马海川 | `docs/students/241880374/e8-e10/` | `StudentE8A` |
+| 241880375 张海洋 | `docs/students/241880375/e8-e10/` | `StudentE9A` |
+
+汇总：基础 `ProfileTests` 7 项 + 个人测试 7 项 = **14 项**。
+
 ## 2. 仓库结构
 
 | 路径 | 阶段 | 内容 |
 |---|---|---|
 | `run_lab.py` | P6 | E8–E10 一键入口：`build` / `e8` / `e9` / `e10`，学号取 `git config --local user.name` |
 | `labs/e8e10/lab.py` | P6 | EChecker 教学实现（GCC 依赖观测、缓存复用/刷新、Patch） |
-| `labs/e8e10/test_profile.py` | P6 | 单元测试：基础 `ProfileTests` 7 项 + 个人测试区（模板） |
+| `labs/e8e10/test_profile.py` | P6 | 单元测试：基础 `ProfileTests` 7 项 + 四人个人测试 7 项（合计 14 项） |
 | `labs/e8e10/environment/` | P6 | 教学镜像（Dockerfile、锁文件、BuildChecker、fixtures） |
 | `labs/e8e10/README.md` | P6 | 教学实现与测试编写说明 |
 | `.github/workflows/e8e10.yml` | P6 | `e8e10-quality-gate`：单元测试 + A/B 六条路线 |
