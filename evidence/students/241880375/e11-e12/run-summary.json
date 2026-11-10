@@ -439,5 +439,38 @@
     "server.py": "719c89df41ad9624d290943a766498fc2dbc22c6843355fd0156bc4bf3b40a0c",
     "test_contract.py": "ee4f61ffd2b9a774f460842680d1636e1768d41cf3a7b1290fafed7fb02c01be",
     "workflow": "812f46c9f4d7fcb8779e464b96e7960158efb8297d644987f432eb3931e13a67"
+  },
+  "ci": {
+    "pull_request": 17,
+    "pull_request_url": "https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/pull/17",
+    "pull_request_author": "handsomeocean",
+    "head_sha": "1464fdfcb54a022d77b2796cd6b217c7c5b393ca",
+    "checks": [
+      {
+        "name": "e7-a-quality-gate",
+        "run_id": 42762974086,
+        "conclusion": "success",
+        "url": "https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/actions/runs/42762974086"
+      },
+      {
+        "name": "e8e10-quality-gate",
+        "run_id": 42762974074,
+        "conclusion": "success",
+        "url": "https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/actions/runs/42762974074"
+      },
+      {
+        "name": "e11e12-integration",
+        "run_id": 42762974088,
+        "conclusion": "success",
+        "url": "https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/actions/runs/42762974088"
+      }
+    ],
+    "artifact": {
+      "id": 13738432318,
+      "name": "e11e12-evidence-42762974088",
+      "size_in_bytes": 343323,
+      "digest": "sha256:2940e1a29efde51f30b9986dab79447dfa523a15f5d068dad5f14760a9864124",
+      "expires_at": "2026-11-24T05:35:41Z"
+    }
   }
 }
