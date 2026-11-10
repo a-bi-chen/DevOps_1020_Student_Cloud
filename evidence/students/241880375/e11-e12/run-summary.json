@@ -1,0 +1,443 @@
+{
+  "schema_version": "e11e12-personal-evidence-1",
+  "student": "241880375",
+  "name": "张海洋",
+  "group": "A09",
+  "track": "A",
+  "date": "2026-11-10",
+  "server": "120.27.152.244",
+  "environment_image": "course-e11e12:241880375",
+  "environment_image_id": "sha256:ba1a32d4f7a40b9196f3bfd774a2d4e728b23f17628af04f644a25db34c8a978",
+  "contract_tests": {
+    "count": 11,
+    "result": "OK",
+    "personal_test": "test_restart_marks_unfinished_job_and_keeps_completed_job"
+  },
+  "runs": [
+    {
+      "run": "e11-a-241880375",
+      "status": "SUCCEEDED",
+      "job_id": "job-1bd0ed1b449f44f293853df90440844f",
+      "trace_id": "trace-4e7c0c6afd0447f9869d2f5e1ee6f4ae",
+      "base_commit": "3fcb72029bf560afde2d29436395ff3b979a19fd",
+      "target_commit": "15c059958a41a5a0513dc048036439843a34ad28",
+      "stages": [
+        {
+          "name": "full-check",
+          "uri": "artifact://job-1bd0ed1b449f44f293853df90440844f/full-check.json",
+          "sha256": "59c602db2c12075f66fc754fdfdb78d832dc5f83f99391b1c3ddcf29cdd6beef",
+          "bytes": 3637
+        },
+        {
+          "name": "incremental-check",
+          "uri": "artifact://job-1bd0ed1b449f44f293853df90440844f/incremental-check.json",
+          "sha256": "8508d50232bfa4a529d51accd4dc94e5765a0fe0a0b130eebf73f8f866a98716",
+          "bytes": 2329
+        }
+      ],
+      "findings": [
+        {
+          "type": "MISSING",
+          "target": "main.o",
+          "dependency": "config.h"
+        },
+        {
+          "type": "MISSING",
+          "target": "main.o",
+          "dependency": "extra.h"
+        },
+        {
+          "type": "REDUNDANT",
+          "target": "main.o",
+          "dependency": "unused.h"
+        }
+      ],
+      "refreshed": [
+        "main.o",
+        "helper.o"
+      ],
+      "reused": []
+    },
+    {
+      "run": "e11-b-241880375-final",
+      "status": "SUCCEEDED",
+      "job_id": "job-1b4302933a804eef9cfe7dd8330d2f53",
+      "trace_id": "trace-d03562a32d14465bb6434ffb056a0456",
+      "base_commit": "3fcb72029bf560afde2d29436395ff3b979a19fd",
+      "target_commit": "15c059958a41a5a0513dc048036439843a34ad28",
+      "stages": [
+        {
+          "name": "draft",
+          "uri": "artifact://job-1b4302933a804eef9cfe7dd8330d2f53/draft.json",
+          "sha256": "c7dc7dde2f7e50abdaef1c3cfc0aac3b20130f7e3c70d30ccaadf161945210f6",
+          "bytes": 3210
+        },
+        {
+          "name": "fixed-md",
+          "uri": "artifact://job-1b4302933a804eef9cfe7dd8330d2f53/fixed-md.json",
+          "sha256": "9286229c25662a0e671d77607200d4974a0a4123517a46c6829ffdc199ab1a17",
+          "bytes": 2257
+        },
+        {
+          "name": "repair",
+          "uri": "artifact://job-1b4302933a804eef9cfe7dd8330d2f53/repair.json",
+          "sha256": "7ac072712656cad9470c6ae92fe1994e2cfa7055a571036afb37483bc2c819d0",
+          "bytes": 1115
+        },
+        {
+          "name": "recheck",
+          "uri": "artifact://job-1b4302933a804eef9cfe7dd8330d2f53/recheck.json",
+          "sha256": "136d0e0ebeabd7d060410eb9e4862b42771db7b2cf8756fe31bcf028f0f5f849",
+          "bytes": 1529
+        }
+      ],
+      "validation": {
+        "accepted": true,
+        "checks": {
+          "patch_applies": true,
+          "build": true,
+          "test": true,
+          "header_change": true,
+          "no_missing": true
+        },
+        "error": null,
+        "source_unchanged": false,
+        "rollback": false
+      },
+      "draft": {
+        "status": "SUCCEEDED",
+        "image_id": "sha256:4107b19b06b6c34c812c2331bed9aa8fe72b3a0f672461a6e2ebd397c7c79d3b",
+        "verification": {
+          "command": [
+            "docker",
+            "run",
+            "--rm",
+            "--network",
+            "none",
+            "--cpus",
+            "1",
+            "--memory",
+            "128m",
+            "--pids-limit",
+            "64",
+            "--cidfile",
+            "/course/work/e11-b-241880375-final/draft-build/verify-container-id.txt",
+            "sha256:4107b19b06b6c34c812c2331bed9aa8fe72b3a0f672461a6e2ebd397c7c79d3b"
+          ],
+          "exit_code": 0,
+          "expected_output": "1",
+          "actual_output": "1\n",
+          "output_matches": true
+        }
+      },
+      "candidate_patch": {
+        "sha256": "88074f66c291dcad1344c48f6a2b9ddd42d235d9d0415c85fb33310c5b7cb2af",
+        "bytes": 274
+      }
+    },
+    {
+      "run": "e12-241880375-final",
+      "status": "SUCCEEDED",
+      "job_id": "job-c8680b5bb961425e9d2bbb1f31054b54",
+      "trace_id": "trace-525287b3c9dd4af28cea764db166f760",
+      "base_commit": "3fcb72029bf560afde2d29436395ff3b979a19fd",
+      "target_commit": "15c059958a41a5a0513dc048036439843a34ad28",
+      "stages": [
+        {
+          "name": "draft",
+          "uri": "artifact://job-c8680b5bb961425e9d2bbb1f31054b54/draft.json",
+          "sha256": "249e0aadf75d302a984afc80c98f36192112a0277f1a99d21df5d80c73de26c6",
+          "bytes": 3198
+        },
+        {
+          "name": "full-check",
+          "uri": "artifact://job-c8680b5bb961425e9d2bbb1f31054b54/full-check.json",
+          "sha256": "300b502193a76efe4e5be5fff86a68e6f725e1528dad822eff0ac8502fde6888",
+          "bytes": 3645
+        },
+        {
+          "name": "incremental-check",
+          "uri": "artifact://job-c8680b5bb961425e9d2bbb1f31054b54/incremental-check.json",
+          "sha256": "9e3771ab80c2a002006eec0e6646b635c0fede127713a5d69970c8ed0cb85d09",
+          "bytes": 2329
+        },
+        {
+          "name": "repair",
+          "uri": "artifact://job-c8680b5bb961425e9d2bbb1f31054b54/repair.json",
+          "sha256": "9d9773538481e4e1e9f612e44593e6fb8b970a3719db539f39da1195cf3eec18",
+          "bytes": 1124
+        },
+        {
+          "name": "recheck",
+          "uri": "artifact://job-c8680b5bb961425e9d2bbb1f31054b54/recheck.json",
+          "sha256": "b0e6bcf8a44ad786f0c19d33cb7b29aee48790566e2e08bc9f710ef72234a24e",
+          "bytes": 1529
+        }
+      ],
+      "findings": [
+        {
+          "type": "MISSING",
+          "target": "main.o",
+          "dependency": "config.h"
+        },
+        {
+          "type": "MISSING",
+          "target": "main.o",
+          "dependency": "extra.h"
+        },
+        {
+          "type": "REDUNDANT",
+          "target": "main.o",
+          "dependency": "unused.h"
+        }
+      ],
+      "refreshed": [
+        "main.o",
+        "helper.o"
+      ],
+      "reused": [],
+      "validation": {
+        "accepted": true,
+        "checks": {
+          "patch_applies": true,
+          "build": true,
+          "test": true,
+          "header_change": true,
+          "no_missing": true
+        },
+        "error": null,
+        "source_unchanged": false,
+        "rollback": false
+      },
+      "draft": {
+        "status": "SUCCEEDED",
+        "image_id": "sha256:4aaec4605815223284c8b8df8f1241f02f4dd556c3b1165b3fc84d07293cb251",
+        "verification": {
+          "command": [
+            "docker",
+            "run",
+            "--rm",
+            "--network",
+            "none",
+            "--cpus",
+            "1",
+            "--memory",
+            "128m",
+            "--pids-limit",
+            "64",
+            "--cidfile",
+            "/course/work/e12-241880375-final/draft-build/verify-container-id.txt",
+            "sha256:4aaec4605815223284c8b8df8f1241f02f4dd556c3b1165b3fc84d07293cb251"
+          ],
+          "exit_code": 0,
+          "expected_output": "1",
+          "actual_output": "1\n",
+          "output_matches": true
+        }
+      },
+      "candidate_patch": {
+        "sha256": "88074f66c291dcad1344c48f6a2b9ddd42d235d9d0415c85fb33310c5b7cb2af",
+        "bytes": 274
+      }
+    },
+    {
+      "run": "e12-real-241880375",
+      "status": "SUCCEEDED",
+      "job_id": "job-facd8e04f10f4c47b4ed69dfc9536182",
+      "trace_id": "trace-83b2a035a22c4ab98a4c07354e938a9e",
+      "base_commit": "e825395a5f8006f1c57a115cc25ea5c7802863ee",
+      "target_commit": "ba688c40d13cd8658e554f7544f1546d35b4b397",
+      "stages": [
+        {
+          "name": "draft",
+          "uri": "artifact://job-facd8e04f10f4c47b4ed69dfc9536182/draft.json",
+          "sha256": "d667ce0c821dabfb76fc91d20f47d3a61c1a68c888a5534753eeedce5c496b9b",
+          "bytes": 3451
+        },
+        {
+          "name": "full-check",
+          "uri": "artifact://job-facd8e04f10f4c47b4ed69dfc9536182/full-check.json",
+          "sha256": "c88541b524c6edf5a49bda443bde93934078b9bbf22e557d075ec2d6fee205b8",
+          "bytes": 6178
+        },
+        {
+          "name": "incremental-check",
+          "uri": "artifact://job-facd8e04f10f4c47b4ed69dfc9536182/incremental-check.json",
+          "sha256": "0a2966d99bf3580927184e3c3486f98fac18d20d27a37cfae08f43ebdee4158e",
+          "bytes": 3052
+        },
+        {
+          "name": "repair",
+          "uri": "artifact://job-facd8e04f10f4c47b4ed69dfc9536182/repair.json",
+          "sha256": "3ec5c62b60744792654c1e5357233aec9fbcec7a2aa67144ed1dea7e40252bbf",
+          "bytes": 1550
+        },
+        {
+          "name": "recheck",
+          "uri": "artifact://job-facd8e04f10f4c47b4ed69dfc9536182/recheck.json",
+          "sha256": "65a653461162ebb6fb7c17435b50dc17f859a2bd2e922e43d5c11f8e126578f4",
+          "bytes": 1541
+        }
+      ],
+      "findings": [
+        {
+          "type": "MISSING",
+          "target": "main.o",
+          "dependency": "calculate.h"
+        },
+        {
+          "type": "MISSING",
+          "target": "main.o",
+          "dependency": "config.h"
+        },
+        {
+          "type": "MISSING",
+          "target": "main.o",
+          "dependency": "extra.h"
+        },
+        {
+          "type": "REDUNDANT",
+          "target": "main.o",
+          "dependency": "unused.h"
+        },
+        {
+          "type": "MISSING",
+          "target": "helper.o",
+          "dependency": "add.h"
+        },
+        {
+          "type": "MISSING",
+          "target": "helper.o",
+          "dependency": "calculate.h"
+        },
+        {
+          "type": "MISSING",
+          "target": "helper.o",
+          "dependency": "sub.h"
+        }
+      ],
+      "refreshed": [
+        "main.o",
+        "helper.o"
+      ],
+      "reused": [],
+      "validation": {
+        "accepted": true,
+        "checks": {
+          "patch_applies": true,
+          "build": true,
+          "test": true,
+          "header_change": true,
+          "no_missing": true
+        },
+        "error": null,
+        "source_unchanged": false,
+        "rollback": false
+      },
+      "draft": {
+        "status": "SUCCEEDED",
+        "image_id": "sha256:54351588a3fa027f31bbc9d01047a311cfd78a66960005364ba648a7254dda16",
+        "verification": {
+          "command": [
+            "docker",
+            "run",
+            "--rm",
+            "--network",
+            "none",
+            "--cpus",
+            "1",
+            "--memory",
+            "128m",
+            "--pids-limit",
+            "64",
+            "--cidfile",
+            "/course/work/e12-real-241880375/draft-build/verify-container-id.txt",
+            "sha256:54351588a3fa027f31bbc9d01047a311cfd78a66960005364ba648a7254dda16"
+          ],
+          "exit_code": 0,
+          "expected_output": "1",
+          "actual_output": "1\n",
+          "output_matches": true
+        }
+      },
+      "candidate_patch": {
+        "sha256": "8634d2aa57acc132ddf21ef90fa087aca1a313aca37a7bc74bb9b5ce9bf29c6e",
+        "bytes": 353
+      }
+    }
+  ],
+  "known_failure": {
+    "run": "e11-b-241880375",
+    "status": "FAILED",
+    "job_id": "job-123ea03e867e4d0d86f6a1ea5b5f05c0",
+    "trace_id": "trace-4bc11e4d0b6247f585b61bfe6a104558",
+    "base_commit": "3fcb72029bf560afde2d29436395ff3b979a19fd",
+    "target_commit": "15c059958a41a5a0513dc048036439843a34ad28",
+    "stages": [],
+    "draft": {
+      "status": "FAILED",
+      "image_id": null,
+      "verification": null
+    },
+    "reason": "official Debian apt source stalled in iter-02; retained as infrastructure failure evidence"
+  },
+  "api": {
+    "job_id": "job-d58d3a482586434fb03fff8329ce7490",
+    "trace_id": "trace-9ac031f363af4c30b63e8fdae7c05641",
+    "health": {
+      "status": "ok",
+      "schema_version": "e11e12-1"
+    },
+    "idempotency": {
+      "same_job": true,
+      "job_id": "job-d58d3a482586434fb03fff8329ce7490",
+      "first_status": "QUEUED",
+      "second_status": "RUNNING"
+    },
+    "conflict_http": 409,
+    "conflict_error": {
+      "error": "IDEMPOTENCY_CONFLICT"
+    },
+    "stages": [
+      "draft",
+      "full-check",
+      "incremental-check",
+      "repair",
+      "recheck"
+    ],
+    "verified_artifacts": [
+      "candidate.patch",
+      "incremental-check.json",
+      "repair.json",
+      "recheck.json"
+    ],
+    "candidate_patch_sha256": "88074f66c291dcad1344c48f6a2b9ddd42d235d9d0415c85fb33310c5b7cb2af",
+    "restart_query_status": "SUCCEEDED"
+  },
+  "real_project": {
+    "source": "course-one/make-introduction",
+    "upstream_url": "https://github.com/course-one/make-introduction",
+    "upstream_commit": "a789b2f4f09675fd882ed57c88a1677ec852fc48",
+    "base_commit": "e825395a5f8006f1c57a115cc25ea5c7802863ee",
+    "target_commit": "ba688c40d13cd8658e554f7544f1546d35b4b397",
+    "expected_output": "1",
+    "changes": "target adds #include \"extra.h\" to main.c; Makefile header declarations intentionally unchanged",
+    "adaptation": "merged add/sub/calculate into helper.c; config.h VALUE drives validator output; preserved real calculate.o header dependency defect",
+    "request": {
+      "mode": "e12",
+      "repo": "/course/data/real-project",
+      "base": "e825395a5f8006f1c57a115cc25ea5c7802863ee",
+      "target": "ba688c40d13cd8658e554f7544f1546d35b4b397",
+      "candidate": "/course/data/real-candidate.Dockerfile",
+      "expected_output": "1",
+      "build_timeout": 600
+    }
+  },
+  "source_sha256": {
+    "run_e11e12.py": "70645538da0cfcdf4e35b2629b5303b6ed951a300ff74ab05888b943bec66e0c",
+    "pipeline.py": "277ff226dce192ac5389a44e60c126f55ad2bba9d30f324be90018cb25350d3b",
+    "server.py": "719c89df41ad9624d290943a766498fc2dbc22c6843355fd0156bc4bf3b40a0c",
+    "test_contract.py": "ee4f61ffd2b9a774f460842680d1636e1768d41cf3a7b1290fafed7fb02c01be",
+    "workflow": "812f46c9f4d7fcb8779e464b96e7960158efb8297d644987f432eb3931e13a67"
+  }
+}
