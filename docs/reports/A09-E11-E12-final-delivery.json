@@ -1,6 +1,6 @@
 {
   "schema_version": "a09-e11-e12-final-delivery-audit-1",
-  "generated_at": "2026-11-17T15:00:00+08:00",
+  "generated_at": "2026-11-17T17:14:00+08:00",
   "technical_integration": "complete",
   "course_submission_ready": false,
   "blockers": [
@@ -11,19 +11,23 @@
         "docs/students/241880089/e11-e12/",
         "personal E11-E12 test"
       ]
-    },
+    }
+  ],
+  "resolved_blockers": [
     {
       "student_id": "241880369",
       "name": "高嘉程",
-      "missing": [
-        "docs/students/241880369/e11-e12/",
-        "personal E11-E12 test"
-      ]
+      "resolved_by": "https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/pull/23",
+      "merge_sha": "a1c89c6c96bc2c56ff257b3754f89e880236821c"
     }
+  ],
+  "notes": [
+    "241880369 高嘉程的个人材料与个人测试已由 PR #23 合并；最终 main 为 a1c89c6c96bc2c56ff257b3754f89e880236821c。",
+    "241880089 陈玉熙仍缺个人材料与个人测试，课程提交仍未就绪。"
   ],
   "a": {
     "repo": "https://github.com/a-bi-chen/DevOps_1020_Student_Cloud",
-    "main_sha": "b0765a0f990b10a28392fe6d4318b4b73a41177a",
+    "main_sha": "a1c89c6c96bc2c56ff257b3754f89e880236821c",
     "pr17": {
       "url": "https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/pull/17",
       "merge_sha": "b634e12eb63c3f9330f7c58ff84981de23647c60"
@@ -31,6 +35,10 @@
     "pr18": {
       "url": "https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/pull/18",
       "merge_sha": "b0765a0f990b10a28392fe6d4318b4b73a41177a"
+    },
+    "pr23": {
+      "url": "https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/pull/23",
+      "merge_sha": "a1c89c6c96bc2c56ff257b3754f89e880236821c"
     }
   },
   "b": {
@@ -43,9 +51,14 @@
   },
   "ci": {
     "a_main": {
-      "e7": {"conclusion": "success", "run_id": 43857981566},
-      "e8e10": {"conclusion": "success", "run_id": 43857981555},
-      "e11e12": {"conclusion": "success", "run_id": 43857981494}
+      "e7": {"conclusion": "success", "run_id": 44053027137},
+      "e8e10": {"conclusion": "success", "run_id": 44053027052},
+      "e11e12": {"conclusion": "success", "run_id": 44053027111}
+    },
+    "a_pr23": {
+      "e7": {"conclusion": "success", "run_id": 44051185529},
+      "e8e10": {"conclusion": "success", "run_id": 44051185736},
+      "e11e12": {"conclusion": "success", "run_id": 44051185678}
     },
     "b_main": {
       "e7": {"conclusion": "success", "run_id": 44023488947},
@@ -60,6 +73,14 @@
       "size_in_bytes": 343410,
       "sha256": "8064005c2bf51a2dc413641f933fd9be12ff228dc368214ccaf94f61334ec44f",
       "run_url": "https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/actions/runs/43857981494"
+    },
+    "a_241880369": {
+      "name": "e11e12-evidence-44050562100",
+      "id": 14312968942,
+      "size_in_bytes": 343396,
+      "sha256": "cddefe63b0f74d767b10781a7541cd3bbaecc355e369db4f71e86f88f74cd4ac",
+      "sha256_note": "repacked zip from gh run download",
+      "run_url": "https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/actions/runs/44050562100"
     },
     "b": {
       "name": "e11e12-evidence-44023488982",
@@ -83,7 +104,7 @@
   },
   "personal_materials": [
     {"student_id": "241880089", "name": "陈玉熙", "e11e12_report": false, "personal_test": null},
-    {"student_id": "241880369", "name": "高嘉程", "e11e12_report": false, "personal_test": null},
+    {"student_id": "241880369", "name": "高嘉程", "e11e12_report": true, "personal_test": "StudentE11E12A241880369.test_fixed_report_outside_data_rejected"},
     {"student_id": "241880374", "name": "马海川", "e11e12_report": true, "personal_test": "StudentE11E12A241880374.test_candidate_outside_data_rejected"},
     {"student_id": "241880375", "name": "张海洋", "e11e12_report": true, "personal_test": "StudentE11E12A241880375.test_restart_marks_unfinished_job_and_keeps_completed_job"}
   ]
