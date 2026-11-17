@@ -2,6 +2,7 @@
 import argparse
 import hashlib
 import json
+import os
 import re
 import subprocess
 import sys
@@ -10,7 +11,12 @@ import urllib.request
 import uuid
 from pathlib import Path
 
-PORTS = {'buildchecker': 18081, 'echecker': 18082, 'draft': 18083, 'mdfixer': 18084}
+PORTS = {
+    'buildchecker': int(os.environ.get('E14_BUILDCHECKER_PORT', '18081')),
+    'echecker': int(os.environ.get('E14_ECHECKER_PORT', '18082')),
+    'draft': int(os.environ.get('E14_DRAFT_PORT', '18083')),
+    'mdfixer': int(os.environ.get('E14_MDFIXER_PORT', '18084')),
+}
 ROOT = Path(__file__).resolve().parents[2]
 
 
@@ -129,13 +135,17 @@ def execute(request, out):
         repair = call('mdfixer', payload(target, out / 'repair-work',
                                         report=increment['report'], report_sha256=increment['sha256'],
                                         target_commit=target_sha), out / 'repair-response.json')
-        stage('repair', target_sha, repair)
+        stage('repair', target_sha, {'result': repair,
+                                     'input_report': {'uri': 'incremental-check.json',
+                                                      'sha256': increment['sha256']}})
 
         final = call('buildchecker', payload(target, out / 'final-full'), out / 'recheck-response.json')
         missing = [x for x in final['result']['findings'] if x['type'] == 'MISSING']
         if missing:
             raise ValueError(f'Recheck has {len(missing)} missing dependencies')
-        stage('recheck', target_sha, {'result': final, 'remaining_missing': 0})
+        stage('recheck', target_sha, {'validation': repair['validation'],
+                                      'findings': final['result']['findings'],
+                                      'remaining_missing': 0})
         result['status'] = 'SUCCEEDED'
     except Exception as exc:
         result.update(status='FAILED', error=str(exc))
