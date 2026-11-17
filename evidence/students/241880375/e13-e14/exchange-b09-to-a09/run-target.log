@@ -1,0 +1,10 @@
++ make clean
+rm -f app main.o helper.o
++ make
+cc -std=c11 -Wall -Wextra -Werror -c main.c
+cc -std=c11 -Wall -Wextra -Werror -c helper.c
+cc -std=c11 -Wall -Wextra -Werror -o app main.o helper.o
++ make test
++ ./app
+hello E3
+EXIT=0

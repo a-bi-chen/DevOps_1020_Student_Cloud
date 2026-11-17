@@ -1,0 +1,406 @@
+{
+  "teacher_projects": {
+    "H1-jsmn": {
+      "status": "SUCCEEDED",
+      "job_id": "job-4380a621e8f241bf803362b68f4a5d99",
+      "trace_id": "trace-5b70d31f649146659b1d7db2c345355e",
+      "base": "66a6dafcc20cea76bf017923d3db725d78407845",
+      "target": "948a1d30cd758d32d45a50f788e5a95fb1d89c69",
+      "stages": [
+        "draft",
+        "full-check",
+        "incremental-check",
+        "repair",
+        "recheck"
+      ],
+      "findings": [
+        {
+          "type": "MISSING",
+          "target": "helper.o",
+          "dependency": "extra.h"
+        }
+      ],
+      "final_findings": [],
+      "validation": {
+        "accepted": true,
+        "checks": {
+          "patch_applies": true,
+          "build": true,
+          "test": true,
+          "header_change": true,
+          "no_missing": true
+        },
+        "error": null,
+        "source_unchanged": false,
+        "rollback": false
+      },
+      "patch_sha256": "8598e9b539354b5b628a6d992932cf1602c8acf6c75e75af3a73ba32f3fe51ba",
+      "incremental_sha256": "e7a3514e515c0b998e90f6cd3a544cd15db79da3a877f7909744b6ffc0359378"
+    },
+    "H2-inih": {
+      "status": "SUCCEEDED",
+      "job_id": "job-54905f88163643908e35dea31d62e623",
+      "trace_id": "trace-5080e8ba164f4e07902bedc1ed213e1c",
+      "base": "aafc740a2cac05a74541abede93b7d59ed23b87f",
+      "target": "3aadb81763c79651e4dfa99b725ba921ee2b8a39",
+      "stages": [
+        "draft",
+        "full-check",
+        "incremental-check",
+        "repair",
+        "recheck"
+      ],
+      "findings": [
+        {
+          "type": "MISSING",
+          "target": "main.o",
+          "dependency": "extra.h"
+        },
+        {
+          "type": "REDUNDANT",
+          "target": "main.o",
+          "dependency": "unused.h"
+        }
+      ],
+      "final_findings": [
+        {
+          "type": "REDUNDANT",
+          "target": "main.o",
+          "dependency": "unused.h",
+          "evidence": [
+            {
+              "source": "make_database",
+              "artifact": "make-db.txt",
+              "line": 1060,
+              "declaration": "main.o: main.c config.h unused.h extra.h"
+            }
+          ],
+          "scope": "Not observed in this recipe job under this build configuration"
+        }
+      ],
+      "validation": {
+        "accepted": true,
+        "checks": {
+          "patch_applies": true,
+          "build": true,
+          "test": true,
+          "header_change": true,
+          "no_missing": true
+        },
+        "error": null,
+        "source_unchanged": false,
+        "rollback": false
+      },
+      "patch_sha256": "2c9db75d9a84e3271257c94bae1fa67dd007c455d1db920c2d94b0ae92b5b4ac",
+      "incremental_sha256": "604b4960b175fa4dd60397aad10189f8cb3526785f5bca3ab8118b8ddb3d0a39"
+    },
+    "H3-tiny-aes": {
+      "status": "SUCCEEDED",
+      "job_id": "job-d7f739f6abf349ff8bcffbbea88e8603",
+      "trace_id": "trace-24773d50003547d2b71278ca4e2f772f",
+      "base": "dc8099306d7023b7337328d718149973e7b17978",
+      "target": "5640bb69a01e64559207e9f74d15a9ae71a4d0f3",
+      "stages": [
+        "draft",
+        "full-check",
+        "incremental-check",
+        "repair",
+        "recheck"
+      ],
+      "findings": [
+        {
+          "type": "MISSING",
+          "target": "helper.o",
+          "dependency": "extra.h"
+        }
+      ],
+      "final_findings": [],
+      "validation": {
+        "accepted": true,
+        "checks": {
+          "patch_applies": true,
+          "build": true,
+          "test": true,
+          "header_change": true,
+          "no_missing": true
+        },
+        "error": null,
+        "source_unchanged": false,
+        "rollback": false
+      },
+      "patch_sha256": "ccd510fc4ebbd03405bf0f0e73c1624e9d5a88480de0820aebe8f781e41773b5",
+      "incremental_sha256": "0d2730201e10cf0f5172edeaf96cc4fcfaaec958dd6ab46cf65a76cc06b39f67"
+    }
+  },
+  "C1": {
+    "status": "SUCCEEDED",
+    "job_id": "job-f18dbac70128426dbea57fc516b19ce3",
+    "trace_id": "trace-59fad11cb5db435e8676aa2541847a1b",
+    "base": "30ffe4c41492334478a2446a8be0662d3f31d478",
+    "target": "a7e3b644ca9b1b9d0b26bd41e839fcbf5ea1c293",
+    "findings": [
+      {
+        "type": "MISSING",
+        "target": "main.o",
+        "dependency": "extra.h"
+      }
+    ],
+    "attempt1": {
+      "schema_version": "e11e12-1",
+      "job_id": "job-67b844e0ff814a21865f4d423228f5ae",
+      "trace_id": "trace-f370493be45841bc873c70df9566a6b3",
+      "status": "FAILED",
+      "stages": [],
+      "base_commit": "30ffe4c41492334478a2446a8be0662d3f31d478",
+      "target_commit": "a7e3b644ca9b1b9d0b26bd41e839fcbf5ea1c293",
+      "error": {
+        "code": "EXECUTION_FAILED",
+        "message": "UNSUPPORTED_FLAGS"
+      }
+    },
+    "handoff_sha256": "ee70139fa5e7b606400ed830e5c2839f42279ee9db5a658d774d27b080b0e7df"
+  },
+  "C2": {
+    "handoff_wrong_target_exit": 1,
+    "handoff_wrong_target_log": "work/e13-c2-handoff-wrong-target.log",
+    "old_report": {
+      "schema_version": "e11e12-1",
+      "job_id": "job-96fe0f32373a4e1690fa7554681d7c8c",
+      "trace_id": "trace-9440d3746c944675b67346b2a876596b",
+      "status": "FAILED",
+      "stages": [
+        {
+          "name": "draft",
+          "artifact": {
+            "uri": "artifact://job-96fe0f32373a4e1690fa7554681d7c8c/draft.json",
+            "sha256": "b60c4ab863ffd1b9fec6a6f9f2129af011699168b37ed0885cc1a21a9dbb75ec",
+            "bytes": 3205
+          }
+        }
+      ],
+      "base_commit": "3fcb72029bf560afde2d29436395ff3b979a19fd",
+      "target_commit": "3fcb72029bf560afde2d29436395ff3b979a19fd",
+      "error": {
+        "code": "STALE_REPORT",
+        "message": "Report belongs to another commit"
+      }
+    }
+  },
+  "C3": {
+    "original_sha256": "ee70139fa5e7b606400ed830e5c2839f42279ee9db5a658d774d27b080b0e7df",
+    "tampered_sha256": "a0c1a66876827cd2d12730d12813d647afe23184e2aa5324ede7cbe2a2e96767",
+    "result": {
+      "schema_version": "e11e12-1",
+      "job_id": "job-4e4ac5ee3002424b89b81d438bda53b9",
+      "trace_id": "trace-c0490523335b457f84f483b2e53bc443",
+      "status": "FAILED",
+      "stages": [
+        {
+          "name": "draft",
+          "artifact": {
+            "uri": "artifact://job-4e4ac5ee3002424b89b81d438bda53b9/draft.json",
+            "sha256": "994214a2510428134082cb24b0178ecbbcca688738882ff1e5b56750bb27efe7",
+            "bytes": 3299
+          }
+        }
+      ],
+      "base_commit": "30ffe4c41492334478a2446a8be0662d3f31d478",
+      "target_commit": "a7e3b644ca9b1b9d0b26bd41e839fcbf5ea1c293",
+      "error": {
+        "code": "ARTIFACT_HASH_MISMATCH",
+        "message": "Fixed report content changed during transfer"
+      }
+    }
+  },
+  "C4": {
+    "outer": {
+      "schema_version": "e11e12-1",
+      "job_id": "job-6289409eceb7445daca98ab63efeb83e",
+      "trace_id": "trace-c77b212ea0a84ba0a190fe7bc65be886",
+      "status": "FAILED",
+      "stages": [],
+      "base_commit": "3fcb72029bf560afde2d29436395ff3b979a19fd",
+      "target_commit": "15c059958a41a5a0513dc048036439843a34ad28",
+      "error": {
+        "code": "DRAFT_FAILED",
+        "message": "Docker client command exceeded 0.01s"
+      }
+    },
+    "inner": {
+      "status": "TIMED_OUT",
+      "detector": "DRAFT_TEACHING_REPLAY",
+      "trace_id": "e6-b-37da6685114a46959fc503e4d2fb1b37",
+      "candidate_source": "Manual model response replay; no model/API call in this command",
+      "candidate_sha256": "87413c09608844f35694a46e28a7617e398cc653d213bac9612c8030e9cdd12d",
+      "attempts": [
+        {
+          "iteration": 1,
+          "tag": "e6-draft-replay:37da6685114a46959fc503e4d2fb1b37-1",
+          "command": [
+            "docker",
+            "build",
+            "--progress=plain",
+            "-f",
+            "/course/work/e13-c4-01/draft-build/iter-01/Dockerfile",
+            "-t",
+            "e6-draft-replay:37da6685114a46959fc503e4d2fb1b37-1",
+            "/course/work/e13-c4-01/draft-build/project"
+          ]
+        }
+      ],
+      "input_sha256": {
+        ".gitignore": "d7bfd39146ded6c9700eb81300e82345464db46cda1e775b8a114a811311bafe",
+        "Dockerfile.broken": "493f94f95181dd9f4cfb8f47beeed4bfd86e3395ab354742d1d201c409a3e745",
+        "Makefile": "9206301c23ce4cb93c3fc1434037e475cf69f53e132dc541f6028d05e30258b2",
+        "config.h": "ac32a92f4af359517c993d6e8583ea2d9b053c2ad171b4c602bc242894bd9696",
+        "extra.h": "5e20ae92639ee989af5638bd0308a6a86e71bdb4345f60b962ba9db7265e4f7c",
+        "helper.c": "90a60f959d215b0b91807c6dd2c94acf6684a9fe26629dc1591e9b2ea773d78c",
+        "main.c": "1e2e75d84a5a28f44438792dbb33ce888a09fad6597094d998ebaf34fa784312",
+        "unused.h": "3f7fec0991b34d614462e29b450c76638f07171936a12df337c578c2d1481b37"
+      },
+      "error": "Docker client command exceeded 0.01s",
+      "elapsed_ms": 14
+    }
+  },
+  "C5": {
+    "accepted": false,
+    "checks": {
+      "patch_applies": true,
+      "build": true,
+      "test": false,
+      "header_change": false,
+      "no_missing": false
+    },
+    "error": null,
+    "source_unchanged": true,
+    "rollback": true
+  },
+  "C6": {
+    "hit_code": 1,
+    "clean_code": 0,
+    "evidence_exit": 0,
+    "hit_scan": "FOUND work/e13-c6/probe.log:1 LLM/API Key sk-d***\nFOUND work/e13-c6/probe.log:1 secret assignment sk-d***\nruntime log scan: text_files=1 hits=2 errors=0",
+    "clean_scan": "runtime log scan: text_files=1 hits=0 errors=0",
+    "evidence_scan": "runtime log scan: text_files=3937 hits=0 errors=0"
+  },
+  "C7": {
+    "failed": {
+      "schema_version": "e11e12-1",
+      "job_id": "job-4588ee2ef8d24c0187b1801d54c4cfeb",
+      "trace_id": "trace-b1d2b885d8a84002ac50952de1d1e616",
+      "status": "FAILED",
+      "stages": [],
+      "error": {
+        "code": "COMMAND_FAILED",
+        "message": "git failed; see base-project-resolve.log"
+      }
+    },
+    "success": {
+      "schema_version": "e11e12-1",
+      "job_id": "job-8489829d74084bd09263267f2ae5c504",
+      "trace_id": "trace-8a4a1d6a137b4730a22ddd43f9a93b36",
+      "status": "SUCCEEDED",
+      "stages": [
+        {
+          "name": "full-check",
+          "artifact": {
+            "uri": "artifact://job-8489829d74084bd09263267f2ae5c504/full-check.json",
+            "sha256": "1eec01ad6283913e81be8776859d766849e83a2d26a4f7b14d9f626bdaf7aa0c",
+            "bytes": 2654
+          }
+        },
+        {
+          "name": "incremental-check",
+          "artifact": {
+            "uri": "artifact://job-8489829d74084bd09263267f2ae5c504/incremental-check.json",
+            "sha256": "3ace728302ae8f2e6f015d2e8bf507e314408563c0738b7285eba2e20c3098f7",
+            "bytes": 2617
+          }
+        }
+      ],
+      "base_commit": "30ffe4c41492334478a2446a8be0662d3f31d478",
+      "target_commit": "a7e3b644ca9b1b9d0b26bd41e839fcbf5ea1c293"
+    }
+  },
+  "C8": {
+    "first": {
+      "http": 202,
+      "body": {
+        "schema_version": "e11e12-1",
+        "job_id": "job-e760c41593254dca8d046e50a86206c7",
+        "status": "QUEUED",
+        "idempotency_key": "e13-c8-241880375-01",
+        "request_hash": "f89c2197e18ca9a06f87e6b52bc76d330a804f116757019495d3b23607373f7e"
+      }
+    },
+    "second": {
+      "http": 202,
+      "body": {
+        "schema_version": "e11e12-1",
+        "job_id": "job-e760c41593254dca8d046e50a86206c7",
+        "status": "RUNNING",
+        "idempotency_key": "e13-c8-241880375-01",
+        "request_hash": "f89c2197e18ca9a06f87e6b52bc76d330a804f116757019495d3b23607373f7e"
+      }
+    },
+    "conflict": {
+      "http": 409,
+      "body": {
+        "error": "IDEMPOTENCY_CONFLICT"
+      }
+    }
+  },
+  "E14": {
+    "sample-02": {
+      "status": "SUCCEEDED",
+      "job_id": "job-9ee630375b6045a8b46400d57b6dd6de",
+      "trace_id": "trace-e2ea5482873a4ab990c2078670a9fa9b",
+      "stages": [
+        "draft",
+        "full-check",
+        "incremental-check",
+        "repair",
+        "recheck"
+      ],
+      "error": null,
+      "artifact_count": 162
+    },
+    "real-01": {
+      "status": "SUCCEEDED",
+      "job_id": "job-dd1739826cd94ddea84d3f53254aff4b",
+      "trace_id": "trace-38220b9288ec4928bf01ffed63d8b7b8",
+      "stages": [
+        "draft",
+        "full-check",
+        "incremental-check",
+        "repair",
+        "recheck"
+      ],
+      "error": null,
+      "artifact_count": 183
+    },
+    "timeout-01": {
+      "status": "FAILED",
+      "job_id": "job-eff819d145e5478583679d8ece6317e1",
+      "trace_id": "trace-34c85bd106144509b31c1be6ac7eb07c",
+      "stages": [],
+      "error": "draft HTTP 422: {\"status\": \"FAILED\", \"role\": \"draft\", \"error_code\": \"TIMEOUT\", \"error\": \"DRAFT_TIMED_OUT: Docker client command exceeded 0.01s\"}\n",
+      "artifact_count": 36
+    },
+    "recover-01": {
+      "status": "SUCCEEDED",
+      "job_id": "job-36c57ba637d14062a2ab504dc006949b",
+      "trace_id": "trace-24c6a94528294b49ac0385908c5468c8",
+      "stages": [
+        "draft",
+        "full-check",
+        "incremental-check",
+        "repair",
+        "recheck"
+      ],
+      "error": null,
+      "artifact_count": 162
+    },
+    "log_scan": "runtime log scan: text_files=514 hits=0 errors=0"
+  }
+}

@@ -1,0 +1,59 @@
+draft-1         | 127.0.0.1 - - [17/Nov/2026 05:54:07] "GET /health HTTP/1.1" 200 -
+draft-1         | {"role": "draft", "job_id": "job-fe46eb55f754421c97d4f81e279974a8", "trace_id": "trace-71d23811436144108ee0f6d2deae0b77", "status": "SUCCEEDED", "elapsed_ms": 13832}
+draft-1         | 172.18.0.1 - - [17/Nov/2026 05:54:21] "POST /v1/run HTTP/1.1" 200 -
+draft-1         | 127.0.0.1 - - [17/Nov/2026 05:54:21] "GET /health HTTP/1.1" 200 -
+draft-1         | ----------------------------------------
+draft-1         | Exception occurred during processing of request from ('127.0.0.1', 57452)
+draft-1         | Traceback (most recent call last):
+draft-1         |   File "/usr/local/lib/python3.13/socketserver.py", line 318, in _handle_request_noblock
+draft-1         |     self.process_request(request, client_address)
+draft-1         |     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+draft-1         |   File "/usr/local/lib/python3.13/socketserver.py", line 349, in process_request
+draft-1         |     self.finish_request(request, client_address)
+draft-1         |     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+draft-1         |   File "/usr/local/lib/python3.13/socketserver.py", line 362, in finish_request
+draft-1         |     self.RequestHandlerClass(request, client_address, self)
+draft-1         |     ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+draft-1         |   File "/usr/local/lib/python3.13/socketserver.py", line 766, in __init__
+draft-1         |     self.handle()
+draft-1         |     ~~~~~~~~~~~^^
+draft-1         |   File "/usr/local/lib/python3.13/http/server.py", line 447, in handle
+draft-1         |     self.handle_one_request()
+draft-1         |     ~~~~~~~~~~~~~~~~~~~~~~~^^
+draft-1         |   File "/usr/local/lib/python3.13/http/server.py", line 435, in handle_one_request
+draft-1         |     method()
+draft-1         |     ~~~~~~^^
+draft-1         |   File "/course/labs/e13e14/service.py", line 117, in do_GET
+draft-1         |     self.reply(200, {'status': 'ok', 'role': ROLE})
+draft-1         |     ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+draft-1         |   File "/course/labs/e13e14/service.py", line 113, in reply
+draft-1         |     self.wfile.write(body)
+draft-1         |     ~~~~~~~~~~~~~~~~^^^^^^
+draft-1         |   File "/usr/local/lib/python3.13/socketserver.py", line 845, in write
+draft-1         |     self._sock.sendall(b)
+draft-1         |     ~~~~~~~~~~~~~~~~~~^^^
+draft-1         | BrokenPipeError: [Errno 32] Broken pipe
+draft-1         | ----------------------------------------
+draft-1         | 127.0.0.1 - - [17/Nov/2026 05:54:21] "GET /health HTTP/1.1" 200 -
+buildchecker-1  | 127.0.0.1 - - [17/Nov/2026 05:54:07] "GET /health HTTP/1.1" 200 -
+buildchecker-1  | 127.0.0.1 - - [17/Nov/2026 05:54:12] "GET /health HTTP/1.1" 200 -
+buildchecker-1  | 127.0.0.1 - - [17/Nov/2026 05:54:18] "GET /health HTTP/1.1" 200 -
+buildchecker-1  | 172.18.0.1 - - [17/Nov/2026 05:54:21] "POST /v1/run HTTP/1.1" 200 -
+buildchecker-1  | {"role": "buildchecker", "job_id": "job-fe46eb55f754421c97d4f81e279974a8", "trace_id": "trace-71d23811436144108ee0f6d2deae0b77", "status": "SUCCEEDED", "elapsed_ms": 284}
+buildchecker-1  | {"role": "buildchecker", "job_id": "job-fe46eb55f754421c97d4f81e279974a8", "trace_id": "trace-71d23811436144108ee0f6d2deae0b77", "status": "SUCCEEDED", "elapsed_ms": 282}
+buildchecker-1  | 172.18.0.1 - - [17/Nov/2026 05:54:21] "POST /v1/run HTTP/1.1" 200 -
+buildchecker-1  | 172.18.0.1 - - [17/Nov/2026 05:54:23] "POST /v1/run HTTP/1.1" 200 -
+buildchecker-1  | {"role": "buildchecker", "job_id": "job-fe46eb55f754421c97d4f81e279974a8", "trace_id": "trace-71d23811436144108ee0f6d2deae0b77", "status": "SUCCEEDED", "elapsed_ms": 456}
+buildchecker-1  | 127.0.0.1 - - [17/Nov/2026 05:54:23] "GET /health HTTP/1.1" 200 -
+mdfixer-1       | 127.0.0.1 - - [17/Nov/2026 05:54:07] "GET /health HTTP/1.1" 200 -
+mdfixer-1       | 127.0.0.1 - - [17/Nov/2026 05:54:12] "GET /health HTTP/1.1" 200 -
+mdfixer-1       | 127.0.0.1 - - [17/Nov/2026 05:54:17] "GET /health HTTP/1.1" 200 -
+mdfixer-1       | 172.18.0.1 - - [17/Nov/2026 05:54:23] "POST /v1/run HTTP/1.1" 200 -
+mdfixer-1       | {"role": "mdfixer", "job_id": "job-fe46eb55f754421c97d4f81e279974a8", "trace_id": "trace-71d23811436144108ee0f6d2deae0b77", "status": "SUCCEEDED", "elapsed_ms": 1166}
+mdfixer-1       | 127.0.0.1 - - [17/Nov/2026 05:54:23] "GET /health HTTP/1.1" 200 -
+echecker-1      | 127.0.0.1 - - [17/Nov/2026 05:54:07] "GET /health HTTP/1.1" 200 -
+echecker-1      | 127.0.0.1 - - [17/Nov/2026 05:54:12] "GET /health HTTP/1.1" 200 -
+echecker-1      | 127.0.0.1 - - [17/Nov/2026 05:54:17] "GET /health HTTP/1.1" 200 -
+echecker-1      | {"role": "echecker", "job_id": "job-fe46eb55f754421c97d4f81e279974a8", "trace_id": "trace-71d23811436144108ee0f6d2deae0b77", "status": "SUCCEEDED", "elapsed_ms": 32}
+echecker-1      | 172.18.0.1 - - [17/Nov/2026 05:54:22] "POST /v1/run HTTP/1.1" 200 -
+echecker-1      | 127.0.0.1 - - [17/Nov/2026 05:54:23] "GET /health HTTP/1.1" 200 -

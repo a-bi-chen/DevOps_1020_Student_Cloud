@@ -33,7 +33,7 @@ def commit(p, msg):
 
 def declarations(p):
     text=(p/'Makefile').read_text()
-    variables=dict(re.findall(r'^(\w+)\s*=\s*(.*)$',text,re.M))
+    variables=dict(re.findall(r'^(\w+)\s*(?:\?|:)?=\s*(.*)$',text,re.M))
     graph={}
     for target in ['main.o','helper.o']:
         m=re.search(r'^'+re.escape(target)+r': ([^\n]*)$',text,re.M)
@@ -47,7 +47,7 @@ def declarations(p):
 
 def scan(p, old=None):
     start=time.perf_counter(); declared,flags=declarations(p)
-    if flags not in ['-O0','-O1','-O0 -DMODE=1']: raise ValueError('UNSUPPORTED_FLAGS')
+    if flags not in ['-O0','-O1','-O0 -DMODE=1','-std=c11 -Wall -Wextra -Werror']: raise ValueError('UNSUPPORTED_FLAGS')
     # Conservative invalidation: all local preprocessor lines, source set and recipes.
     files={x.name:x.read_text() for x in sorted(p.glob('*')) if x.suffix in ['.c','.h']}
     key={'directives':{n:[l for l in t.splitlines() if l.lstrip().startswith('#')] for n,t in files.items()},
