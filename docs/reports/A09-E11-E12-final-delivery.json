@@ -1,0 +1,90 @@
+{
+  "schema_version": "a09-e11-e12-final-delivery-audit-1",
+  "generated_at": "2026-11-17T15:00:00+08:00",
+  "technical_integration": "complete",
+  "course_submission_ready": false,
+  "blockers": [
+    {
+      "student_id": "241880089",
+      "name": "陈玉熙",
+      "missing": [
+        "docs/students/241880089/e11-e12/",
+        "personal E11-E12 test"
+      ]
+    },
+    {
+      "student_id": "241880369",
+      "name": "高嘉程",
+      "missing": [
+        "docs/students/241880369/e11-e12/",
+        "personal E11-E12 test"
+      ]
+    }
+  ],
+  "a": {
+    "repo": "https://github.com/a-bi-chen/DevOps_1020_Student_Cloud",
+    "main_sha": "b0765a0f990b10a28392fe6d4318b4b73a41177a",
+    "pr17": {
+      "url": "https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/pull/17",
+      "merge_sha": "b634e12eb63c3f9330f7c58ff84981de23647c60"
+    },
+    "pr18": {
+      "url": "https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/pull/18",
+      "merge_sha": "b0765a0f990b10a28392fe6d4318b4b73a41177a"
+    }
+  },
+  "b": {
+    "repo": "https://github.com/llxxy-cn/devops-b09",
+    "main_sha": "80b4dafb836365911e6e85451ee367cc874afa46",
+    "pr14": {
+      "url": "https://github.com/llxxy-cn/devops-b09/pull/14",
+      "merge_sha": "0c373199fc0f0528d930da039ca2fe642027d40b"
+    }
+  },
+  "ci": {
+    "a_main": {
+      "e7": {"conclusion": "success", "run_id": 43857981566},
+      "e8e10": {"conclusion": "success", "run_id": 43857981555},
+      "e11e12": {"conclusion": "success", "run_id": 43857981494}
+    },
+    "b_main": {
+      "e7": {"conclusion": "success", "run_id": 44023488947},
+      "e8e10": {"conclusion": "success", "run_id": 44023488990},
+      "e11e12": {"conclusion": "success", "run_id": 44023488982}
+    }
+  },
+  "artifacts": {
+    "a": {
+      "name": "e11e12-evidence-43857981494",
+      "id": 14220839475,
+      "size_in_bytes": 343410,
+      "sha256": "8064005c2bf51a2dc413641f933fd9be12ff228dc368214ccaf94f61334ec44f",
+      "run_url": "https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/actions/runs/43857981494"
+    },
+    "b": {
+      "name": "e11e12-evidence-44023488982",
+      "id": 14302247540,
+      "run_attempt": 2,
+      "size_in_bytes": 2250326,
+      "sha256": "0dbe891a036b1a42644b5eab5e8287ac9f86958229401e99df50fe6b7ce5b9f3",
+      "run_url": "https://github.com/llxxy-cn/devops-b09/actions/runs/44023488982"
+    }
+  },
+  "b_signoff": {
+    "source_sha": "80b4dafb836365911e6e85451ee367cc874afa46",
+    "source_path": "docs/students/241880556/e11-e12-b4/formal/signoff/",
+    "archive_path": "evidence/students/241880375/e11-e12/b09-signoff/",
+    "checksum_manifest_verified": true,
+    "job_id": "job-1bd0ed1b449f44f293853df90440844f",
+    "trace_id": "trace-4e7c0c6afd0447f9869d2f5e1ee6f4ae",
+    "base_sha": "3fcb72029bf560afde2d29436395ff3b979a19fd",
+    "target_sha": "15c059958a41a5a0513dc048036439843a34ad28",
+    "repaired_commit": "817b2459d53f586f7f3800ce20d0c3f002621f77"
+  },
+  "personal_materials": [
+    {"student_id": "241880089", "name": "陈玉熙", "e11e12_report": false, "personal_test": null},
+    {"student_id": "241880369", "name": "高嘉程", "e11e12_report": false, "personal_test": null},
+    {"student_id": "241880374", "name": "马海川", "e11e12_report": true, "personal_test": "StudentE11E12A241880374.test_candidate_outside_data_rejected"},
+    {"student_id": "241880375", "name": "张海洋", "e11e12_report": true, "personal_test": "StudentE11E12A241880375.test_restart_marks_unfinished_job_and_keeps_completed_job"}
+  ]
+}
