@@ -1,0 +1,140 @@
+{
+  "student": "241880374",
+  "name": "马海川",
+  "group": "A09",
+  "track": "A",
+  "date": "2026-11-16",
+  "image": "sha256:b8f76409f29d5cdac846b232858089b561ad4a8ffe7803219fd14ad07d5d219f",
+  "contract_tests": {
+    "count": 12,
+    "result": "OK",
+    "personal": "test_candidate_outside_data_rejected"
+  },
+  "e11_a": {
+    "out": "work/e11-a-ma-20261116-185122",
+    "status": "SUCCEEDED",
+    "job_id": "job-326071c6427745e6bfa27f14227aac96",
+    "trace_id": "trace-b1672860f5874ad1a5924c94a8560444",
+    "base_commit": "988a1e2e04b05a2d8942443cf97665b4a4153956",
+    "target_commit": "8cd4d9db5b72f9a0b1634f30a1c9004cb7e193da",
+    "incremental_sha256": "23b29b570c1a10ae0ea880e3363de4f2a4edf9386db706cad1cc877385f42872",
+    "full_sha256": "dcae2edc75dfe58b130fa15fbb730299671494e83c8e309508c6a692c909fdb6",
+    "findings": [
+      {
+        "type": "MISSING",
+        "target": "main.o",
+        "dependency": "config.h"
+      },
+      {
+        "type": "MISSING",
+        "target": "main.o",
+        "dependency": "extra.h"
+      },
+      {
+        "type": "REDUNDANT",
+        "target": "main.o",
+        "dependency": "unused.h"
+      }
+    ],
+    "reused": [],
+    "refreshed": [
+      "main.o",
+      "helper.o"
+    ]
+  },
+  "e12": {
+    "out": "work/e12-ma-20261116-190053",
+    "status": "SUCCEEDED",
+    "job_id": "job-74aa8335bbc740dd994a5846d61e99ef",
+    "trace_id": "trace-4aedbaa50d8d4958a17de1501c70e9dc",
+    "base_commit": "988a1e2e04b05a2d8942443cf97665b4a4153956",
+    "target_commit": "8cd4d9db5b72f9a0b1634f30a1c9004cb7e193da",
+    "stages": [
+      "draft",
+      "full-check",
+      "incremental-check",
+      "repair",
+      "recheck"
+    ],
+    "incremental_sha256": "30788a6598cb80f001d822951b1bd870ceb28a2b3ade0b7bc1e834b47d2e5788",
+    "accepted": true,
+    "checks": {
+      "patch_applies": true,
+      "build": true,
+      "test": true,
+      "header_change": true,
+      "no_missing": true
+    },
+    "final_findings": [
+      {
+        "type": "REDUNDANT",
+        "target": "main.o",
+        "dependency": "unused.h",
+        "evidence": [
+          {
+            "source": "make_database",
+            "artifact": "make-db.txt",
+            "line": 1052,
+            "declaration": "main.o: main.c unused.h config.h extra.h"
+          }
+        ],
+        "scope": "Not observed in this recipe job under this build configuration"
+      }
+    ]
+  },
+  "api": {
+    "job_id": "job-ffc6088d56ec468086e71b318f141f1f",
+    "trace_id": "trace-96b4282d18f74dc38fd5b1d7d30efea7",
+    "status": "SUCCEEDED",
+    "same_job": true,
+    "conflict_http": 409,
+    "verified": {
+      "candidate.patch": {
+        "local": "88074f66c291dcad1344c48f6a2b9ddd42d235d9d0415c85fb33310c5b7cb2af",
+        "header": "88074f66c291dcad1344c48f6a2b9ddd42d235d9d0415c85fb33310c5b7cb2af",
+        "manifest": "88074f66c291dcad1344c48f6a2b9ddd42d235d9d0415c85fb33310c5b7cb2af",
+        "ok": true
+      },
+      "incremental-check.json": {
+        "local": "aa4c0141a68f1f7056efbbcd6751f7a17b985441196a5c2c1a7b256ef964ebbc",
+        "header": "aa4c0141a68f1f7056efbbcd6751f7a17b985441196a5c2c1a7b256ef964ebbc",
+        "manifest": "aa4c0141a68f1f7056efbbcd6751f7a17b985441196a5c2c1a7b256ef964ebbc",
+        "ok": true
+      },
+      "repair.json": {
+        "local": "78bff62a2ee2f11f6e9cb9af72b5d66957aab2c96ddac3beb2acac28bab368d4",
+        "header": "78bff62a2ee2f11f6e9cb9af72b5d66957aab2c96ddac3beb2acac28bab368d4",
+        "manifest": "78bff62a2ee2f11f6e9cb9af72b5d66957aab2c96ddac3beb2acac28bab368d4",
+        "ok": true
+      },
+      "recheck.json": {
+        "local": "019b23c86df4340fbc837e26dfae1679346b576891ac0e8c62080d86060912c9",
+        "header": "019b23c86df4340fbc837e26dfae1679346b576891ac0e8c62080d86060912c9",
+        "manifest": "019b23c86df4340fbc837e26dfae1679346b576891ac0e8c62080d86060912c9",
+        "ok": true
+      }
+    },
+    "conflict_body": "{\"error\": \"IDEMPOTENCY_CONFLICT\"}"
+  },
+  "api_restart_query": {
+    "schema_version": "e11e12-1",
+    "job_id": "job-ffc6088d56ec468086e71b318f141f1f",
+    "status": "SUCCEEDED",
+    "idempotency_key": "ma-e12-20261116-01",
+    "request_hash": "ea395af4d951fb8a50633cc7eaa8901741fdd1cdd31e26ef811367251990123f",
+    "trace_id": "trace-96b4282d18f74dc38fd5b1d7d30efea7"
+  },
+  "test_log": "work/e11e12-personal-tests-20261116.log",
+  "code_commit": "6f4c2bbf7cbecaeddd5d9514a80052a544d69075",
+  "pr": 18,
+  "pr_url": "https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/pull/18",
+  "remote_branch_head": "bd34a05b827fdd5ec0e41847678b7b52848f1a9e",
+  "ci": {
+    "e7": "success",
+    "e8e10": "success",
+    "e11e12": "success",
+    "code_head": "0415e830350fa997a47c45060be11272e1caae6a",
+    "pull_request_run": 43855640382,
+    "artifact": "e11e12-evidence-43855640382"
+  }
+}

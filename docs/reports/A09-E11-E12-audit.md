@@ -1,7 +1,7 @@
 # A09 E11–E12 归档全量检查记录
 
-- 生成时间：2026-11-17T14:11:34+00:00
-- 结果：**21 PASS / 1 WARN / 0 FAIL**（共 22 项）
+- 生成时间：2026-11-17T14:53:34+00:00
+- 结果：**23 PASS / 0 WARN / 0 FAIL**（共 23 项）
 
 ## 1. 四位组员材料
 
@@ -9,7 +9,7 @@
 |---|---|---|---|---|---|
 | 241880089 | 陈玉熙 | 齐全 | 已归档 | 18 | PASS |
 | 241880369 | 高嘉程 | 齐全 | 已归档 | 5 | PASS |
-| 241880374 | 马海川 | 齐全 | 已归档 | **目录缺失** | WARN |
+| 241880374 | 马海川 | 齐全 | 已归档 | 3 | PASS |
 | 241880375 | 张海洋 | 齐全 | 已归档 | 22 | PASS |
 
 ## 2. 校验清单
@@ -24,15 +24,16 @@
 | 241880369 证据目录 | **PASS** | 5 个文件，627811 字节 |
 | 241880374 个人材料 | **PASS** | 马海川：报告/ADR/AI_USAGE 齐全 |
 | 241880374 个人测试 | **PASS** | labs/e11e12/test_student_241880374.py |
-| 241880374 证据目录 | **WARN** | report 已归档，但 evidence/ 目录缺失，无法按 SHA256 复核 |
+| 241880374 证据目录 | **PASS** | 3 个文件，214690 字节 |
 | 241880375 个人材料 | **PASS** | 张海洋：报告/ADR/AI_USAGE 齐全 |
 | 241880375 个人测试 | **PASS** | labs/e11e12/test_contract.py |
 | 241880375 证据目录 | **PASS** | 22 个文件，10241123 字节 |
 | manifest evidence/students/241880089/e11-e12/SHA256SUMS | **PASS** | 1 项，失败 0 项 |
 | manifest evidence/students/241880369/e11-e12/artifacts.sha256 | **PASS** | 3 项，失败 0 项 |
+| manifest evidence/students/241880374/e11-e12/SHA256SUMS | **PASS** | 2 项，失败 0 项 |
 | manifest evidence/students/241880375/e11-e12/archived-artifacts.sha256 | **PASS** | 12 项，失败 0 项 |
 | manifest evidence/students/241880375/e11-e12/b09-signoff/artifacts.sha256 | **PASS** | 7 项，失败 0 项 |
-| 证据 JSON 可解析 | **PASS** | 7 个 JSON，失败 0 个 |
+| 证据 JSON 可解析 | **PASS** | 8 个 JSON，失败 0 个 |
 | B09 签收字段 | **PASS** | accepted=true，job/trace/base/target/补丁/日志/复检哈希全部一致 |
 | B09 归档 Git 对象一致 | **PASS** | blob={'b0765a0f': '5c52c1824f147019ac25f6706f0549318a1f0cec', 'pr17_head': '5c52c1824f147019ac25f6706f0549318a1f0cec', 'current_main': '5c52c1824f147019ac25f6706f0549318a1f0cec'} |
 | B09 归档 SHA256 | **PASS** | 19479d51720decbca2518453e00646a4700c7b21101b018965bfdbc0c8cce648 |
@@ -50,7 +51,7 @@
 
 ## 4. 缺口与说明
 
-- 241880374 马海川：个人报告/ADR/AI_USAGE 与个人测试齐全，但仓库中没有 `evidence/students/241880374/e11-e12/`，报告引用的是未入库的 `work/...` 目录；本次不代造证据，标记为 WARN。
+- 241880374 马海川：个人报告/ADR/AI_USAGE、个人测试、证据包、run-summary 和 SHA256SUMS 均已归档。
 - 陈玉熙 241880089：E11–E12 个人材料、个人测试与证据均已归档。
 - 本检查只读仓库文件，不修改任何组员材料；所有哈希均按文件字节重新计算。
 
