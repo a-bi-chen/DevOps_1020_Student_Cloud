@@ -1,0 +1,332 @@
+{
+  "student": "241880369",
+  "name": "高嘉程",
+  "branch": "student/241880369/e11-e12",
+  "head": "13c0f8d0ef265580de4b1063aeafde62061b7437",
+  "server": "iZbp106a3t3mzz3nfabub1Z",
+  "image": "course-e11e12:241880369",
+  "image_id": "sha256:ba4e7393b9fbc9ecd1a8ed1b3daca8aceafa7dc8a54528ae7ffd34d4aacd2949",
+  "tests": {
+    "before": "12 tests OK",
+    "after": "13 tests OK",
+    "personal_test": "StudentE11E12A241880369.test_fixed_report_outside_data_rejected"
+  },
+  "e11_a": {
+    "out": "work/e11-a-241880369",
+    "status": "SUCCEEDED",
+    "job_id": "job-efc49baae58c414490f14be0275a413a",
+    "trace_id": "trace-06722428a2ab41a08b0a3ce5fa13b1f1",
+    "base_commit": "b1ab80894221eb935bd7659e97f47369cd1df150",
+    "target_commit": "6e2d4437421b7f015a34f1cf6879f0f0b249392a",
+    "stages": {
+      "full-check": {
+        "sha256": "d552986034a8a521b27ed0e0acbda10eaf4f80a3a2e090efa53d973b28b2acb7",
+        "bytes": 3637
+      },
+      "incremental-check": {
+        "sha256": "5d863dd829f24fe5fc5deee9d63c520f30f4be4078d2f24fc2fdaaad802e6e8b",
+        "bytes": 2329
+      }
+    },
+    "incremental_report_sha256": "d94d7162012e5e3df68067521d54d1bf409e576c201e4bac0aa415c0ea98a484",
+    "findings": [
+      {
+        "type": "MISSING",
+        "target": "main.o",
+        "dependency": "config.h"
+      },
+      {
+        "type": "MISSING",
+        "target": "main.o",
+        "dependency": "extra.h"
+      },
+      {
+        "type": "REDUNDANT",
+        "target": "main.o",
+        "dependency": "unused.h"
+      }
+    ],
+    "added": [
+      [
+        "MISSING",
+        "main.o",
+        "extra.h"
+      ]
+    ],
+    "refreshed": [
+      "main.o",
+      "helper.o"
+    ],
+    "reused": [],
+    "baseline_graph_matches_cache": true,
+    "target_full_findings_equal_incremental": true
+  },
+  "e12_fixed": {
+    "out": "work/e12-241880369-r2",
+    "status": "SUCCEEDED",
+    "job_id": "job-81be941f47fd4f8fa5a903f5a5455b6c",
+    "trace_id": "trace-b888bbdda42d476fb4da7e0e658f12fa",
+    "base_commit": "b1ab80894221eb935bd7659e97f47369cd1df150",
+    "target_commit": "6e2d4437421b7f015a34f1cf6879f0f0b249392a",
+    "stages": {
+      "draft": {
+        "sha256": "49daffbf252b4d81ea86b0bb5119bc6e5541b924663c8adae708f1694dfb310b",
+        "bytes": 3183
+      },
+      "full-check": {
+        "sha256": "e5c03ffb9f62339ca42e4fa72ddf75f5f38ea48bf5685b3f5c768327223d6589",
+        "bytes": 3642
+      },
+      "incremental-check": {
+        "sha256": "8d4f5a1d424dfa0e07015003e6c3f09d282aa8052b191217020059d52b7098b0",
+        "bytes": 2329
+      },
+      "repair": {
+        "sha256": "1ccb20a53f2ba7a0d0738fd8898b83f03c579fafad5028c1d16124fe3da4f0a3",
+        "bytes": 1124
+      },
+      "recheck": {
+        "sha256": "7b3507ce0b6aaf780e7f5f77a68c242e50fa1f7376e0658572225af8abcb390c",
+        "bytes": 1529
+      }
+    },
+    "validation": {
+      "accepted": true,
+      "checks": {
+        "patch_applies": true,
+        "build": true,
+        "test": true,
+        "header_change": true,
+        "no_missing": true
+      },
+      "error": null,
+      "source_unchanged": false,
+      "rollback": false
+    },
+    "recheck_findings": [
+      {
+        "type": "REDUNDANT",
+        "target": "main.o",
+        "dependency": "unused.h",
+        "evidence": [
+          {
+            "source": "make_database",
+            "artifact": "make-db.txt",
+            "line": 1052,
+            "declaration": "main.o: main.c unused.h config.h extra.h"
+          }
+        ],
+        "scope": "Not observed in this recipe job under this build configuration"
+      }
+    ],
+    "candidate_patch_sha256": "88074f66c291dcad1344c48f6a2b9ddd42d235d9d0415c85fb33310c5b7cb2af",
+    "incremental_findings": [
+      {
+        "type": "MISSING",
+        "target": "main.o",
+        "dependency": "config.h"
+      },
+      {
+        "type": "MISSING",
+        "target": "main.o",
+        "dependency": "extra.h"
+      },
+      {
+        "type": "REDUNDANT",
+        "target": "main.o",
+        "dependency": "unused.h"
+      }
+    ],
+    "first_failed_out": "work/e12-241880369",
+    "first_failed_job_id": "job-d4984995e6704dc1b210fc86f37067f6",
+    "first_failed_error": {
+      "code": "DRAFT_FAILED",
+      "message": "Docker client command exceeded 600s"
+    }
+  },
+  "e12_real": {
+    "out": "work/e12-real-241880369",
+    "source": {
+      "source": "course-one/make-introduction",
+      "upstream_url": "https://github.com/course-one/make-introduction",
+      "upstream_commit": "a789b2f4f09675fd882ed57c88a1677ec852fc48",
+      "base_commit": "e825395a5f8006f1c57a115cc25ea5c7802863ee",
+      "target_commit": "ba688c40d13cd8658e554f7544f1546d35b4b397",
+      "expected_output": "1",
+      "changes": "target adds #include \"extra.h\" to main.c; Makefile header declarations intentionally unchanged",
+      "adaptation": "merged add/sub/calculate into helper.c; config.h VALUE drives validator output; preserved real calculate.o header dependency defect"
+    },
+    "status": "SUCCEEDED",
+    "job_id": "job-268fc09fa76c4f8391867c2da7d950d8",
+    "trace_id": "trace-b16b370e11284e97b63e24e46228fddd",
+    "base_commit": "e825395a5f8006f1c57a115cc25ea5c7802863ee",
+    "target_commit": "ba688c40d13cd8658e554f7544f1546d35b4b397",
+    "stages": {
+      "draft": {
+        "sha256": "e7c54cbad18bc57b8c2f5fe801e1be7e3218a53a2ce6a379ca543d8a496e13b1",
+        "bytes": 3450
+      },
+      "full-check": {
+        "sha256": "17e29d0b628bbc4a305d4daef445abd43b60706600c2e4e54494fc951a484569",
+        "bytes": 6178
+      },
+      "incremental-check": {
+        "sha256": "ff85985fe561c148ab3a418713771c685ba2aaab3c5e3878eca7ff4d77704672",
+        "bytes": 3052
+      },
+      "repair": {
+        "sha256": "e881ef388a7693fe596f385cbe9aac0941d50f8c73e21194ae77b6a0dc5afcfc",
+        "bytes": 1550
+      },
+      "recheck": {
+        "sha256": "e3728b1ba2a12466f1977575f6cac30b93b3b37d32a46048bf2e9df18f43b47c",
+        "bytes": 1541
+      }
+    },
+    "validation": {
+      "accepted": true,
+      "checks": {
+        "patch_applies": true,
+        "build": true,
+        "test": true,
+        "header_change": true,
+        "no_missing": true
+      },
+      "error": null,
+      "source_unchanged": false,
+      "rollback": false
+    },
+    "recheck_findings": [
+      {
+        "type": "REDUNDANT",
+        "target": "main.o",
+        "dependency": "unused.h",
+        "evidence": [
+          {
+            "source": "make_database",
+            "artifact": "make-db.txt",
+            "line": 1068,
+            "declaration": "main.o: main.c unused.h calculate.h config.h extra.h"
+          }
+        ],
+        "scope": "Not observed in this recipe job under this build configuration"
+      }
+    ],
+    "candidate_patch_sha256": "8634d2aa57acc132ddf21ef90fa087aca1a313aca37a7bc74bb9b5ce9bf29c6e",
+    "incremental_findings": [
+      {
+        "type": "MISSING",
+        "target": "main.o",
+        "dependency": "calculate.h"
+      },
+      {
+        "type": "MISSING",
+        "target": "main.o",
+        "dependency": "config.h"
+      },
+      {
+        "type": "MISSING",
+        "target": "main.o",
+        "dependency": "extra.h"
+      },
+      {
+        "type": "REDUNDANT",
+        "target": "main.o",
+        "dependency": "unused.h"
+      },
+      {
+        "type": "MISSING",
+        "target": "helper.o",
+        "dependency": "add.h"
+      },
+      {
+        "type": "MISSING",
+        "target": "helper.o",
+        "dependency": "calculate.h"
+      },
+      {
+        "type": "MISSING",
+        "target": "helper.o",
+        "dependency": "sub.h"
+      }
+    ],
+    "incremental_added": [
+      [
+        "MISSING",
+        "main.o",
+        "extra.h"
+      ]
+    ],
+    "incremental_refreshed": [
+      "main.o",
+      "helper.o"
+    ],
+    "incremental_reused": []
+  },
+  "api": {
+    "out": "work/api-client-241880369",
+    "job_id": "job-045cf351d04e4b5fa6c9ffe7f4ae26c3",
+    "trace_id": "trace-ce6da84edbd7486180aa2ea0a59f1578",
+    "status": "SUCCEEDED",
+    "same_key_same_job": true,
+    "conflict_status": 409,
+    "artifact_checks": {
+      "candidate.patch": {
+        "status": 200,
+        "sha256": "88074f66c291dcad1344c48f6a2b9ddd42d235d9d0415c85fb33310c5b7cb2af",
+        "expected_sha256": "88074f66c291dcad1344c48f6a2b9ddd42d235d9d0415c85fb33310c5b7cb2af",
+        "x_content_sha256": "88074f66c291dcad1344c48f6a2b9ddd42d235d9d0415c85fb33310c5b7cb2af",
+        "sha_matches": true,
+        "header_matches": true
+      },
+      "incremental-check.json": {
+        "status": 200,
+        "sha256": "23dc38493ac0b38c27421ad568045de4aa441f4abdca6d837bb4cfc338655b73",
+        "expected_sha256": "23dc38493ac0b38c27421ad568045de4aa441f4abdca6d837bb4cfc338655b73",
+        "x_content_sha256": "23dc38493ac0b38c27421ad568045de4aa441f4abdca6d837bb4cfc338655b73",
+        "sha_matches": true,
+        "header_matches": true
+      },
+      "repair.json": {
+        "status": 200,
+        "sha256": "062aaf1d5253c672eaa63abb30e38ea495d1c158c5ad543b50b7b8a8cccbe64e",
+        "expected_sha256": "062aaf1d5253c672eaa63abb30e38ea495d1c158c5ad543b50b7b8a8cccbe64e",
+        "x_content_sha256": "062aaf1d5253c672eaa63abb30e38ea495d1c158c5ad543b50b7b8a8cccbe64e",
+        "sha_matches": true,
+        "header_matches": true
+      },
+      "recheck.json": {
+        "status": 200,
+        "sha256": "ce837248ab6e72688d837ef0d4ed7f990cb45c5cb339e3d0fe594213ea60f87a",
+        "expected_sha256": "ce837248ab6e72688d837ef0d4ed7f990cb45c5cb339e3d0fe594213ea60f87a",
+        "x_content_sha256": "ce837248ab6e72688d837ef0d4ed7f990cb45c5cb339e3d0fe594213ea60f87a",
+        "sha_matches": true,
+        "header_matches": true
+      }
+    },
+    "base_commit": "b1ab80894221eb935bd7659e97f47369cd1df150",
+    "target_commit": "6e2d4437421b7f015a34f1cf6879f0f0b249392a",
+    "stages": {
+      "draft": {
+        "sha256": "748f935687a623c4604cb340597d1766197783faa24cd7fd42e922331ffdea4a",
+        "bytes": 3373
+      },
+      "full-check": {
+        "sha256": "4cb6c7b007e72a723d17dc643b41934fea151942d931c107d5dcc7c4e42cbced",
+        "bytes": 3680
+      },
+      "incremental-check": {
+        "sha256": "23dc38493ac0b38c27421ad568045de4aa441f4abdca6d837bb4cfc338655b73",
+        "bytes": 2329
+      },
+      "repair": {
+        "sha256": "062aaf1d5253c672eaa63abb30e38ea495d1c158c5ad543b50b7b8a8cccbe64e",
+        "bytes": 1124
+      },
+      "recheck": {
+        "sha256": "ce837248ab6e72688d837ef0d4ed7f990cb45c5cb339e3d0fe594213ea60f87a",
+        "bytes": 1529
+      }
+    }
+  }
+}
