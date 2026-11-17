@@ -87,7 +87,7 @@ python3 run_e11e12.py test
 |---|---|---|---|
 | 241880089 陈玉熙 | PR #25，merge `bfd2ab1` | E11-A、E11-B、E12 固定样例、E12 真实项目、异步 API | `evidence/students/241880089/e11-e12/`（PASS，18 个文件） |
 | 241880369 高嘉程 | PR #23，merge `a1c89c6` | E11-A、E12 固定样例、E12 真实项目、异步 API | `evidence/students/241880369/e11-e12/`（PASS，5 个文件） |
-| 241880374 马海川 | PR #18，merge `b0765a0f` | E11-A、E12 固定样例、异步 API | **WARN：报告完整，但 `evidence/students/241880374/e11-e12/` 缺失，仅有 `work/...` 引用** |
+| 241880374 马海川 | PR #18，merge `b0765a0f` | E11-A、E12 固定样例、异步 API | `evidence/students/241880374/e11-e12/`（PASS，3 个文件） |
 | 241880375 张海洋 | PR #17，merge `b634e12` | E11-A、E11-B、E12 固定样例、E12 真实项目、异步 API、B09 正式签收 | `evidence/students/241880375/e11-e12/`（PASS，22 个文件） |
 
 关键运行记录（完整值见各人报告）：
@@ -119,7 +119,7 @@ B09 已核对 A09 的 E12 交付，A09 侧也已按文件字节复核：
 |---|---|---|---|
 | 陈玉熙 241880089 | 云主机依次执行 E11-A → E11-B（首次 `OUTPUT_EXISTS` 保留 `partial-1` 后重跑；DRAFT 600 s 超时后仅在 `data/` 候选 Dockerfile 加清华镜像源）→ E12 固定样例 → E12 真实项目 → API 健康检查/幂等/409/产物三处 SHA/重启语义 | 四条链路与 API 全部 `SUCCEEDED`；E11-B 最终仅保留 `REDUNDANT(main.o, unused.h)`；E12 两套均五阶段成功；重启后未完成任务标记 `SERVER_RESTARTED` | PASS（18 个文件，含原始日志、结果 JSON、证据包） |
 | 高嘉程 241880369 | E11-A → E12 固定样例（首次 DRAFT 600 s 超时，切清华源后新 OUT 重跑）→ E12 真实项目 → API；新增边界测试，契约测试 12 → 13 | 各链路 `SUCCEEDED`；固定样例 `job-81be941f…`、真实项目 `job-268fc09f…`、API `job-045cf351…`；产物 SHA 与 `X-Content-SHA256` 一致 | PASS（5 个文件，含 artifact 与 run-summary） |
-| 马海川 241880374 | E11-A → E12 固定样例五阶段 → API；首次 E12 在官方 Debian apt 源超时，仅在生成目录 `data/` 加清华源后约 30 秒成功；新增 candidate 边界测试 | E11-A `job-326071c6…`、E12 `job-74aa8335…`、API `job-ffc6088d…` 均成功；最终仅保留 `RD unused.h` | **WARN：报告与测试齐全，但 `evidence/students/241880374/e11-e12/` 缺失，报告只引用未入库的 `work/...`** |
+| 马海川 241880374 | E11-A、E12 固定样例、API | 均成功；最终仅保留 RD unused.h | PASS（3 个文件，含完整证据包与 SHA256SUMS） |
 | 张海洋 241880375 | E11-A → E11-B（iter-01 正常 `MISSING_MAKE`，iter-02 成功；首次 DRAFT 因 Debian 源长时间无进展手工终止）→ E12 固定样例 → E12 真实项目 → API；新增服务重启契约测试；归档 B09 正式签收 | 各链路 `SUCCEEDED`；E11-B 候选输出匹配；E12 固定/真实五阶段成功；API 幂等/409/哈希/重启查询通过；B09 `accepted=true` | PASS（22 个文件，含 Actions artifact、B09 签收与修复 bundle） |
 
 四人共同的已知环境问题：`deb.debian.org` 在云主机上下载极慢（约 19–20 KB/s），会导致 DRAFT 阶段 600 s 超时；处理方式均为仅在生成目录 `data/integration-sample/candidate.Dockerfile` 加清华镜像源，`data/` 不入库，提交的候选模板与检测代码未改。
@@ -140,7 +140,7 @@ B09 已核对 A09 的 E12 交付，A09 侧也已按文件字节复核：
 python3 scripts/audit_e11_e12.py
 ```
 
-当前结果：**21 PASS / 1 WARN / 0 FAIL**（WARN 为马海川 241880374 的 E11–E12 证据目录缺失；报告已归档，未代造证据）。
+当前结果：以 `python3 scripts/audit_e11_e12.py` 重新生成的结果为准；四人个人材料、个人测试与证据目录均已归档。
 
 ## 7. CI 与分支保护
 
