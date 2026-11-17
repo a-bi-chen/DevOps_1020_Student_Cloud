@@ -1,0 +1,253 @@
+{
+  "generated_at": "2026-11-17T14:11:34+00:00",
+  "scope": "A09 E11-E12 documents, evidence, manifests and cross-checks",
+  "members": {
+    "241880089": {
+      "name": "陈玉熙",
+      "docs": "docs/students/241880089/e11-e12",
+      "doc_missing": [],
+      "tests": [
+        "labs/e11e12/test_student_241880089.py"
+      ],
+      "evidence_dir": "evidence/students/241880089/e11-e12",
+      "evidence_files": 18,
+      "status": "PASS"
+    },
+    "241880369": {
+      "name": "高嘉程",
+      "docs": "docs/students/241880369/e11-e12",
+      "doc_missing": [],
+      "tests": [
+        "labs/e11e12/test_student_241880369.py"
+      ],
+      "evidence_dir": "evidence/students/241880369/e11-e12",
+      "evidence_files": 5,
+      "status": "PASS"
+    },
+    "241880374": {
+      "name": "马海川",
+      "docs": "docs/students/241880374/e11-e12",
+      "doc_missing": [],
+      "tests": [
+        "labs/e11e12/test_student_241880374.py"
+      ],
+      "evidence_dir": null,
+      "evidence_files": 0,
+      "status": "WARN"
+    },
+    "241880375": {
+      "name": "张海洋",
+      "docs": "docs/students/241880375/e11-e12",
+      "doc_missing": [],
+      "tests": [
+        "labs/e11e12/test_contract.py"
+      ],
+      "evidence_dir": "evidence/students/241880375/e11-e12",
+      "evidence_files": 22,
+      "status": "PASS"
+    }
+  },
+  "manifests": {
+    "evidence/students/241880089/e11-e12/SHA256SUMS": {
+      "entries": 1,
+      "failures": []
+    },
+    "evidence/students/241880369/e11-e12/artifacts.sha256": {
+      "entries": 3,
+      "failures": []
+    },
+    "evidence/students/241880375/e11-e12/archived-artifacts.sha256": {
+      "entries": 12,
+      "failures": []
+    },
+    "evidence/students/241880375/e11-e12/b09-signoff/artifacts.sha256": {
+      "entries": 7,
+      "failures": []
+    }
+  },
+  "json": {
+    "files": 7,
+    "failures": []
+  },
+  "b09_signoff": {
+    "checks": [],
+    "validation": {
+      "schema_version": "e12-b4-a09-signoff-1",
+      "accepted": true,
+      "job_id": "job-1bd0ed1b449f44f293853df90440844f",
+      "trace_id": "trace-4e7c0c6afd0447f9869d2f5e1ee6f4ae",
+      "a_job_id": "job-1bd0ed1b449f44f293853df90440844f",
+      "a_trace_id": "trace-4e7c0c6afd0447f9869d2f5e1ee6f4ae",
+      "base_commit": "3fcb72029bf560afde2d29436395ff3b979a19fd",
+      "target_commit": "15c059958a41a5a0513dc048036439843a34ad28",
+      "repaired_commit": "817b2459d53f586f7f3800ce20d0c3f002621f77",
+      "source_report_kind": "incremental-check",
+      "source_report_sha256": "8508d50232bfa4a529d51accd4dc94e5765a0fe0a0b130eebf73f8f866a98716",
+      "candidate_patch_sha256": "88074f66c291dcad1344c48f6a2b9ddd42d235d9d0415c85fb33310c5b7cb2af",
+      "build_log_sha256": "29bfc7126a891b1deca1f143ff3f7d2a0003e1c4d43a3df25ba739524b1a9a0c",
+      "incremental_log_sha256": "52b1b0840faee45dffd5d909945f740dd9fad73b1dc58e544ac1c0491ce05e57",
+      "recheck_report_sha256": "08792b92a49d4b4cd59c4919f4a7c9d4679bf3bf1010559190046e53a7080c00",
+      "candidate_image_id": "sha256:f1fb7db7e04db01ee05e5ebfac0a02eab69953747e1649297e5ed63b691af076",
+      "environment_image_id": "sha256:0f14125df9d889f01f0f9cf1ab37c0a216d8e26212cca99504a6304b19f3701f",
+      "build_command": "make clean && make app",
+      "run_command": "./app",
+      "program_output": "1",
+      "incremental_main_rebuilt": true,
+      "program_after_config_change": "2",
+      "recheck_missing_count": 0,
+      "recheck_remaining_findings": [
+        {
+          "type": "REDUNDANT",
+          "target": "main.o",
+          "dependency": "unused.h",
+          "evidence": [
+            {
+              "source": "make_database",
+              "artifact": "make-db.txt",
+              "line": 1050,
+              "declaration": "main.o: main.c unused.h config.h extra.h"
+            }
+          ],
+          "scope": "Not observed in this recipe job under this build configuration"
+        }
+      ]
+    },
+    "archive": {
+      "path": "evidence/students/241880375/e11-e12/e11e12-evidence-241880375.tar.gz",
+      "sha256": "19479d51720decbca2518453e00646a4700c7b21101b018965bfdbc0c8cce648",
+      "expected_sha256": "19479d51720decbca2518453e00646a4700c7b21101b018965bfdbc0c8cce648",
+      "git_blobs": {
+        "b0765a0f": "5c52c1824f147019ac25f6706f0549318a1f0cec",
+        "pr17_head": "5c52c1824f147019ac25f6706f0549318a1f0cec",
+        "current_main": "5c52c1824f147019ac25f6706f0549318a1f0cec"
+      },
+      "same_git_blob": true
+    },
+    "files": {
+      "candidate.patch": "88074f66c291dcad1344c48f6a2b9ddd42d235d9d0415c85fb33310c5b7cb2af",
+      "validation.json": "aeb157c32906bfe7859fc93e14c2a52cbb5e63dad0004c033d8c29f788475394",
+      "build.log": "29bfc7126a891b1deca1f143ff3f7d2a0003e1c4d43a3df25ba739524b1a9a0c",
+      "incremental.log": "52b1b0840faee45dffd5d909945f740dd9fad73b1dc58e544ac1c0491ce05e57",
+      "recheck.json": "08792b92a49d4b4cd59c4919f4a7c9d4679bf3bf1010559190046e53a7080c00",
+      "repaired-project.bundle": "e6f7cd9802728705c85fd003ee031900a44691715c1768590a5de830017c0dda"
+    }
+  },
+  "checks": [
+    {
+      "name": "241880089 个人材料",
+      "status": "PASS",
+      "detail": "陈玉熙：报告/ADR/AI_USAGE 齐全"
+    },
+    {
+      "name": "241880089 个人测试",
+      "status": "PASS",
+      "detail": "labs/e11e12/test_student_241880089.py"
+    },
+    {
+      "name": "241880089 证据目录",
+      "status": "PASS",
+      "detail": "18 个文件，4895419 字节"
+    },
+    {
+      "name": "241880369 个人材料",
+      "status": "PASS",
+      "detail": "高嘉程：报告/ADR/AI_USAGE 齐全"
+    },
+    {
+      "name": "241880369 个人测试",
+      "status": "PASS",
+      "detail": "labs/e11e12/test_student_241880369.py"
+    },
+    {
+      "name": "241880369 证据目录",
+      "status": "PASS",
+      "detail": "5 个文件，627811 字节"
+    },
+    {
+      "name": "241880374 个人材料",
+      "status": "PASS",
+      "detail": "马海川：报告/ADR/AI_USAGE 齐全"
+    },
+    {
+      "name": "241880374 个人测试",
+      "status": "PASS",
+      "detail": "labs/e11e12/test_student_241880374.py"
+    },
+    {
+      "name": "241880374 证据目录",
+      "status": "WARN",
+      "detail": "report 已归档，但 evidence/ 目录缺失，无法按 SHA256 复核"
+    },
+    {
+      "name": "241880375 个人材料",
+      "status": "PASS",
+      "detail": "张海洋：报告/ADR/AI_USAGE 齐全"
+    },
+    {
+      "name": "241880375 个人测试",
+      "status": "PASS",
+      "detail": "labs/e11e12/test_contract.py"
+    },
+    {
+      "name": "241880375 证据目录",
+      "status": "PASS",
+      "detail": "22 个文件，10241123 字节"
+    },
+    {
+      "name": "manifest evidence/students/241880089/e11-e12/SHA256SUMS",
+      "status": "PASS",
+      "detail": "1 项，失败 0 项"
+    },
+    {
+      "name": "manifest evidence/students/241880369/e11-e12/artifacts.sha256",
+      "status": "PASS",
+      "detail": "3 项，失败 0 项"
+    },
+    {
+      "name": "manifest evidence/students/241880375/e11-e12/archived-artifacts.sha256",
+      "status": "PASS",
+      "detail": "12 项，失败 0 项"
+    },
+    {
+      "name": "manifest evidence/students/241880375/e11-e12/b09-signoff/artifacts.sha256",
+      "status": "PASS",
+      "detail": "7 项，失败 0 项"
+    },
+    {
+      "name": "证据 JSON 可解析",
+      "status": "PASS",
+      "detail": "7 个 JSON，失败 0 个"
+    },
+    {
+      "name": "B09 签收字段",
+      "status": "PASS",
+      "detail": "accepted=true，job/trace/base/target/补丁/日志/复检哈希全部一致"
+    },
+    {
+      "name": "B09 归档 Git 对象一致",
+      "status": "PASS",
+      "detail": "blob={'b0765a0f': '5c52c1824f147019ac25f6706f0549318a1f0cec', 'pr17_head': '5c52c1824f147019ac25f6706f0549318a1f0cec', 'current_main': '5c52c1824f147019ac25f6706f0549318a1f0cec'}"
+    },
+    {
+      "name": "B09 归档 SHA256",
+      "status": "PASS",
+      "detail": "19479d51720decbca2518453e00646a4700c7b21101b018965bfdbc0c8cce648"
+    },
+    {
+      "name": "B09 签收产物哈希",
+      "status": "PASS",
+      "detail": "candidate.patch / validation / build / incremental / recheck / bundle 全部一致"
+    },
+    {
+      "name": "README 索引",
+      "status": "PASS",
+      "detail": "四人学号均已索引"
+    }
+  ],
+  "summary": {
+    "checks": 22,
+    "pass": 21,
+    "warn": 1,
+    "fail": 0
+  }
+}

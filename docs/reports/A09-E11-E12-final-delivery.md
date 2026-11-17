@@ -6,6 +6,12 @@
 - 审计人：241880375 张海洋
 - 结论：**A/B 技术联调已完成；241880369 高嘉程的个人材料与个人测试已由 PR #23 合并；课程最终提交仍不能标记完成，原因是 241880089 陈玉熙仍缺 E11–E12 个人材料与个人测试。**
 
+> **2026-11-17 状态更新（本文件下方第 1–7 节为当时审计快照）：**
+> 241880089 陈玉熙的 E11–E12 个人材料、个人测试与云主机证据已由 PR #25 合入，merge commit 为 `bfd2ab1`；四人材料现已齐全（马海川的证据目录仍缺失，见下）。
+> B09 已对 A09 E12 正式签收；A09 侧按文件字节复核后确认：B09 核对时的 `main` 为 `b0765a0f990b10a28392fe6d4318b4b73a41177a`，证据归档在 b0765a0f、PR #17 head `0cd8054911a18be96900e05c3b7747c6b35a4112` 与当前 main `bfd2ab1` 三处的 Git blob 均为 `5c52c1824f147019ac25f6706f0549318a1f0cec`，归档 SHA256 为 `19479d51720decbca2518453e00646a4700c7b21101b018965bfdbc0c8cce648`。
+> B09 直接消费的原始 `incremental-check.json` SHA256 为 `8508d50232bfa4a529d51accd4dc94e5765a0fe0a0b130eebf73f8f866a98716`（未使用 `fixed-md.json`）；A 端 `job_id=job-1bd0ed1b449f44f293853df90440844f`、`trace_id=trace-4e7c0c6afd0447f9869d2f5e1ee6f4ae`，base/target 与交付值一致；修复提交 `817b2459d53f586f7f3800ce20d0c3f002621f77` 的父提交为 A 端 target，仅修改 `Makefile`；`candidate.patch` SHA256 `88074f66c291dcad1344c48f6a2b9ddd42d235d9d0415c85fb33310c5b7cb2af`，`validation.json` SHA256 `aeb157c32906bfe7859fc93e14c2a52cbb5e63dad0004c033d8c29f788475394` 且 `accepted=true`；`build.log` / `incremental.log` / 复检报告 SHA256 分别为 `29bfc712…` / `52b1b084…` / `08792b92…`，复检 MD=0，仅保留允许的 `REDUNDANT(main.o, unused.h)`；修复项目 bundle SHA256 `e6f7cd9802728705c85fd003ee031900a44691715c1768590a5de830017c0dda`。
+> 最新全量检查见 `docs/reports/A09-E11-E12-audit.md`。
+
 ## 1. 结论摘要
 
 1. A 组 E11-A、E11-B、E12、真实项目 E12 与异步 API 证据已由 PR #17 合入 A 组 `main`。
