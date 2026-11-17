@@ -1,5 +1,7 @@
 import copy
+import hashlib
 import json
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -33,6 +35,43 @@ class Contracts(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             p=Path(d)/'r.json';p.write_text('{}')
             with self.assertRaises(pipeline.Failure):pipeline.load_artifact(p,'0'*64)
+    def test_fixed_report_hash_is_verified_before_parsing(self):
+        with tempfile.TemporaryDirectory() as d:
+            report=Path(d)/'fixed-md.json';report.write_text('{"kind":"fixed-md"}\n',encoding='utf-8')
+            expected=hashlib.sha256(report.read_bytes()).hexdigest()
+            self.assertEqual(pipeline.load_fixed_report(report,expected)['kind'],'fixed-md')
+            self.assertEqual(pipeline.load_fixed_report(report)['kind'],'fixed-md')
+            report.write_text('{"kind":"fixed-md"}\nextra\n',encoding='utf-8')
+            with self.assertRaises(pipeline.Failure) as raised:
+                pipeline.load_fixed_report(report,expected)
+            self.assertEqual(raised.exception.code,'ARTIFACT_HASH_MISMATCH')
+    def test_project_subdir_must_stay_inside_repository(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);(root/'fixtures'/'proj').mkdir(parents=True)
+            self.assertEqual(pipeline.project_root(root,'fixtures/proj'),(root/'fixtures/proj').resolve())
+            for value in ('../outside','fixtures/../../outside',str(root.resolve())):
+                with self.assertRaises(pipeline.Failure) as raised:
+                    pipeline.project_root(root,value)
+                self.assertEqual(raised.exception.code,'INVALID_REQUEST')
+    def test_snapshot_uses_repository_relative_project_subdir(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);repo=root/'repo';project=repo/'fixtures'/'proj'
+            project.mkdir(parents=True)
+            (project/'main.c').write_text('int main(void){return 0;}\n')
+            (project/'helper.c').write_text('int helper(void){return 0;}\n')
+            (project/'config.h').write_text('#define VALUE 1\n')
+            (project/'Makefile').write_text('app:\n\tcc main.c helper.c -o app\n')
+            git=['git','-c','user.name=ContractTest','-c','user.email=contract@localhost']
+            subprocess.run(['git','init','-b','main'],cwd=repo,check=True,capture_output=True)
+            subprocess.run(git+['add','.'],cwd=repo,check=True,capture_output=True)
+            subprocess.run(git+['commit','-m','subdir fixture'],cwd=repo,check=True,capture_output=True)
+            sha=subprocess.check_output(['git','rev-parse','HEAD'],cwd=repo,text=True).strip()
+            resolved,project_dir=pipeline.snapshot(repo,sha,root/'out'/'target',root/'logs','fixtures/proj')
+            self.assertEqual(resolved,sha)
+            self.assertEqual(project_dir.resolve(),(root/'out'/'target'/'fixtures'/'proj').resolve())
+            with self.assertRaises(pipeline.Failure) as raised:
+                pipeline.snapshot(repo,sha,root/'out'/'bad',root/'logs','../escape')
+            self.assertEqual(raised.exception.code,'INVALID_REQUEST')
     def test_same_key_same_request_same_job(self):
         with tempfile.TemporaryDirectory() as d:
             root=Path(d);store=server.Store(root/'jobs')
