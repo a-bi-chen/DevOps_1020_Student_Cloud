@@ -5,7 +5,7 @@
 - 日期：2026-11-17
 - A 仓库：<https://github.com/a-bi-chen/DevOps_1020_Student_Cloud>
 - A 分支：`student/241880375/e13-e14`
-- A 判定提交：`3231950cf151ef407804c6fc7767d6d6a387bbb5`（文档提交另计）
+- A 判定提交：`3231950cf151ef407804c6fc7767d6d6a387bbb5`；最终代码 head：`e202f7b56912e1580e13cf2802628d157e9dd666`（文档提交另计）
 
 ## B 项目与提交
 
