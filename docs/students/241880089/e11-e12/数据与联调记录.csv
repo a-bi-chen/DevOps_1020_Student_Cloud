@@ -1,0 +1,5 @@
+实验,数据来源,仓库,base_commit,target_commit,job_id,trace_id,报告路径,补丁路径,结果
+E11-A,course-generated,data/integration-sample/repo,,,待回填,待回填,work/e11-a-241880089/incremental-check.json,,待回填
+E11-B,course-generated,data/integration-sample/repo,,,待回填,待回填,work/e11-b-241880089/fixed-md.json,work/e11-b-241880089/candidate.patch,待回填
+E12固定样例,course-generated,data/integration-sample/repo,,,待回填,待回填,work/e12-241880089/incremental-check.json,work/e12-241880089/candidate.patch,待回填
+E12真实项目,course-one/make-introduction,data/real-project,e825395a5f8006f1c57a115cc25ea5c7802863ee,ba688c40d13cd8658e554f7544f1546d35b4b397,待回填,待回填,work/e12-real-241880089/incremental-check.json,work/e12-real-241880089/candidate.patch,待回填

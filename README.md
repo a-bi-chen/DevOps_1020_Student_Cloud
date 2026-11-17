@@ -156,3 +156,18 @@ P5 的 BuildChecker 与 E7 门禁已归档在 `services/buildchecker/`、`tests/
 | 个人材料模板 | `docs/students/_template/` |
 | E7 摘要 | `docs/E7-summary.md` |
 | P5 实验报告 | `docs/实验报告.md`、`docs/reports/` |
+
+## 9. E11–E12 增量（A 轨）
+
+E11–E12 在 E8–E10 基础上增加轨道内集成与 A/B 联调，入口为 `run_e11e12.py`，CI 检查为 `e11e12-integration`。
+
+| 路径 | 内容 |
+|---|---|
+| `run_e11e12.py` | `build` / `prepare` / `run` / `serve` / `test` 入口 |
+| `labs/e11e12/` | 编排、异步任务 API、契约测试与个人测试 |
+| `.github/workflows/e11e12.yml` | `e11e12-integration`：契约测试 + E11-A/B/E12 运行 + artifact |
+| `docs/students/241880089/e11-e12/` | 陈玉熙个人报告、ADR、AI 使用记录与联调记录 |
+| `labs/e11e12/test_student_241880089.py` | `StudentE11E12A241880089`（macro / mixed 补丁位置） |
+| `docs/students/241880375/e11-e12/` | A09 E11–E12 联调与 B09 签收归档 |
+
+个人运行结果用 `work/<mode>-<学号>/` 保存；`data/` 与 `work/` 不入库，证据按学号归档到 `evidence/students/<学号>/e11-e12/`。
