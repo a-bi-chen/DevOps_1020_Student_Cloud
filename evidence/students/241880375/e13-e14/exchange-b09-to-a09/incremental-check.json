@@ -1,0 +1,108 @@
+{
+  "schema_version": "e11e12-1",
+  "job_id": "job-f18dbac70128426dbea57fc516b19ce3",
+  "trace_id": "trace-59fad11cb5db435e8676aa2541847a1b",
+  "kind": "incremental-check",
+  "commit": "a7e3b644ca9b1b9d0b26bd41e839fcbf5ea1c293",
+  "status": "SUCCEEDED",
+  "data": {
+    "schema_version": "e8e10-1",
+    "profile": "GCC_LOCAL_HEADERS_EXPLICIT_MAKE",
+    "commit": "a7e3b644ca9b1b9d0b26bd41e839fcbf5ea1c293",
+    "key": {
+      "directives": {
+        "config.h": [
+          "#ifndef CONFIG_H",
+          "#define CONFIG_H",
+          "#define APP_MESSAGE \"hello E3\"",
+          "#endif"
+        ],
+        "extra.h": [
+          "#ifndef EXTRA_H",
+          "#define EXTRA_H",
+          "#define OUTPUT_ENABLED 1",
+          "#endif"
+        ],
+        "helper.c": [
+          "#include \"helper.h\"",
+          "#include \"config.h\""
+        ],
+        "helper.h": [
+          "#ifndef HELPER_H",
+          "#define HELPER_H",
+          "#endif"
+        ],
+        "main.c": [
+          "#include <stdio.h>",
+          "#include \"extra.h\"",
+          "#include \"helper.h\""
+        ]
+      },
+      "recipes": [
+        "\t$(CC) $(CFLAGS) -o $@ $(OBJECTS)",
+        "\t$(CC) $(CFLAGS) -c main.c",
+        "\t$(CC) $(CFLAGS) -c helper.c",
+        "\t@test \"$$(./$(TARGET))\" = \"hello E3\"",
+        "\trm -f $(TARGET) $(OBJECTS)"
+      ],
+      "flags": "-std=c11 -Wall -Wextra -Werror",
+      "compiler": "gcc (Debian 14.2.0-19) 14.2.0"
+    },
+    "actual": {
+      "main.o": [
+        "extra.h",
+        "helper.h",
+        "main.c"
+      ],
+      "helper.o": [
+        "config.h",
+        "helper.c",
+        "helper.h"
+      ]
+    },
+    "declared": {
+      "main.o": [
+        "helper.h",
+        "main.c"
+      ],
+      "helper.o": [
+        "config.h",
+        "helper.c",
+        "helper.h"
+      ]
+    },
+    "findings": [
+      {
+        "type": "MISSING",
+        "target": "main.o",
+        "dependency": "extra.h"
+      }
+    ],
+    "added": [
+      [
+        "MISSING",
+        "main.o",
+        "extra.h"
+      ]
+    ],
+    "resolved": [],
+    "refreshed": [
+      "main.o",
+      "helper.o"
+    ],
+    "reused": [],
+    "elapsed_s": 0.009663453325629234
+  },
+  "artifacts": [
+    {
+      "uri": "artifact://job-f18dbac70128426dbea57fc516b19ce3/incremental-report.json",
+      "sha256": "4de8a2202b3493c6c824fd87fc3415b8d28ed4fce2f2a95efb9bd6069d5ea497",
+      "bytes": 1744
+    },
+    {
+      "uri": "artifact://job-f18dbac70128426dbea57fc516b19ce3/target-full/findings.json",
+      "sha256": "2070b0de2d17d6594f37e45ce2ffcc132ac718f62b94be2b9671a926e64de233",
+      "bytes": 2255
+    }
+  ]
+}

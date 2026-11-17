@@ -1,0 +1,2 @@
+runtime log scan: text_files=9 hits=0 errors=0
+SCAN_EXIT=0
