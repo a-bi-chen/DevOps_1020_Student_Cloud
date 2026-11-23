@@ -164,4 +164,22 @@ class StudentE9A(unittest.TestCase):
             self.assertEqual(set(result['refreshed']),{'main.o','helper.o'})
             self.assertEqual(result['reused'],[])
 
+class StudentE13A241880375(unittest.TestCase):
+    """张海洋 241880375：条件赋值 Makefile 的显式 flags profile。"""
+    def test_conditional_cflags_profile_is_supported_and_cached(self):
+        with tempfile.TemporaryDirectory() as directory:
+            p=Path(directory)/'sample'
+            fixture(p)
+            make=p/'Makefile'
+            make.write_text(make.read_text().replace(
+                'CFLAGS = -O0',
+                'CFLAGS ?= -std=c11 -Wall -Wextra -Werror'))
+            commit(p,'student: conditional compiler flags')
+            first=scan(p)
+            self.assertEqual(first['key']['flags'],'-std=c11 -Wall -Wextra -Werror')
+            self.assertEqual(first['actual']['main.o'],['config.h','main.c'])
+            second=scan(p,first)
+            self.assertEqual(second['reused'],['main.o','helper.o'])
+            self.assertEqual(second['refreshed'],[])
+
 if __name__=='__main__':unittest.main()
