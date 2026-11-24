@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T14:21:19+00:00",
+  "generated_at": "2026-11-17T14:53:34+00:00",
   "scope": "A09 E11-E12 documents, evidence, manifests and cross-checks",
   "members": {
     "241880089": {
@@ -31,9 +31,9 @@
       "tests": [
         "labs/e11e12/test_student_241880374.py"
       ],
-      "evidence_dir": null,
-      "evidence_files": 0,
-      "status": "WARN"
+      "evidence_dir": "evidence/students/241880374/e11-e12",
+      "evidence_files": 3,
+      "status": "PASS"
     },
     "241880375": {
       "name": "张海洋",
@@ -56,6 +56,10 @@
       "entries": 3,
       "failures": []
     },
+    "evidence/students/241880374/e11-e12/SHA256SUMS": {
+      "entries": 2,
+      "failures": []
+    },
     "evidence/students/241880375/e11-e12/archived-artifacts.sha256": {
       "entries": 12,
       "failures": []
@@ -66,7 +70,7 @@
     }
   },
   "json": {
-    "files": 7,
+    "files": 8,
     "failures": []
   },
   "b09_signoff": {
@@ -175,8 +179,8 @@
     },
     {
       "name": "241880374 证据目录",
-      "status": "WARN",
-      "detail": "report 已归档，但 evidence/ 目录缺失，无法按 SHA256 复核"
+      "status": "PASS",
+      "detail": "3 个文件，214690 字节"
     },
     {
       "name": "241880375 个人材料",
@@ -204,6 +208,11 @@
       "detail": "3 项，失败 0 项"
     },
     {
+      "name": "manifest evidence/students/241880374/e11-e12/SHA256SUMS",
+      "status": "PASS",
+      "detail": "2 项，失败 0 项"
+    },
+    {
       "name": "manifest evidence/students/241880375/e11-e12/archived-artifacts.sha256",
       "status": "PASS",
       "detail": "12 项，失败 0 项"
@@ -216,7 +225,7 @@
     {
       "name": "证据 JSON 可解析",
       "status": "PASS",
-      "detail": "7 个 JSON，失败 0 个"
+      "detail": "8 个 JSON，失败 0 个"
     },
     {
       "name": "B09 签收字段",
@@ -245,9 +254,9 @@
     }
   ],
   "summary": {
-    "checks": 22,
-    "pass": 21,
-    "warn": 1,
+    "checks": 23,
+    "pass": 23,
+    "warn": 0,
     "fail": 0
   }
 }

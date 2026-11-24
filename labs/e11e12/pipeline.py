@@ -49,15 +49,42 @@ def command(argv, cwd, log):
         raise Failure('COMMAND_FAILED', f'{argv[0]} failed; see {log.name}')
     return p.stdout.strip()
 
-def snapshot(repo, revision, dest, logs):
+def project_root(dest, project_subdir=None):
+    """Resolve an optional repository-relative project directory safely."""
+    if project_subdir in (None, '', '.'):
+        return dest
+    if not isinstance(project_subdir, str):
+        raise Failure('INVALID_REQUEST', 'project_subdir must be a string')
+    relative = Path(project_subdir)
+    if relative.is_absolute() or '..' in relative.parts:
+        raise Failure('INVALID_REQUEST', 'project_subdir must stay inside the repository')
+    resolved = (dest / relative).resolve()
+    if not resolved.is_relative_to(dest.resolve()) or resolved == dest.resolve():
+        raise Failure('INVALID_REQUEST', 'project_subdir must stay inside the repository')
+    if not resolved.is_dir():
+        raise Failure('INVALID_REQUEST', 'project_subdir does not exist')
+    return resolved
+
+def snapshot(repo, revision, dest, logs, project_subdir=None):
     sha = command(['git','rev-parse','--verify',revision+'^{commit}'], repo, logs/(dest.name+'-resolve.log'))
     command(['git','clone','--no-hardlinks','--no-checkout',str(repo),str(dest)], repo, logs/(dest.name+'-clone.log'))
     command(['git','checkout','--detach',sha], dest, logs/(dest.name+'-checkout.log'))
+    project = project_root(dest, project_subdir)
     # E8-E10 profile; fail early instead of silently ignoring other targets.
-    names = {p.name for p in dest.glob('*.c')}
-    if names != {'main.c','helper.c'} or not (dest/'config.h').is_file():
+    names = {p.name for p in project.glob('*.c')}
+    if names != {'main.c','helper.c'} or not (project/'config.h').is_file():
         raise Failure('UNSUPPORTED_PROJECT', 'Expected main.c/helper.c/config.h and explicit Make rules')
-    return sha
+    return sha, project
+
+def load_fixed_report(path, expected_sha256=None):
+    """Read a transferred fixed-md envelope after optional byte verification."""
+    data = path.read_bytes()
+    if expected_sha256 is not None:
+        if not isinstance(expected_sha256, str) or not re.fullmatch(r'[0-9a-f]{64}', expected_sha256):
+            raise Failure('INVALID_REQUEST', 'fixed_report_sha256 must be a lowercase SHA256')
+        if hashlib.sha256(data).hexdigest() != expected_sha256:
+            raise Failure('ARTIFACT_HASH_MISMATCH', 'Fixed report content changed during transfer')
+    return json.loads(data.decode('utf-8'))
 
 def full(project, folder):
     from buildchecker.fullcheck import full_check
@@ -92,19 +119,20 @@ def execute(request, out, job_id=None):
         if not repo.is_dir():
             raise Failure('INVALID_REQUEST','Repository missing')
         base=out/'base-project'; target=out/'target-project'
-        base_sha=snapshot(repo,request['base'],base,out/'logs')
-        target_sha=snapshot(repo,request['target'],target,out/'logs')
+        project_subdir=request.get('project_subdir')
+        base_sha,base_project=snapshot(repo,request['base'],base,out/'logs',project_subdir)
+        target_sha,target_project=snapshot(repo,request['target'],target,out/'logs',project_subdir)
         result.update(base_commit=base_sha,target_commit=target_sha)
         if mode in ('e11-b','e12'):
             from draft.autobuild import auto_build
             candidate=Path(request['candidate']).resolve()
-            draft=auto_build(target,candidate,out/'draft-build',request.get('expected_output','1'),timeout=request.get('build_timeout',600))
+            draft=auto_build(target_project,candidate,out/'draft-build',request.get('expected_output','1'),timeout=request.get('build_timeout',600))
             if draft['status']!='SUCCEEDED':
                 raise Failure('DRAFT_FAILED',draft.get('error','Inspect draft-build logs'))
             stage('draft',target_sha,draft,[out/'draft-build/result.json'])
         if mode in ('e11-a','e12'):
-            base_full=full(base,out/'baseline-full')
-            old=scan(base)
+            base_full=full(base_project,out/'baseline-full')
+            old=scan(base_project)
             edges=json.loads((out/'baseline-full/actual-graph.json').read_text())
             projected={t:sorted({e['dependency'] for e in edges if e['target']==t}) for t in ('main.o','helper.o')}
             if projected != old['actual']:
@@ -113,16 +141,16 @@ def execute(request, out, job_id=None):
             save(out/'baseline-cache.json',old)
             baseline=stage('full-check',base_sha,base_full,[out/'baseline-full/actual-graph.json',out/'baseline-full/findings.json',out/'baseline-cache.json'])
             check_envelope(baseline,base_sha,'full-check')
-            current=scan(target,old)
+            current=scan(target_project,old)
             save(out/'incremental-report.json',current)
-            reference=full(target,out/'target-full')
+            reference=full(target_project,out/'target-full')
             if normalized(reference['findings']) != normalized(current['findings']):
                 raise Failure('FINDINGS_MISMATCH','Incremental/full object-target findings differ')
             md_envelope=stage('incremental-check',target_sha,current,[out/'incremental-report.json',out/'target-full/findings.json'])
         else:
             # E11-B still consumes a fixed MD input, separately from A's live output.
             fixed=Path(request['fixed_report'])
-            envelope=json.loads(fixed.read_text(encoding='utf-8'))
+            envelope=load_fixed_report(fixed,request.get('fixed_report_sha256'))
             check_envelope(envelope,target_sha,'fixed-md')
             current=envelope['data']
             if current.get('commit') != target_sha:
@@ -134,21 +162,21 @@ def execute(request, out, job_id=None):
             md_envelope=load_artifact(out/(md_envelope['kind']+'.json'),reference['sha256'])
             check_envelope(md_envelope,target_sha)
             current=md_envelope['data']
-            before=(target/'Makefile').read_bytes()
-            diff,edits=patch(target,current)
+            before=(target_project/'Makefile').read_bytes()
+            diff,edits=patch(target_project,current)
             if not diff:
                 raise Failure('NO_MISSING_DEPENDENCY','No MD to repair')
             patchfile=out/'candidate.patch';patchfile.write_text(diff,encoding='utf-8')
             save(out/'repair-plan.json',edits)
             stage('repair',target_sha,{'edits':edits,'input_report':artifact(out/(md_envelope['kind']+'.json'),out,job_id)},[patchfile,out/'repair-plan.json'])
-            verdict=validate(target,patchfile,out/'validation')
+            verdict=validate(target_project,patchfile,out/'validation')
             if not verdict['accepted']:
                 raise Failure('REPAIR_REJECTED',str(verdict))
-            final=full(target,out/'final-full')
+            final=full(target_project,out/'final-full')
             if any(f['type']=='MISSING' for f in final['findings']):
-                (target/'Makefile').write_bytes(before)
+                (target_project/'Makefile').write_bytes(before)
                 raise Failure('RECHECK_FAILED','MD remains; working-copy declaration restored')
-            stage('recheck',target_sha,{'validation':verdict,'findings':final['findings'],'patched_makefile_sha256':hashlib.sha256((target/'Makefile').read_bytes()).hexdigest()},[out/'validation/validation.json',out/'final-full/findings.json'])
+            stage('recheck',target_sha,{'validation':verdict,'findings':final['findings'],'patched_makefile_sha256':hashlib.sha256((target_project/'Makefile').read_bytes()).hexdigest()},[out/'validation/validation.json',out/'final-full/findings.json'])
         result['status']='SUCCEEDED'
     except (Failure,ValueError,OSError,KeyError,subprocess.TimeoutExpired) as exc:
         result.update(status='TIMED_OUT' if isinstance(exc,subprocess.TimeoutExpired) else 'FAILED',error={'code':getattr(exc,'code','EXECUTION_FAILED'),'message':str(exc)})

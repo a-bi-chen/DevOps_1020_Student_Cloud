@@ -1,0 +1,204 @@
+{
+  "schema_version": "e13e14-personal-evidence-1",
+  "student": "241880374",
+  "name": "马海川",
+  "group": "A09",
+  "track": "A",
+  "date": "2026-11-23",
+  "image": "course-e11e12:241880374",
+  "image_id": "sha256:b8f76409f29d5cdac846b232858089b561ad4a8ffe7803219fd14ad07d5d219f",
+  "base_main_commit": "9ff9c7cdf3daa67e6a5052dc7b80dc5651a4bfd5",
+  "contract_tests": {
+    "log": "work/ma-e13-contract-tests.log",
+    "count": 17,
+    "result": "OK"
+  },
+  "c1_b09_project": {
+    "out": "work/e13-ma-c1-01",
+    "status": "SUCCEEDED",
+    "job_id": "job-c1da29f1062e437696681a6675dd5df8",
+    "trace_id": "trace-f1c6e21619ba4f769fd7680fec78b80b",
+    "base_commit": "30ffe4c41492334478a2446a8be0662d3f31d478",
+    "target_commit": "a7e3b644ca9b1b9d0b26bd41e839fcbf5ea1c293",
+    "stages": [
+      "full-check",
+      "incremental-check"
+    ],
+    "findings": [
+      [
+        "MISSING",
+        "main.o",
+        "extra.h"
+      ]
+    ]
+  },
+  "teacher_projects": {
+    "H1-jsmn": {
+      "out": "work/e13-ma-H1-jsmn-01",
+      "status": "SUCCEEDED",
+      "job_id": "job-be7ed157009244ba90e788ca9df0a561",
+      "trace_id": "trace-e226a36ed38a45b18ae33910d27ff474",
+      "stages": [
+        "draft",
+        "full-check",
+        "incremental-check",
+        "repair",
+        "recheck"
+      ],
+      "findings": [
+        [
+          "MISSING",
+          "helper.o",
+          "extra.h"
+        ]
+      ],
+      "final_findings": [],
+      "validation": {
+        "accepted": true,
+        "checks": {
+          "patch_applies": true,
+          "build": true,
+          "test": true,
+          "header_change": true,
+          "no_missing": true
+        },
+        "error": null,
+        "source_unchanged": false,
+        "rollback": false
+      },
+      "patch_sha256": "8598e9b539354b5b628a6d992932cf1602c8acf6c75e75af3a73ba32f3fe51ba"
+    },
+    "H2-inih": {
+      "out": "work/e13-ma-H2-inih-01",
+      "status": "SUCCEEDED",
+      "job_id": "job-09b8fe217b4b4da5a0a4727624576af7",
+      "trace_id": "trace-40e3e5b2c6434bd39dc4fa748e1cc9f8",
+      "stages": [
+        "draft",
+        "full-check",
+        "incremental-check",
+        "repair",
+        "recheck"
+      ],
+      "findings": [
+        [
+          "MISSING",
+          "main.o",
+          "extra.h"
+        ],
+        [
+          "REDUNDANT",
+          "main.o",
+          "unused.h"
+        ]
+      ],
+      "final_findings": [
+        [
+          "REDUNDANT",
+          "main.o",
+          "unused.h"
+        ]
+      ],
+      "validation": {
+        "accepted": true,
+        "checks": {
+          "patch_applies": true,
+          "build": true,
+          "test": true,
+          "header_change": true,
+          "no_missing": true
+        },
+        "error": null,
+        "source_unchanged": false,
+        "rollback": false
+      },
+      "patch_sha256": "2c9db75d9a84e3271257c94bae1fa67dd007c455d1db920c2d94b0ae92b5b4ac"
+    },
+    "H3-tiny-aes": {
+      "out": "work/e13-ma-H3-tiny-aes-01",
+      "status": "SUCCEEDED",
+      "job_id": "job-e0b37d756f0a49bda11267f3f6dce65a",
+      "trace_id": "trace-c787899f80d34687902c5d41c825717e",
+      "stages": [
+        "draft",
+        "full-check",
+        "incremental-check",
+        "repair",
+        "recheck"
+      ],
+      "findings": [
+        [
+          "MISSING",
+          "helper.o",
+          "extra.h"
+        ]
+      ],
+      "final_findings": [],
+      "validation": {
+        "accepted": true,
+        "checks": {
+          "patch_applies": true,
+          "build": true,
+          "test": true,
+          "header_change": true,
+          "no_missing": true
+        },
+        "error": null,
+        "source_unchanged": false,
+        "rollback": false
+      },
+      "patch_sha256": "ccd510fc4ebbd03405bf0f0e73c1624e9d5a88480de0820aebe8f781e41773b5"
+    }
+  },
+  "e14": {
+    "compose_project": "e14-241880374",
+    "sample": {
+      "out": "work/e14-ma-sample-01",
+      "status": "SUCCEEDED",
+      "job_id": "job-622eff0fc35e41dfaa966e03b40a41f5",
+      "trace_id": "trace-f497d383c01b42c39bbef4b85de1152d",
+      "stages": [
+        "draft",
+        "full-check",
+        "incremental-check",
+        "repair",
+        "recheck"
+      ],
+      "artifacts": 162,
+      "error": null
+    },
+    "timeout": {
+      "out": "work/e14-ma-timeout-01",
+      "status": "FAILED",
+      "job_id": "job-e229f9b87d5a4f5890ba0eb50a67eec0",
+      "trace_id": "trace-0450889a9e3d43ecabf131940865d858",
+      "stages": [],
+      "artifacts": 36,
+      "error": "draft HTTP 422: {\"status\": \"FAILED\", \"role\": \"draft\", \"error_code\": \"TIMEOUT\", \"error\": \"DRAFT_TIMED_OUT: Docker client command exceeded 0.01s\"}\n",
+      "draft_inner_status": "TIMED_OUT",
+      "draft_inner_error": "Docker client command exceeded 0.01s"
+    },
+    "recover": {
+      "out": "work/e14-ma-recover-01",
+      "status": "SUCCEEDED",
+      "job_id": "job-a18d7deb5c254e82aa2f66d295acbe09",
+      "trace_id": "trace-bf179d773a0742efaef36504c06cfa08",
+      "stages": [
+        "draft",
+        "full-check",
+        "incremental-check",
+        "repair",
+        "recheck"
+      ],
+      "artifacts": 162,
+      "error": null
+    }
+  },
+  "scans": {
+    "e14_runtime_logs": {
+      "exit": 0,
+      "file": "work/e14-ma-log-scan.txt",
+      "summary": "runtime log scan: text_files=340 hits=0 errors=0"
+    }
+  }
+}

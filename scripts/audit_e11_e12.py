@@ -31,6 +31,7 @@ TEST_CLASSES = {
 MANIFESTS = [
     "evidence/students/241880089/e11-e12/SHA256SUMS",
     "evidence/students/241880369/e11-e12/artifacts.sha256",
+    "evidence/students/241880374/e11-e12/SHA256SUMS",
     "evidence/students/241880375/e11-e12/archived-artifacts.sha256",
     "evidence/students/241880375/e11-e12/b09-signoff/artifacts.sha256",
 ]
@@ -174,7 +175,7 @@ def main():
     archive_sha = sha256(archive) if archive.is_file() else None
     blob_a = git_blob("b0765a0f990b10a28392fe6d4318b4b73a41177a", archive_relative)
     blob_pr17 = git_blob("0cd8054911a18be96900e05c3b7747c6b35a4112", archive_relative)
-    blob_main = git_blob("bfd2ab1", archive_relative)
+    blob_main = git_blob("HEAD", archive_relative)
     identities = {"b0765a0f": blob_a, "pr17_head": blob_pr17, "current_main": blob_main}
     same_blob = bool(blob_a) and blob_a == blob_pr17 == blob_main
     expected_archive = "19479d51720decbca2518453e00646a4700c7b21101b018965bfdbc0c8cce648"
@@ -264,7 +265,7 @@ def main():
         "",
         "## 4. 缺口与说明",
         "",
-        "- 241880374 马海川：个人报告/ADR/AI_USAGE 与个人测试齐全，但仓库中没有 `evidence/students/241880374/e11-e12/`，报告引用的是未入库的 `work/...` 目录；本次不代造证据，标记为 WARN。",
+        "- 241880374 马海川：个人报告/ADR/AI_USAGE、个人测试、证据包、run-summary 和 SHA256SUMS 均已归档。",
         "- 陈玉熙 241880089：E11–E12 个人材料、个人测试与证据均已归档。",
         "- 本检查只读仓库文件，不修改任何组员材料；所有哈希均按文件字节重新计算。",
         "",
