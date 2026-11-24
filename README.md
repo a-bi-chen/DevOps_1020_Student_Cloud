@@ -1,23 +1,25 @@
-# A09 组 E8–E12 统一仓库（A 轨 EChecker）
+# A09 组 E8–E14 统一仓库（A 轨 EChecker）
 
 小组 / 轨道：A09 / A（BuildChecker → EChecker 教学实现）
 
 仓库：<https://github.com/a-bi-chen/DevOps_1020_Student_Cloud>
 
-`main` 是本组 E8–E12 的统一验收版本：E8–E10 教学代码与四人个人测试（14 项）、E11–E12 轨道内集成与四人个人材料均已归档。E11–E12 的四份个人报告见 `docs/students/<学号>/e11-e12/`，团队级结果与 B09 签收见 `docs/reports/`。
+`main` 是本组 E8–E14 的统一验收版本：E8–E10 教学代码与四人个人测试（14 项）、E11–E12 轨道内集成、E13–E14 交叉测试与候选发布，以及各阶段四人个人材料均已归档。E11–E12 与 E13–E14 的个人报告见 `docs/students/<学号>/e11-e12/`、`docs/students/<学号>/e13-e14/`；团队级结果、B09 签收与候选发布记录见 `docs/reports/` 和 `docs/students/241880375/e13-e14/`。
 
 ## 1. 组员与分支
 
-| 姓名 | 学号 | GitHub | E8–E10 分支 | E11–E12 分支 |
-|---|---|---|---|---|
-| 陈玉熙 | 241880089 | `a-bi-chen` | `student/241880089/e8-e10` | `student/241880089/e11-e12` |
-| 高嘉程 | 241880369 | — | `student/241880369/e8-e10` | `student/241880369/e11-e12` |
-| 马海川 | 241880374 | `weijige7` | `student/241880374/e8-e10` | `student/241880374/e11-e12` |
-| 张海洋 | 241880375 | — | `student/241880375/e8-e10` | `student/241880375/e11-e12` |
+| 姓名 | 学号 | GitHub | E8–E10 分支 | E11–E12 分支 | E13–E14 分支 |
+|---|---|---|---|---|---|
+| 陈玉熙 | 241880089 | `a-bi-chen` | `student/241880089/e8-e10` | `student/241880089/e11-e12` | `student/241880089/e13-e14` |
+| 高嘉程 | 241880369 | `Allen-Ga` | `student/241880369/e8-e10` | `student/241880369/e11-e12` | `student/241880369/e13-e14` |
+| 马海川 | 241880374 | `weijige7` | `student/241880374/e8-e10` | `student/241880374/e11-e12` | `student/241880374/e13-e14` |
+| 张海洋 | 241880375 | `241880375` | `student/241880375/e8-e10` | `student/241880375/e11-e12` | `student/241880375/e13-e14` |
 
 E8–E10 个人测试类：`StudentE8A089`、`StudentE9A089`、`StudentE10A089`、`StudentE9A089RemovedInclude`、`StudentE10A`、`StudentE8A`、`StudentE9A`，合计 7 项个人测试 + 7 项基础 `ProfileTests` = **14 项**。
 
 E11–E12 个人测试类：`StudentE11E12A241880089`、`StudentE11E12A241880369`、`StudentE11E12A241880374`、`StudentE11E12A241880375`。
+
+E13–E14 个人测试：`labs/e13e14/tests/test_student_241880089.py`、`test_student_241880369.py`、`test_student_241880374.py`；`test_handoff.py` 为共用交接校验，`labs/e8e10/test_profile.py` 另含 `StudentE13A241880375`。
 
 ## 2. 仓库结构
 
@@ -28,13 +30,16 @@ E11–E12 个人测试类：`StudentE11E12A241880089`、`StudentE11E12A241880369
 | `labs/e8e10/test_profile.py` | P6 | 基础 `ProfileTests` 7 项 + 四人 E8–E10 个人测试 7 项 |
 | `run_e11e12.py` | E11–E12 | `build` / `prepare` / `run` / `serve` / `test` 入口 |
 | `labs/e11e12/` | E11–E12 | 编排、DRAFT/MDFixer、异步任务 API、契约测试与个人测试 |
-| `services/buildchecker/`、`tests/e7/`、`scripts/` | P5 / E11–E12 | BuildChecker、E7 门禁、归档审计脚本 |
+| `labs/e13/` | E13 | 交叉检测适配入口 `run_crosscheck.py`（B09 子目录 + `CFLAGS` profile） |
+| `labs/e13e14/` | E13–E14 | 交接校验、四角色 Compose 编排与个人独立测试 |
+| `services/buildchecker/`、`tests/e7/`、`scripts/` | P5 / E11–E14 | BuildChecker、E7 门禁、运行日志/历史密钥扫描与归档脚本 |
 | `.github/workflows/e7-quality-gate.yml` | P5 | `e7-a-quality-gate` |
 | `.github/workflows/e8e10.yml` | P6 | `e8e10-quality-gate`：单元测试 + A/B 六条路线 |
 | `.github/workflows/e11e12.yml` | E11–E12 | `e11e12-integration`：契约测试 + E11-A/B/E12 运行 + artifact |
-| `docs/students/` | P6–E11–E12 | 四人 E8–E10、E11–E12 个人材料与模板 |
+| `.github/workflows/e13e14.yml` | E13–E14 | `contracts` + `four-services`：契约测试、Compose 配置校验、四服务运行 |
+| `docs/students/` | P6–E14 | 四人各阶段个人材料与模板 |
 | `docs/reports/` | E11–E12 | 团队交付审计、B09 签收核对与全量检查 |
-| `evidence/students/` | E11–E12 | 按学号归档的原始日志、JSON、trace、证据包与 SHA256 清单 |
+| `evidence/students/` | E11–E14 | 按学号归档的原始日志、JSON、trace、证据包与 SHA256 清单 |
 
 ## 3. 快速开始（E8–E10）
 
@@ -135,13 +140,52 @@ B09 已核对 A09 的 E12 交付，A09 侧也已按文件字节复核：
 
 完整记录见 `docs/students/<学号>/e11-e12/AI_USAGE.md`；AI 输出仅用于建议和草稿，实验数值均来自真实运行。
 
-## 6. 交付物与全量检查
+## 6. E13–E14（P8）：交叉测试与候选发布
+
+### 6.1 组级结果
+
+| 范围 | 结论 | 主要证据 |
+|---|---|---|
+| C1 A 侧检测 B09 真实项目 | Base `30ffe4c4…` 无缺陷；Target `a7e3b644…` 精确新增 `MISSING(main.o, extra.h)`；增量 `added` 与 Target 全量一致 | `work/e13-c1-b09-01`、`docs/students/241880375/e13-e14/交叉测试记录.md` |
+| C1 B09 消费 A09 报告 | B09 构建、修复、复检 `SUCCEEDED`；MD=0，仅保留 `REDUNDANT(main.o, unused.h)`；6/6 修复边 `rebuilt=true`、`output_matches=true` | B09 回传包与 `evidence/students/241880375/e13-e14/b09-signoff-verify-20261124/` |
+| C2–C8 | 旧报告 `STALE_REPORT`、篡改 `ARTIFACT_HASH_MISMATCH`、受控超时无残留、错误补丁回滚、假 Key 阻断、失败隔离、幂等 202/409 全部符合预期 | `work/e13-c2*` … `work/e13-c8`、组级交叉测试记录 |
+| H1–H3 | jsmn、inih、tiny-AES-c 三个未知项目均完成 `draft → full-check → incremental-check → repair → recheck` 五阶段，补丁 `accepted=true` | `work/e13-H1*` … `work/e13-H3*` |
+| E14 四容器 | buildchecker / echecker / draft / mdfixer 四角色 `healthy`（仅绑定 `127.0.0.1:18081–18084`）；固定样例五阶段成功、受控超时返回 `TIMEOUT`、恢复重跑成功 | `evidence/students/241880375/e13-e14/ci-e14-result.json` 与个人 E14 证据 |
+| `v0.9-rc` | 已发布并保持指向 `ee6f7da9568686c9f99ee937a223c7f77a5eb9e6`，后续文档/个人材料提交未移动标签 | <https://github.com/a-bi-chen/DevOps_1020_Student_Cloud/releases/tag/v0.9-rc> |
+| B09 签收复核（2026-11-24） | 四分片重组包 154,556,278 字节、SHA256 `1a1419b6…ba33`；包内 CRLF 清单规范化后 17/17 通过；修复 bundle 校验通过；Secret 全量扫描 1109 个文件 0 命中 | `evidence/students/241880375/e13-e14/b09-signoff-verify-20261124/` |
+
+### 6.2 四名组员贡献
+
+| 成员 | 分支 / PR | 实际完成 | 结果与证据 |
+|---|---|---|---|
+| 陈玉熙 241880089 | `student/241880089/e13-e14`，PR #35 | E13 C1 A 侧独立执行与 2026-11-24 复跑（B09 `fixtures/e11e12-b1-real`，Base→Target）；新增 `labs/e13/run_crosscheck.py` 适配入口与 `test_student_241880089.py`（3 项）；保留官方入口三种失败的原始日志 | `SUCCEEDED`，`MISSING(main.o, extra.h)`；证据包内 94/94 `SHA256SUMS` 通过；`evidence/students/241880089/e13-e14/` |
+| 高嘉程 241880369 | `student/241880369/e13-e14`，PR #34 | 个人独立复跑 C1–C8、H1–H3 与 E14 四容器/受控超时/恢复；新增 `test_student_241880369.py`（2 项：错误补丁回滚、假 Key 扫描）；运行日志与工作区历史扫描 | C1 `job-52db0f4c…`；C2/C3 正确拒绝；H1–H3 五阶段；E14 固定样例 `job-b611b79b…`、超时 `job-f02d3c46…`、恢复 `job-5b053266…`；`evidence/students/241880369/e13-e14/` |
+| 马海川 241880374 | `student/241880374/e13-e14`，PR #30 | C1、H1–H3、E14 四容器/受控超时/恢复；新增 `test_student_241880374.py`；归档完整证据包与 SHA256 清单 | H1–H3 均五阶段，H2 修复后如实保留 `REDUNDANT(main.o, unused.h)`；E14 固定样例 `job-622eff0f…`（162 产物）、超时 `job-e229f9b8…`、恢复 `job-a18d7deb…`；证据包 SHA256 `cfe14db2…f761` |
+| 张海洋 241880375 | `student/241880375/e13-e14`，PR #20（入口/组级）、#29（证据归档）、#31（门禁签收）、#32（标签同步）、#33（签收复核） | 实现 E13/E14 入口、交接适配、运行日志 Secret 扫描、四角色 Compose/编排/CI；补充 `fixed_report_sha256` 传输校验与 `project_subdir`；修复 Issue #19/#21；完成 C1–C8、H1–H3、E14 与 B09 双向交换、签收复核 | `v0.9-rc` 指向 `ee6f7da9`；B09 `accepted=true`；`docs/students/241880375/e13-e14/`、`evidence/students/241880375/e13-e14/` |
+
+组级材料由张海洋汇总（PR #20），四位组员均在各自分支保留独立运行证据；个人报告不重复声明他人执行的链路，组级结论以 `docs/students/241880375/e13-e14/交叉测试记录.md` 与 `候选发布说明.md` 为准。
+
+### 6.3 E13–E14 文档与证据
+
+| 内容 | 位置 |
+|---|---|
+| 组级交叉测试、候选发布、Issue/修复记录 | `docs/students/241880375/e13-e14/` |
+| 四人个人报告、ADR、AI 使用与证据索引 | `docs/students/<学号>/e13-e14/` |
+| 按学号归档的原始证据 | `evidence/students/<学号>/e13-e14/` |
+| B09 签收复核证据（2026-11-24） | `evidence/students/241880375/e13-e14/b09-signoff-verify-20261124/` |
+| E13 适配入口说明 | `labs/e13/README.md` |
+
+## 7. 交付物与全量检查
 
 - [x] 四人 E8–E10 个人材料与个人测试（14 项测试）
 - [x] 四人 E11–E12 个人报告、ADR、AI_USAGE 与个人测试
 - [x] 陈玉熙、高嘉程、张海洋的 E11–E12 证据归档并通过 SHA256 校验
 - [x] 马海川 E11–E12 个人报告、个人测试与证据归档（3 个文件，PASS）
 - [x] B09 对 A09 E12 签收记录的本地复核
+- [x] E13 C1–C8 与 H1–H3 组级运行，B09 对 A09 E13 C1 独立消费并签收
+- [x] E14 四容器固定样例、受控超时与恢复，`v0.9-rc` 发布且标签未移动
+- [x] 四人 E13–E14 个人报告、ADR、AI_USAGE、个人测试与证据归档
+- [x] 2026-11-24 B09 签收回执独立复核（`evidence/students/241880375/e13-e14/b09-signoff-verify-20261124/`）
 - [x] 归档全量检查：`docs/reports/A09-E11-E12-audit.md` / `.json`
 - [x] 本地提交包：由 `scripts/build_submission_package.py` 生成
 
@@ -153,29 +197,35 @@ python3 scripts/audit_e11_e12.py
 
 当前结果：以 `python3 scripts/audit_e11_e12.py` 重新生成的结果为准；四人个人材料、个人测试与证据目录均已归档。
 
-## 7. CI 与分支保护
+> 提交包说明：`A09-E13-E14-final-20261124-v3.zip` 生成于 2026-11-24 14:09，早于 PR #34（241880369）与 PR #35（241880089）的 E13–E14 个人材料合入；需要提交时应在 `main` 最新提交上重新运行打包脚本，使四人 E13–E14 材料全部进入提交包。
+
+## 8. CI 与分支保护
 
 - `e7-a-quality-gate`：E5–E7 BuildChecker 与门禁；
 - `e8e10-quality-gate`：E8–E10 单元测试 + A/B 六条路线；
-- `e11e12-integration`：E11–E12 契约测试 + E11-A/B/E12 运行 + artifact。
+- `e11e12-integration`：E11–E12 契约测试 + E11-A/B/E12 运行 + artifact；
+- `contracts` / `four-services`（E13–E14 工作流）：契约与交接测试、Compose 配置校验、Secret 扫描、四服务固定样例运行。
 
-Ruleset `25866762`（`main`，active）已要求 `e7-a-quality-gate` 与 `e8e10-quality-gate`，规则包括禁止删除、禁止非快进推送、必须通过 PR、分支需保持最新。`e11e12-integration` 是否也已加入该 Ruleset 的必需检查，需管理员在 Settings → Rules 中确认；本仓库不把“工作流已存在”等同于“已被分支保护强制”。
+Ruleset `25866762`（`main`，active）已要求 `e7-a-quality-gate` 与 `e8e10-quality-gate`，规则包括禁止删除、禁止非快进推送、必须通过 PR、分支需保持最新。`e11e12-integration` 与 E13–E14 检查是否也已加入该 Ruleset 的必需检查，需管理员在 Settings → Rules 中确认；本仓库不把“工作流已存在”等同于“已被分支保护强制”。
 
 P5 配置快照：`ci/A-main-protection.json`；P6 基础设施证据：`evidence/A09-E8-E10/`。
 
-## 8. 文档索引
+## 9. 文档索引
 
 | 内容 | 位置 |
 |---|---|
 | E8–E10 目标与概述 | `docs/E8-E10-overview.md` |
 | E8–E10 教学实现与测试 | `labs/e8e10/README.md` |
 | E11–E12 个人材料 | `docs/students/<学号>/e11-e12/` |
+| E13–E14 个人材料 | `docs/students/<学号>/e13-e14/` |
+| E13–E14 组级记录（交叉测试/候选发布） | `docs/students/241880375/e13-e14/` |
+| E13 适配入口 | `labs/e13/README.md` |
 | B09 签收与团队交付审计 | `docs/reports/A09-E11-E12-final-delivery.md` |
 | 归档全量检查 | `docs/reports/A09-E11-E12-audit.md` |
 | 个人材料模板 | `docs/students/_template/` |
 | E7 摘要 | `docs/E7-summary.md` |
 | P5 实验报告 | `docs/实验报告.md`、`docs/reports/` |
 
-## 9. 前置阶段（E5–E7）
+## 10. 前置阶段（E5–E7）
 
 P5 的 BuildChecker 与 E7 门禁归档在 `services/buildchecker/`、`tests/e7/`、`.github/workflows/e7-quality-gate.yml`；摘要见 `docs/E7-summary.md`。
