@@ -55,3 +55,10 @@
 ## 7. 结论
 
 B09 交付提交、四分片重组包、包内 17 项哈希、修复 bundle、C1/C2/C3/恢复、离线镜像映射与兼容信封均与声明一致。A09 确认签收；本复核不修改已签收包字节。
+
+## 8. Secret 扫描（工作区 + Git 历史 + 镜像）
+
+- 命令：`python3 scripts/secret_scan.py . --history --image course-e11e12:241880375`
+- 结果：`密钥检查：未发现问题（文件 1109 个，含 Git 历史，含镜像 course-e11e12:241880375）`，退出码 0
+- 证据：`secret-scan-full-20261124.txt`，SHA256 `21e08624ce37a326f1ba469f86b67a2b0b70f2f6cb38355b9e1e89bca158a403`
+
