@@ -1,0 +1,252 @@
+{
+  "schema": "a09-e13-b09-signoff-verify-1",
+  "verified_at": "2026-11-24T13:59:52+08:00",
+  "verifier": "A09",
+  "subject": {
+    "delivery_commit": "cbf90cce6fcb4950c6326704bd970f9ed80693bb",
+    "package": "a09-e13-b09-server-return-20261122-195038.tar.gz",
+    "bytes": 154556278,
+    "sha256": "1a1419b6359448b7e39033899d287ed85fd44d0ca054299e238cc55d1645ba33",
+    "shards": [
+      {
+        "name": "a09-e13-b09-server-return-20261122-195038.tar.gz.part01",
+        "bytes": 50000000,
+        "sha256": "c8d772e777c81fa7bd5f095c2f001d158127c331ebf17bc21e4811518254fb07"
+      },
+      {
+        "name": "a09-e13-b09-server-return-20261122-195038.tar.gz.part02",
+        "bytes": 50000000,
+        "sha256": "c205764128139f0aa4bfc28407d4837f58d89b2536bef5d7b4eb29d9498701e7"
+      },
+      {
+        "name": "a09-e13-b09-server-return-20261122-195038.tar.gz.part03",
+        "bytes": 50000000,
+        "sha256": "96996c711ef5fae7d44010bfbfbfbe5c87ffb91cb86681545b3ce85c9cdb78ef"
+      },
+      {
+        "name": "a09-e13-b09-server-return-20261122-195038.tar.gz.part04",
+        "bytes": 4556278,
+        "sha256": "5e390fd1c4260c82809f34c9fbbf19eb3ad0ffab997e5ee363cb649a1e857982"
+      }
+    ],
+    "recomposed_matches_declared": true
+  },
+  "package_manifest": {
+    "file": "SHA256SUMS",
+    "line_endings": "CRLF",
+    "normalized_check": {
+      "listed": 17,
+      "ok": 17,
+      "failed": 0
+    }
+  },
+  "artifacts": {
+    "a09-e13-project-fixed.bundle": {
+      "sha256": "d79c913ac01b438572f9def11a2161d39a6a244594d738b4cfaa6895d801b5dd",
+      "bytes": 2246
+    },
+    "candidate.Dockerfile": {
+      "sha256": "6f0e3980c609a683d727c271bdd3a8d5f12b46df21f1fcc402e0d8420ce06c28",
+      "bytes": 618
+    },
+    "candidate.patch": {
+      "sha256": "8634d2aa57acc132ddf21ef90fa087aca1a313aca37a7bc74bb9b5ce9bf29c6e",
+      "bytes": 353
+    },
+    "edge-rebuilds.json": {
+      "sha256": "91200215704ad12c25427e2aef843eb7573258fc6c9f0405a58355b93a12ec8c",
+      "bytes": 1310
+    },
+    "final-recheck.json": {
+      "sha256": "85fd1aa62fbdbec19b9625e6ef559be8867a698c3541afdffa3e0abade0e2fe1",
+      "bytes": 2568
+    },
+    "fixed-md-a09.json": {
+      "sha256": "a37c47c17807ae16d6042f29cbb48d460bd9c5ddea611e6aefea3f01146c644b",
+      "bytes": 2832
+    },
+    "fixed.diff": {
+      "sha256": "abd07335a13f9681dafbeea5d925bda4cc0830167e38d65a94f77233c1cb9553",
+      "bytes": 416
+    },
+    "identities.txt": {
+      "sha256": "a29f26cf427b6f18a28c10a4d0dd53b009e16c96783cb9cf711d673605a5d159",
+      "bytes": 208
+    },
+    "offline-base.tar": {
+      "sha256": "73633301ead922a8ed8635751e133b1090f6d447c76626ad87f62eb0d6e955ff",
+      "bytes": 155710976
+    },
+    "offline-candidate.Dockerfile": {
+      "sha256": "42fa65f92cc2fb57e321f4c4ffbe9e657df0c0bb0326d62247fa8c86145f755c",
+      "bytes": 311
+    },
+    "offline-mapping.txt": {
+      "sha256": "218bb5c16abda20781a5fa5b654053d8ee66b939ebee054d74131a93983170c8",
+      "bytes": 329
+    },
+    "return-manifest.json": {
+      "sha256": "ce1bfd3919d651490bf80830326a9e36616ee09ff932fe31ca2848b72c4c8f21",
+      "bytes": 2876
+    },
+    "server-c1-recheck.json": {
+      "sha256": "24b8c344cde10243c6ac2f6fa1db6598177d0cb297ee965d20e3d58caf288ed8",
+      "bytes": 2185
+    },
+    "server-c2-result.json": {
+      "sha256": "69f1be9c20d78ba206dd0f55d974411c786dd2852f03ece0c4566ef5068946dc",
+      "bytes": 6342
+    },
+    "server-c3-result.json": {
+      "sha256": "d944454b184169ffde58946aba95ed77baf6e89681127725ebc9fb6d6407f893",
+      "bytes": 6360
+    },
+    "server-recovery-result.json": {
+      "sha256": "52c8251e109bcd9fafb247702bc9e2c653b5396f04723d634f0f1ddf4f27c651",
+      "bytes": 32881
+    },
+    "validation.json": {
+      "sha256": "f9f4d6b0c2bae1dfcf1895a3eb83e6499a239c51f24e692e7d9fa38dcadb55e9",
+      "bytes": 312
+    }
+  },
+  "fix_bundle": {
+    "bundle": "a09-e13-project-fixed.bundle",
+    "bundle_sha256": "d79c913ac01b438572f9def11a2161d39a6a244594d738b4cfaa6895d801b5dd",
+    "bundle_verify_exit": 0,
+    "bundle_verify_output": "The bundle contains this ref:\n74eff064e1eae3e244b0acf80880c92fb4635e26 refs/heads/b09-e13-fixed\nThe bundle records a complete history.",
+    "fixed_commit": "74eff064e1eae3e244b0acf80880c92fb4635e26",
+    "parent_commit": "ba688c40d13cd8658e554f7544f1546d35b4b397",
+    "parent_matches_target": true,
+    "diffstat": "1 file changed, 2 insertions(+), 2 deletions(-)"
+  },
+  "c1": {
+    "job_id": "job-ec9901a266654aabb0f3c31ecc0fd697",
+    "trace_id": "trace-b9ce4c04ed934430815be6d7fc346aff",
+    "status": "SUCCEEDED",
+    "commit": "ba688c40d13cd8658e554f7544f1546d35b4b397",
+    "validation": {
+      "accepted": true,
+      "checks": {
+        "patch_applies": true,
+        "build": true,
+        "test": true,
+        "edge_rebuilds": true,
+        "no_missing": true
+      },
+      "error": null,
+      "rollback": false,
+      "source_unchanged": false,
+      "image_id": "sha256:8bd1e0bc48af54d93398cd7d744057f38707bc33b5f6cabd1f207e1f5d0a858e"
+    },
+    "findings": [
+      {
+        "type": "REDUNDANT",
+        "target": "main.o",
+        "dependency": "unused.h",
+        "evidence": [
+          {
+            "source": "make_database",
+            "artifact": "make-db.txt",
+            "line": 1070,
+            "declaration": "main.o: main.c unused.h calculate.h config.h extra.h"
+          }
+        ],
+        "scope": "Not observed in this recipe job under this build configuration"
+      }
+    ],
+    "missing_count": 0,
+    "redundant_count": 1,
+    "edge_rebuilds": {
+      "total": 6,
+      "rebuilt": 6,
+      "output_matches": 6
+    }
+  },
+  "c2": {
+    "status": "FAILED",
+    "error": {
+      "code": "STALE_REPORT",
+      "message": "Report belongs to another commit"
+    },
+    "stages": [],
+    "has_candidate_patch": false,
+    "job_id": "job-0c0a865d138f4249b2ef1c7f3e7791da",
+    "trace_id": "trace-99fd2dbb1b0a4bd084ab4d551e81dd7a"
+  },
+  "c3": {
+    "status": "FAILED",
+    "error": {
+      "code": "ARTIFACT_HASH_MISMATCH",
+      "message": "Artifact content changed during transfer"
+    },
+    "stages": [],
+    "has_candidate_patch": false,
+    "job_id": "job-19d998dafff0457d8fa862b7bc784360",
+    "trace_id": "trace-828731512d364995b7f6b3af1e040014"
+  },
+  "recovery": {
+    "status": "SUCCEEDED",
+    "stages": [
+      "draft",
+      "fixed-md",
+      "repair",
+      "recheck"
+    ],
+    "job_id": "job-d7ff2505c71b4406aa8334467e5fb24a",
+    "trace_id": "trace-e0ac2f893d5c46018f124a3467682932",
+    "has_candidate_patch": true
+  },
+  "offline_image": {
+    "mapping_file": "offline-mapping.txt",
+    "mapping_sha256": "218bb5c16abda20781a5fa5b654053d8ee66b939ebee054d74131a93983170c8",
+    "derived_manifest_digest_present_in_tar": "af8922b2323b530a21bb406e3f38cae8488ad32f92555f27ab15538a7feb40b4"
+  },
+  "source_identity": {
+    "a09_job_id": "job-131c4b1d8c34469aaa31f9e2a9da1736",
+    "a09_trace_id": "trace-c224eaab92394b91bedfc2dea14ebc61",
+    "a09_target": "ba688c40d13cd8658e554f7544f1546d35b4b397",
+    "incremental_sha256": "504a3c505c1479c990f59143926247a2deb7415375de5d957a2d4938aefff224",
+    "result_sha256": "3fd3be33d41b95e9fff9762fac1b2413c649f68714f06c4b4520f3e52e769015",
+    "full_check_sha256": "c9de4bb36f114f9caad7111d918dde2475a080667f401f8ec707f7772686d549"
+  },
+  "compat_envelope": {
+    "a09_original": {
+      "bytes": 2806,
+      "sha256": "623e6854cb99904eb20e49e72436a182a83446a1e68e2218741971bca1f618a2"
+    },
+    "regenerated_with_source_report_bytes_3052": {
+      "bytes": 2825,
+      "sha256": "c19a6b11675b86bd5f2bfe348b3faeb65151b4c57681a54103510f642845e5cf"
+    },
+    "matches_declared": true
+  },
+  "b09_project_recheck_20261124": {
+    "out": "/root/241880089/devops-e11e12/work/e13-b09-reverify-20261124",
+    "status": "SUCCEEDED",
+    "expectations": {
+      "base_no_findings": true,
+      "target_expected_findings": true,
+      "incremental_matches_target_full": true,
+      "incremental_only_expected_addition": true,
+      "base_commands_ok": true,
+      "target_commands_ok": true,
+      "commits_unchanged": true
+    },
+    "incremental_findings": [
+      {
+        "type": "MISSING",
+        "target": "main.o",
+        "dependency": "extra.h"
+      }
+    ],
+    "incremental_added": [
+      [
+        "MISSING",
+        "main.o",
+        "extra.h"
+      ]
+    ]
+  },
+  "conclusion": "SIGNED_OFF"
+}
