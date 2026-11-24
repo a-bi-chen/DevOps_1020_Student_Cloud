@@ -98,8 +98,7 @@
   "not_executed_personally": [
     "E13 C2-C8",
     "E13 H1-H3 teacher projects",
-    "E14 four-service compose, timeout and recovery",
-    "B09 post-merge regression archive byte-level review"
+    "E14 four-service compose, timeout and recovery"
   ],
   "group_level_references": [
     "docs/students/241880375/e13-e14/交叉测试记录.md",
