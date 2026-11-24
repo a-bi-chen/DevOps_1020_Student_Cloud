@@ -4,7 +4,7 @@
 
 仓库：<https://github.com/a-bi-chen/DevOps_1020_Student_Cloud>
 
-`main` 是本组 E8–E12 的统一验收版本：E8–E10 教学代码与四人个人测试（14 项）、E11–E12 轨道内集成与四人个人材料均已归档。E11–E12 的四份个人报告见 `docs/students/<学号>/e11-e12/`，团队级结果与 B09 签收见 `docs/reports/`。
+`main` 是本组 E8–E12 的统一验收版本：E8–E10 教学代码与四人个人测试（14 项）、E11–E12 轨道内集成与四人个人材料均已归档。E11–E12 的四份个人报告见 `docs/students/<学号>/e11-e12/`，团队级结果与 B09 签收见 `docs/reports/`，归档全量检查为 **23 PASS / 0 WARN / 0 FAIL**。
 
 ## 1. 组员与分支
 
@@ -17,7 +17,7 @@
 
 E8–E10 个人测试类：`StudentE8A089`、`StudentE9A089`、`StudentE10A089`、`StudentE9A089RemovedInclude`、`StudentE10A`、`StudentE8A`、`StudentE9A`，合计 7 项个人测试 + 7 项基础 `ProfileTests` = **14 项**。
 
-E11–E12 个人测试类：`StudentE11E12A241880089`、`StudentE11E12A241880369`、`StudentE11E12A241880374`、`StudentE11E12A241880375`。
+E11–E12 个人测试类：`StudentE11E12A241880089`、`StudentE11E12A241880369`、`StudentE11E12A241880374`、`StudentE11E12A241880375`，分别位于 `labs/e11e12/test_student_<学号>.py`；四人形式一致，每人一个独立测试文件。
 
 ## 2. 仓库结构
 
@@ -27,7 +27,7 @@ E11–E12 个人测试类：`StudentE11E12A241880089`、`StudentE11E12A241880369
 | `labs/e8e10/lab.py` | P6 | EChecker 教学实现（GCC 依赖观测、缓存复用/刷新、Patch） |
 | `labs/e8e10/test_profile.py` | P6 | 基础 `ProfileTests` 7 项 + 四人 E8–E10 个人测试 7 项 |
 | `run_e11e12.py` | E11–E12 | `build` / `prepare` / `run` / `serve` / `test` 入口 |
-| `labs/e11e12/` | E11–E12 | 编排、DRAFT/MDFixer、异步任务 API、契约测试与个人测试 |
+| `labs/e11e12/` | E11–E12 | 编排、DRAFT/MDFixer、异步任务 API、契约测试与四人个人测试（`test_student_<学号>.py`） |
 | `services/buildchecker/`、`tests/e7/`、`scripts/` | P5 / E11–E12 | BuildChecker、E7 门禁、归档审计脚本 |
 | `.github/workflows/e7-quality-gate.yml` | P5 | `e7-a-quality-gate` |
 | `.github/workflows/e8e10.yml` | P6 | `e8e10-quality-gate`：单元测试 + A/B 六条路线 |
@@ -151,7 +151,7 @@ B09 已核对 A09 的 E12 交付，A09 侧也已按文件字节复核：
 python3 scripts/audit_e11_e12.py
 ```
 
-当前结果：以 `python3 scripts/audit_e11_e12.py` 重新生成的结果为准；四人个人材料、个人测试与证据目录均已归档。
+当前结果：**23 PASS / 0 WARN / 0 FAIL**（2026-11-24 重新生成）；四人个人材料、个人测试与证据目录均已归档。
 
 ## 7. CI 与分支保护
 
@@ -170,7 +170,7 @@ P5 配置快照：`ci/A-main-protection.json`；P6 基础设施证据：`evidenc
 | E8–E10 目标与概述 | `docs/E8-E10-overview.md` |
 | E8–E10 教学实现与测试 | `labs/e8e10/README.md` |
 | E11–E12 个人材料 | `docs/students/<学号>/e11-e12/` |
-| B09 签收与团队交付审计 | `docs/reports/A09-E11-E12-final-delivery.md` |
+| B09 签收、团队交付审计与最终状态（第 1–7 节为 2026-11-17 历史快照） | `docs/reports/A09-E11-E12-final-delivery.md` |
 | 归档全量检查 | `docs/reports/A09-E11-E12-audit.md` |
 | 个人材料模板 | `docs/students/_template/` |
 | E7 摘要 | `docs/E7-summary.md` |
