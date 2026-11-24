@@ -1,0 +1,109 @@
+{
+  "schema_version": "e13-1",
+  "student": "241880089",
+  "name": "陈玉熙",
+  "group": "A09",
+  "track": "A",
+  "scope": [
+    "E13 C1 A-side crosscheck against the B09 real project"
+  ],
+  "repository": "https://github.com/a-bi-chen/DevOps_1020_Student_Cloud",
+  "personal_branch": "student/241880089/e13-e14",
+  "baseline_main": "f531ec0c7311602a7050ac486a0cfbb33769132c",
+  "release_tag": {
+    "name": "v0.9-rc",
+    "commit": "ee6f7da9568686c9f99ee937a223c7f77a5eb9e6",
+    "annotation_object": "29fdc92398c8f399872c40d080009bb3c929e80b",
+    "moved_by_this_work": false
+  },
+  "image": {
+    "tag": "course-e11e12:241880089",
+    "id": "sha256:cc0d1e403bd1377e98b2ad12c1274be9baea29bad7b24b956aac923502c3ff72"
+  },
+  "environment": {
+    "host": "iZbp106a3t3mzz3nfabub1Z",
+    "os": "Ubuntu 22.04.5 LTS",
+    "python": "3.10.12",
+    "gcc": "gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+    "make": "GNU Make 4.3",
+    "strace": "strace -- version 5.16",
+    "detector": "BUILDCHECKER_TEACHING",
+    "detector_version": "0.2.0-teaching"
+  },
+  "b09_project": {
+    "repo": "https://github.com/llxxy-cn/devops-b09",
+    "clone": "/root/241880089/b09-e13",
+    "clone_head_at_checkout": "80b4dafb836365911e6e85451ee367cc874afa46",
+    "subdir": "fixtures/e11e12-b1-real",
+    "base_commit": "30ffe4c41492334478a2446a8be0662d3f31d478",
+    "target_commit": "a7e3b644ca9b1b9d0b26bd41e839fcbf5ea1c293",
+    "expected_output": "hello E3"
+  },
+  "result": {
+    "status": "SUCCEEDED",
+    "base_findings": [],
+    "target_findings": [
+      {
+        "type": "MISSING",
+        "target": "main.o",
+        "dependency": "extra.h"
+      }
+    ],
+    "incremental": {
+      "added": [
+        [
+          "MISSING",
+          "main.o",
+          "extra.h"
+        ]
+      ],
+      "resolved": [],
+      "refreshed": [
+        "main.o",
+        "helper.o"
+      ],
+      "reused": []
+    },
+    "incremental_matches_target_full": true,
+    "base_commands_exit_zero": true,
+    "target_commands_exit_zero": true,
+    "commits_unchanged": true
+  },
+  "official_entry_probes": {
+    "pipeline_repo_subdir": "COMMAND_FAILED: git failed",
+    "pipeline_repo_root": "UNSUPPORTED_PROJECT: Expected main.c/helper.c/config.h and explicit Make rules",
+    "stock_echecker_scan": "REJECTED: ValueError: UNSUPPORTED_FLAGS",
+    "adapter": "labs/e13/run_crosscheck.py",
+    "adapter_profile": "GCC_LOCAL_HEADERS_EXPLICIT_MAKE_E13_B09"
+  },
+  "evidence": {
+    "tarball": {
+      "path": "evidence/students/241880089/e13-e14/e13-evidence-241880089-20261124.tar.gz",
+      "bytes": 101324,
+      "sha256": "69ef46dacd7f16816f64d17cc6187a8a90119d51575ce40e4d31306891c37d22",
+      "members": 95,
+      "manifest_entries": 94,
+      "manifest_all_ok": true
+    },
+    "detection_report": {
+      "path": "evidence/students/241880089/e13-e14/detection-report.md",
+      "sha256": "7f624d28068e47ca0f3ea52a39bda79e87851aa9d3a9892c4acd7e5b4b62b876"
+    },
+    "adapter": {
+      "path": "labs/e13/run_crosscheck.py",
+      "sha256": "eee1a1e8e56c3f19695bc3355a5edb0a29f2c30459cf4c95377ca2089afbae63"
+    },
+    "server_run_directory": "/root/241880089/devops-e11e12/work/e13-b09-reverify-20261124"
+  },
+  "not_executed_personally": [
+    "E13 C2-C8",
+    "E13 H1-H3 teacher projects",
+    "E14 four-service compose, timeout and recovery"
+  ],
+  "group_level_references": [
+    "docs/students/241880375/e13-e14/交叉测试记录.md",
+    "docs/students/241880375/e13-e14/证据索引.md",
+    "docs/students/241880369/e13-e14/个人报告.md",
+    "docs/students/241880374/e13-e14/个人报告.md"
+  ]
+}
