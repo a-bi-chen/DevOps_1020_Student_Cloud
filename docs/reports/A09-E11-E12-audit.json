@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T14:53:34+00:00",
+  "generated_at": "2026-11-24T11:56:19+00:00",
   "scope": "A09 E11-E12 documents, evidence, manifests and cross-checks",
   "members": {
     "241880089": {
@@ -40,7 +40,7 @@
       "docs": "docs/students/241880375/e11-e12",
       "doc_missing": [],
       "tests": [
-        "labs/e11e12/test_contract.py"
+        "labs/e11e12/test_student_241880375.py"
       ],
       "evidence_dir": "evidence/students/241880375/e11-e12",
       "evidence_files": 22,
@@ -70,7 +70,7 @@
     }
   },
   "json": {
-    "files": 8,
+    "files": 39,
     "failures": []
   },
   "b09_signoff": {
@@ -190,7 +190,7 @@
     {
       "name": "241880375 个人测试",
       "status": "PASS",
-      "detail": "labs/e11e12/test_contract.py"
+      "detail": "labs/e11e12/test_student_241880375.py"
     },
     {
       "name": "241880375 证据目录",
@@ -225,7 +225,7 @@
     {
       "name": "证据 JSON 可解析",
       "status": "PASS",
-      "detail": "8 个 JSON，失败 0 个"
+      "detail": "39 个 JSON，失败 0 个"
     },
     {
       "name": "B09 签收字段",

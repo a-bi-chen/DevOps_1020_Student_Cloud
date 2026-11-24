@@ -1,6 +1,6 @@
 # A09 E11–E12 归档全量检查记录
 
-- 生成时间：2026-11-17T14:53:34+00:00
+- 生成时间：2026-11-24T11:56:19+00:00
 - 结果：**23 PASS / 0 WARN / 0 FAIL**（共 23 项）
 
 ## 1. 四位组员材料
@@ -26,14 +26,14 @@
 | 241880374 个人测试 | **PASS** | labs/e11e12/test_student_241880374.py |
 | 241880374 证据目录 | **PASS** | 3 个文件，214690 字节 |
 | 241880375 个人材料 | **PASS** | 张海洋：报告/ADR/AI_USAGE 齐全 |
-| 241880375 个人测试 | **PASS** | labs/e11e12/test_contract.py |
+| 241880375 个人测试 | **PASS** | labs/e11e12/test_student_241880375.py |
 | 241880375 证据目录 | **PASS** | 22 个文件，10241123 字节 |
 | manifest evidence/students/241880089/e11-e12/SHA256SUMS | **PASS** | 1 项，失败 0 项 |
 | manifest evidence/students/241880369/e11-e12/artifacts.sha256 | **PASS** | 3 项，失败 0 项 |
 | manifest evidence/students/241880374/e11-e12/SHA256SUMS | **PASS** | 2 项，失败 0 项 |
 | manifest evidence/students/241880375/e11-e12/archived-artifacts.sha256 | **PASS** | 12 项，失败 0 项 |
 | manifest evidence/students/241880375/e11-e12/b09-signoff/artifacts.sha256 | **PASS** | 7 项，失败 0 项 |
-| 证据 JSON 可解析 | **PASS** | 8 个 JSON，失败 0 个 |
+| 证据 JSON 可解析 | **PASS** | 39 个 JSON，失败 0 个 |
 | B09 签收字段 | **PASS** | accepted=true，job/trace/base/target/补丁/日志/复检哈希全部一致 |
 | B09 归档 Git 对象一致 | **PASS** | blob={'b0765a0f': '5c52c1824f147019ac25f6706f0549318a1f0cec', 'pr17_head': '5c52c1824f147019ac25f6706f0549318a1f0cec', 'current_main': '5c52c1824f147019ac25f6706f0549318a1f0cec'} |
 | B09 归档 SHA256 | **PASS** | 19479d51720decbca2518453e00646a4700c7b21101b018965bfdbc0c8cce648 |

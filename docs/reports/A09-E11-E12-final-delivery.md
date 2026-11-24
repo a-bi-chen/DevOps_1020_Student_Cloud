@@ -2,12 +2,19 @@
 
 - 小组/轨道：A09 / A（BuildChecker → EChecker）
 - 审计日期：2026-11-17
-- 最后更新：2026-11-17（PR #23 合并后回填）
+- 最后更新：2026-11-24（E11–E12 最终同步 PR：四人材料、证据与审计复核后回填）
 - 审计人：241880375 张海洋
-- 结论：**A/B 技术联调已完成；241880369 高嘉程的个人材料与个人测试已由 PR #23 合并；课程最终提交仍不能标记完成，原因是 241880089 陈玉熙仍缺 E11–E12 个人材料与个人测试。**
+- 结论：**A/B 技术联调与 B09 签收已完成；四人 E11–E12 个人材料、个人测试与证据目录均已合入 `main`，归档全量检查为 23 PASS / 0 WARN / 0 FAIL。**
 
-> **2026-11-17 状态更新（本文件下方第 1–7 节为当时审计快照）：**
-> 241880089 陈玉熙的 E11–E12 个人材料、个人测试与云主机证据已由 PR #25 合入，merge commit 为 `bfd2ab1`；四人材料与证据目录现已齐全。
+> **最终状态（2026-11-24）：**
+> - 241880089 陈玉熙：个人材料、个人测试与云主机证据已由 PR #25 合入（merge `bfd2ab1`），证据 18 个文件，PASS。
+> - 241880369 高嘉程：个人材料、个人测试与证据已由 PR #23 合入（merge `a1c89c6`），证据 5 个文件，PASS。
+> - 241880374 马海川：个人材料与测试由 PR #18 合入；证据目录已由 PR #28 补齐（merge `3aeaa55`，3 个文件），PASS。
+> - 241880375 张海洋：个人材料、个人测试与证据由 PR #17 合入；独立测试现为 `labs/e11e12/test_student_241880375.py`，证据 22 个文件，PASS。
+> - 归档全量检查：23 PASS / 0 WARN / 0 FAIL，详见 `docs/reports/A09-E11-E12-audit.md` / `.json`。
+> - 本 PR 合并前的 A 组 `main`：`bca345baa9d577bdeb612326789dc63a89f12460`；合并后的最终 SHA 以仓库 `main` 为准。
+>
+> **提示：下方第 1–7 节为 2026-11-17 的审计快照，其中“当前阻塞项 / 缺失 / 还需陈玉熙……”等表述已被本状态更新取代，不再代表最终状态。**
 > B09 已对 A09 E12 正式签收；A09 侧按文件字节复核后确认：B09 核对时的 `main` 为 `b0765a0f990b10a28392fe6d4318b4b73a41177a`，证据归档在 b0765a0f、PR #17 head `0cd8054911a18be96900e05c3b7747c6b35a4112` 与当前 main `bfd2ab1` 三处的 Git blob 均为 `5c52c1824f147019ac25f6706f0549318a1f0cec`，归档 SHA256 为 `19479d51720decbca2518453e00646a4700c7b21101b018965bfdbc0c8cce648`。
 > B09 直接消费的原始 `incremental-check.json` SHA256 为 `8508d50232bfa4a529d51accd4dc94e5765a0fe0a0b130eebf73f8f866a98716`（未使用 `fixed-md.json`）；A 端 `job_id=job-1bd0ed1b449f44f293853df90440844f`、`trace_id=trace-4e7c0c6afd0447f9869d2f5e1ee6f4ae`，base/target 与交付值一致；修复提交 `817b2459d53f586f7f3800ce20d0c3f002621f77` 的父提交为 A 端 target，仅修改 `Makefile`；`candidate.patch` SHA256 `88074f66c291dcad1344c48f6a2b9ddd42d235d9d0415c85fb33310c5b7cb2af`，`validation.json` SHA256 `aeb157c32906bfe7859fc93e14c2a52cbb5e63dad0004c033d8c29f788475394` 且 `accepted=true`；`build.log` / `incremental.log` / 复检报告 SHA256 分别为 `29bfc712…` / `52b1b084…` / `08792b92…`，复检 MD=0，仅保留允许的 `REDUNDANT(main.o, unused.h)`；修复项目 bundle SHA256 `e6f7cd9802728705c85fd003ee031900a44691715c1768590a5de830017c0dda`。
 > 最新全量检查见 `docs/reports/A09-E11-E12-audit.md`。
@@ -93,6 +100,8 @@ A 组原始证据归档 `e11e12-evidence-241880375.tar.gz` 的 SHA256 为
 两个最终 artifact 已保存于 `evidence/students/241880375/e11-e12/actions-artifacts/`，避免网页过期后无法复核。
 
 ## 5. A 组四人 E11–E12 材料盘点
+
+> **历史快照（2026-11-17）：** 本节记录的是当时的盘点结果，其中 241880089 的“缺失”和仓库中“仍不存在其分支”的表述已被顶部最终状态取代。当前四人材料、测试与证据均为 PASS，以 `docs/reports/A09-E11-E12-audit.md` 为准。
 
 | 学号/姓名 | E11–E12 个人报告 | 个人测试 | 状态 |
 |---|---|---|---|
