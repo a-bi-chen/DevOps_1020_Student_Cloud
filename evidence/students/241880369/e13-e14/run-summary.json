@@ -1,0 +1,380 @@
+{
+  "student": "241880369",
+  "name": "高嘉程",
+  "group": "A09",
+  "track": "A (BuildChecker -> EChecker)",
+  "generated_utc": "2026-11-24T09:21:10Z",
+  "host": "iZbp106a3t3mzz3nfabub1Z",
+  "image": "course-e11e12:241880369",
+  "branch": "student/241880369/e13-e14",
+  "base_main": "ee567dd8c979f5c18d90905f19382449711b1e87",
+  "personal_test": "labs/e13e14/tests/test_student_241880369.py (C5+C6, 2 tests)",
+  "unit_test_log": "work/e13e14-unittest.log",
+  "runs": {
+    "baseline_e12": {
+      "dir": "work/e13-baseline-01",
+      "status": "SUCCEEDED",
+      "job_id": "job-8b175cb4f1e847d1a1003b6297a3a65d",
+      "trace_id": "trace-ef09d2152dc2412c9806b4b8cde6ec92",
+      "stages": [
+        "draft",
+        "full-check",
+        "incremental-check",
+        "repair",
+        "recheck"
+      ],
+      "base_commit": "b1ab80894221eb935bd7659e97f47369cd1df150",
+      "target_commit": "6e2d4437421b7f015a34f1cf6879f0f0b249392a",
+      "error": null,
+      "artifact_count": 156,
+      "incremental_findings": [
+        {
+          "type": "MISSING",
+          "target": "main.o",
+          "dependency": "config.h"
+        },
+        {
+          "type": "MISSING",
+          "target": "main.o",
+          "dependency": "extra.h"
+        },
+        {
+          "type": "REDUNDANT",
+          "target": "main.o",
+          "dependency": "unused.h"
+        }
+      ],
+      "recheck_validation_accepted": true,
+      "recheck_findings": [
+        {
+          "type": "REDUNDANT",
+          "target": "main.o",
+          "dependency": "unused.h",
+          "evidence": [
+            {
+              "source": "make_database",
+              "artifact": "make-db.txt",
+              "line": 1052,
+              "declaration": "main.o: main.c unused.h config.h extra.h"
+            }
+          ],
+          "scope": "Not observed in this recipe job under this build configuration"
+        }
+      ]
+    },
+    "C1_B09_full_incremental": {
+      "dir": "work/e13-c1-b09-01",
+      "status": "SUCCEEDED",
+      "job_id": "job-52db0f4c4e464f379ae0fa38c8093fbe",
+      "trace_id": "trace-2c5573f3b9ec4675bf6924a785d6822f",
+      "stages": [
+        "full-check",
+        "incremental-check"
+      ],
+      "base_commit": "30ffe4c41492334478a2446a8be0662d3f31d478",
+      "target_commit": "a7e3b644ca9b1b9d0b26bd41e839fcbf5ea1c293",
+      "error": null,
+      "artifact_count": 1629,
+      "incremental_findings": [
+        {
+          "type": "MISSING",
+          "target": "main.o",
+          "dependency": "extra.h"
+        }
+      ]
+    },
+    "C2_stale_report": {
+      "dir": "work/e13-c2-01",
+      "status": "FAILED",
+      "job_id": "job-5d13334c2dce4a458bfd6dbf73d6db8c",
+      "trace_id": "trace-d05fa2d711ab44abbc76f0d4c34c9024",
+      "stages": [
+        "draft"
+      ],
+      "base_commit": "b1ab80894221eb935bd7659e97f47369cd1df150",
+      "target_commit": "6e2d4437421b7f015a34f1cf6879f0f0b249392a",
+      "error": {
+        "code": "STALE_REPORT",
+        "message": "Report belongs to another commit"
+      },
+      "artifact_count": 46
+    },
+    "C3_tampered_hash": {
+      "dir": "work/e13-c3-01",
+      "status": "FAILED",
+      "job_id": "job-f0fd59ed8dea46c6bfb50cb91705afd2",
+      "trace_id": "trace-9edad74e2e2d47e997c149b4e100fa3c",
+      "stages": [
+        "draft"
+      ],
+      "base_commit": "b1ab80894221eb935bd7659e97f47369cd1df150",
+      "target_commit": "6e2d4437421b7f015a34f1cf6879f0f0b249392a",
+      "error": {
+        "code": "ARTIFACT_HASH_MISMATCH",
+        "message": "Fixed report content changed during transfer"
+      },
+      "artifact_count": 46
+    },
+    "C4_timeout": {
+      "dir": "work/e13-c4-01",
+      "status": "FAILED",
+      "job_id": "job-1957e69f6c8b4bda8e45081402adf3f7",
+      "trace_id": "trace-c9b08c65f5224cc7925cabef08d084b6",
+      "stages": [],
+      "base_commit": "b1ab80894221eb935bd7659e97f47369cd1df150",
+      "target_commit": "6e2d4437421b7f015a34f1cf6879f0f0b249392a",
+      "error": {
+        "code": "DRAFT_FAILED",
+        "message": "Docker client command exceeded 0.01s"
+      },
+      "artifact_count": 35
+    },
+    "C6_fake_key": {
+      "dir": "work/e13-c6",
+      "hit_exit": 1,
+      "clean_exit": 0,
+      "evidence_rescan": "2814 text files, 0 hits"
+    },
+    "C7_failed": {
+      "dir": "work/e13-c7-failed",
+      "status": "FAILED",
+      "job_id": "job-8d49087e752e4f1aaee261f6516e5178",
+      "trace_id": "trace-15e3c7ec83ed4a9faa32d10a01430432",
+      "stages": [],
+      "base_commit": null,
+      "target_commit": null,
+      "error": {
+        "code": "COMMAND_FAILED",
+        "message": "git failed; see base-project-resolve.log"
+      },
+      "artifact_count": 2
+    },
+    "C7_success": {
+      "dir": "work/e13-c7-success",
+      "status": "SUCCEEDED",
+      "job_id": "job-f088a4fdb4d846ccbede14c3cea495bc",
+      "trace_id": "trace-93af9df63f5f4f099f8eded6f5a88b38",
+      "stages": [
+        "full-check",
+        "incremental-check"
+      ],
+      "base_commit": "b1ab80894221eb935bd7659e97f47369cd1df150",
+      "target_commit": "6e2d4437421b7f015a34f1cf6879f0f0b249392a",
+      "error": null,
+      "artifact_count": 85,
+      "incremental_findings": [
+        {
+          "type": "MISSING",
+          "target": "main.o",
+          "dependency": "config.h"
+        },
+        {
+          "type": "MISSING",
+          "target": "main.o",
+          "dependency": "extra.h"
+        },
+        {
+          "type": "REDUNDANT",
+          "target": "main.o",
+          "dependency": "unused.h"
+        }
+      ]
+    },
+    "C8_idempotency": {
+      "dir": "work/e13-c8",
+      "same_input_http": [
+        202,
+        202
+      ],
+      "same_job": true,
+      "different_input_http": 409,
+      "different_input_error": "IDEMPOTENCY_CONFLICT",
+      "job_id": "job-c05e4a60cd6b4c108639f1896f94df04",
+      "trace_id": "trace-013b6d7a645d45289efc109917bb9266",
+      "status": "SUCCEEDED"
+    },
+    "H1_jsmn": {
+      "dir": "work/e13-H1-jsmn-01",
+      "status": "SUCCEEDED",
+      "job_id": "job-dfc46d7cee9b44ec936555c52a389bd7",
+      "trace_id": "trace-a03c8001a35e4cbcb2fc558e399204f8",
+      "stages": [
+        "draft",
+        "full-check",
+        "incremental-check",
+        "repair",
+        "recheck"
+      ],
+      "base_commit": "66a6dafcc20cea76bf017923d3db725d78407845",
+      "target_commit": "948a1d30cd758d32d45a50f788e5a95fb1d89c69",
+      "error": null,
+      "artifact_count": 177,
+      "incremental_findings": [
+        {
+          "type": "MISSING",
+          "target": "helper.o",
+          "dependency": "extra.h"
+        }
+      ],
+      "recheck_validation_accepted": true,
+      "recheck_findings": []
+    },
+    "H2_inih": {
+      "dir": "work/e13-H2-inih-01",
+      "status": "SUCCEEDED",
+      "job_id": "job-5692ce6db89a4fef96dea7a3a5f74fe1",
+      "trace_id": "trace-2149de9514a24712af3f68b656421560",
+      "stages": [
+        "draft",
+        "full-check",
+        "incremental-check",
+        "repair",
+        "recheck"
+      ],
+      "base_commit": "aafc740a2cac05a74541abede93b7d59ed23b87f",
+      "target_commit": "3aadb81763c79651e4dfa99b725ba921ee2b8a39",
+      "error": null,
+      "artifact_count": 177,
+      "incremental_findings": [
+        {
+          "type": "MISSING",
+          "target": "main.o",
+          "dependency": "extra.h"
+        },
+        {
+          "type": "REDUNDANT",
+          "target": "main.o",
+          "dependency": "unused.h"
+        }
+      ],
+      "recheck_validation_accepted": true,
+      "recheck_findings": [
+        {
+          "type": "REDUNDANT",
+          "target": "main.o",
+          "dependency": "unused.h",
+          "evidence": [
+            {
+              "source": "make_database",
+              "artifact": "make-db.txt",
+              "line": 1060,
+              "declaration": "main.o: main.c config.h unused.h extra.h"
+            }
+          ],
+          "scope": "Not observed in this recipe job under this build configuration"
+        }
+      ]
+    },
+    "H3_tiny_aes": {
+      "dir": "work/e13-H3-tiny-aes-01",
+      "status": "SUCCEEDED",
+      "job_id": "job-2beec477350740e09dc02d17856e7533",
+      "trace_id": "trace-7021dd32d3a745b6a021ae9c6a6cd439",
+      "stages": [
+        "draft",
+        "full-check",
+        "incremental-check",
+        "repair",
+        "recheck"
+      ],
+      "base_commit": "dc8099306d7023b7337328d718149973e7b17978",
+      "target_commit": "5640bb69a01e64559207e9f74d15a9ae71a4d0f3",
+      "error": null,
+      "artifact_count": 177,
+      "incremental_findings": [
+        {
+          "type": "MISSING",
+          "target": "helper.o",
+          "dependency": "extra.h"
+        }
+      ],
+      "recheck_validation_accepted": true,
+      "recheck_findings": []
+    },
+    "E14_compose_sample": {
+      "dir": "work/e14-compose-sample-01",
+      "status": "SUCCEEDED",
+      "job_id": "job-b611b79b6120413590c91eb0d6337c1c",
+      "trace_id": "trace-7acdfbc3850d47dd84ec424bdaf94267",
+      "stages": [
+        "draft",
+        "full-check",
+        "incremental-check",
+        "repair",
+        "recheck"
+      ],
+      "base_commit": "b1ab80894221eb935bd7659e97f47369cd1df150",
+      "target_commit": "6e2d4437421b7f015a34f1cf6879f0f0b249392a",
+      "error": null,
+      "artifact_count": 162,
+      "recheck_validation_accepted": true,
+      "recheck_findings": [
+        {
+          "type": "REDUNDANT",
+          "target": "main.o",
+          "dependency": "unused.h",
+          "evidence": [
+            {
+              "source": "make_database",
+              "artifact": "make-db.txt",
+              "line": 1060,
+              "declaration": "main.o: main.c unused.h config.h extra.h"
+            }
+          ],
+          "scope": "Not observed in this recipe job under this build configuration"
+        }
+      ]
+    },
+    "E14_compose_timeout": {
+      "dir": "work/e14-compose-timeout-01",
+      "status": "FAILED",
+      "job_id": "job-f02d3c46e1974d5389e2208beeb13b15",
+      "trace_id": "trace-1eaf2608b35e4ab4ab1d09867179fa05",
+      "stages": [],
+      "base_commit": "b1ab80894221eb935bd7659e97f47369cd1df150",
+      "target_commit": "6e2d4437421b7f015a34f1cf6879f0f0b249392a",
+      "error": "draft HTTP 422: {\"status\": \"FAILED\", \"role\": \"draft\", \"error_code\": \"TIMEOUT\", \"error\": \"DRAFT_TIMED_OUT: Docker client command exceeded 0.01s\"}\n",
+      "artifact_count": 36
+    },
+    "E14_compose_recover": {
+      "dir": "work/e14-compose-recover-01",
+      "status": "SUCCEEDED",
+      "job_id": "job-5b053266a1e84a7297da66d788b1d47c",
+      "trace_id": "trace-56c01846f86c4f1ca9d7007a8c72633d",
+      "stages": [
+        "draft",
+        "full-check",
+        "incremental-check",
+        "repair",
+        "recheck"
+      ],
+      "base_commit": "b1ab80894221eb935bd7659e97f47369cd1df150",
+      "target_commit": "6e2d4437421b7f015a34f1cf6879f0f0b249392a",
+      "error": null,
+      "artifact_count": 162,
+      "recheck_validation_accepted": true,
+      "recheck_findings": [
+        {
+          "type": "REDUNDANT",
+          "target": "main.o",
+          "dependency": "unused.h",
+          "evidence": [
+            {
+              "source": "make_database",
+              "artifact": "make-db.txt",
+              "line": 1060,
+              "declaration": "main.o: main.c unused.h config.h extra.h"
+            }
+          ],
+          "scope": "Not observed in this recipe job under this build configuration"
+        }
+      ]
+    },
+    "C5_bad_patch_rollback": {
+      "dir": "work/e13e14-unittest.log",
+      "test": "test_broken_patch_rejected_and_makefile_unchanged",
+      "expected": "accepted=False, rollback=True, source_unchanged=True, Makefile sha unchanged",
+      "status": "SUCCEEDED"
+    }
+  }
+}
