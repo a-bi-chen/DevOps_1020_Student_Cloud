@@ -1,0 +1,55 @@
+{
+  "verified_at": "2026-11-25",
+  "package": "e13-b1-server-formal-20261124-101140.tar.gz",
+  "download_url": "https://github.com/llxxy-cn/devops-b09/releases/download/v0.9-rc/e13-b1-server-formal-20261124-101140.tar.gz",
+  "bytes": 22261646,
+  "sha256_remote_digest": "23753210e75b0892663c35e052d7575cd5d00c042ef6ed82c606b9bbdb2abe89",
+  "sha256_local": "23753210e75b0892663c35e052d7575cd5d00c042ef6ed82c606b9bbdb2abe89",
+  "tested_commit": "298ff1366cdd2f4314cce625492fa813f484893f",
+  "fixed_commit": "7eefa00176b6a718347e94da6a8089f8dc091a88",
+  "fixed_parent": "ba688c40d13cd8658e554f7544f1546d35b4b397",
+  "c1": {
+    "status": "SUCCEEDED",
+    "job_id": "job-daf4e29b55a9451caafd13cab4540e44",
+    "trace_id": "trace-04b7fe4d40944bf1a575f7250d95c091",
+    "artifacts": 153
+  },
+  "c2": {
+    "status": "FAILED",
+    "error": "STALE_REPORT",
+    "candidate_patch": false
+  },
+  "c3": {
+    "status": "FAILED",
+    "error": "ARTIFACT_HASH_MISMATCH",
+    "candidate_patch": false
+  },
+  "recovery": {
+    "status": "SUCCEEDED",
+    "job_id": "job-9ecc782bb58347df8db47cc07c153e74",
+    "trace_id": "trace-2b00d7b1e8cc411f9252987975e3f670",
+    "artifacts": 153
+  },
+  "edges": {
+    "total": 6,
+    "rebuilt": 6,
+    "output_matches": 6
+  },
+  "final_findings": [
+    {
+      "type": "REDUNDANT",
+      "target": "main.o",
+      "dependency": "unused.h"
+    }
+  ],
+  "b09_tag": {
+    "name": "v0.9-rc",
+    "tag_object": "28dc1090b37eb8c1fd0f1374e4d168e3d2c1c5d2",
+    "commit": "5338183c7178122476b84c65b6a7010ca6598a61"
+  },
+  "b09_main": "3f3bd0f3450405b08f5bbd950a38e8cbf23edf54",
+  "notes": [
+    "transfer-SHA256SUMS 列出两项 157MB 传输物，未随本包分发",
+    "deliverables/SHA256SUMS 为相对路径，需在 deliverables/ 内执行"
+  ]
+}
